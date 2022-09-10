@@ -24,6 +24,7 @@ jobs:
         run: echo "Cancel redundant workflows finished"
 
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -35,6 +36,7 @@ jobs:
           package-manager: npm
 
   deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     environment:
