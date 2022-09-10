@@ -2,7 +2,6 @@
   "name": "kodio-web",
   "version": "1.0.0",
   "private": true,
-  "license": "ISC",
   "description": "Website for Kodio",
   "author": "Kodio",
   "scripts": {

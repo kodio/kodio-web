@@ -2,7 +2,6 @@
   "name": "kodio-sanity-tmp",
   "version": "1.0.0",
   "private": true,
-  "license": "ISC",
   "description": "Sanity for website for Kodio",
   "scripts": {
     "start": "sanity start",

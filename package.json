@@ -6,8 +6,8 @@
   "author": "Kodio",
   "scripts": {
     "dev": "npm run dev --prefix web",
-    "lint": "npm run lint --prefix web && npm run lint --prefix sanity",
     "sanity": "npm run start --prefix sanity",
+    "lint": "npm run lint --prefix web && npm run lint --prefix sanity",
     "postinstall": "npm install --prefix web && npm install --prefix sanity"
   },
   "devDependencies": {
