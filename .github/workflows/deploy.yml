@@ -1,12 +1,12 @@
 name: Github Pages Astro CI
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [main]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
+
+  # Allows external webhook trigger
+  repository_dispatch:
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
@@ -15,6 +15,14 @@ permissions:
   id-token: write
 
 jobs:
+  pre-job:
+    name: Pre-job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/auto-cancel-redundant-workflow@v1
+      - name: Cancel redundant workflows
+        run: echo "Cancel redundant workflows finished"
+
   build:
     runs-on: ubuntu-latest
     steps:
