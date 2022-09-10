@@ -6,6 +6,7 @@
   "author": "Kodio",
   "scripts": {
     "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
     "sanity": "npm run start --prefix sanity",
     "lint": "npm run lint --prefix web && npm run lint --prefix sanity",
     "postinstall": "npm install --prefix web && npm install --prefix sanity"
