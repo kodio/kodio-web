@@ -4,7 +4,7 @@ import type { Page } from 'types/sanity';
 const sanityConfig = {
   projectId: import.meta.env.SANITY_PROJECT_ID || '8h68qv9e',
   dataset: import.meta.env.SANITY_DATASET || 'production',
-  useCdn: true,
+  useCdn: false,
   apiVersion: '2022-09-06',
 };
 
