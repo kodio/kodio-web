@@ -7,8 +7,7 @@ on:
 
   # Allows external webhook trigger
   repository_dispatch:
-    types:
-      - production
+    types: [production]
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
