@@ -10,6 +10,6 @@ const sanityConfig = {
 
 const client = sanityClient(sanityConfig);
 
-export function getPages(): Promise<Page[] | null> {
-  return client.fetch(`*[_type == "page"] { title, slug }`);
+export function getPages() {
+  return client.fetch<Page[] | null>(`*[_type == "page"] { title, slug }`);
 }
