@@ -9,7 +9,7 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "lint": "yarn prettier:check && eslint . --max-warnings 0",
+    "lint": "npm run prettier:check && eslint . --max-warnings 0",
     "prettier:check": "prettier -l ."
   },
   "dependencies": {

@@ -5,9 +5,10 @@
   "description": "Monorepo for kodio web",
   "author": "Kodio",
   "scripts": {
-    "dev": "yarn --cwd web dev",
-    "lint": "yarn --cwd web lint && yarn --cwd sanity lint",
-    "sanity": "yarn --cwd sanity start"
+    "dev": "npm run dev --prefix web",
+    "lint": "npm run lint --prefix web && npm run lint --prefix sanity",
+    "sanity": "npm run start --prefix sanity",
+    "postinstall": "npm install --prefix web && npm install --prefix sanity"
   },
   "devDependencies": {
     "prettier": "^2.7.1"

@@ -1,0 +1,25 @@
+---
+import Header from 'components/Header.astro';
+import Layout from 'layouts/Layout.astro';
+import { getPages } from 'lib/sanity';
+
+export async function getStaticPaths() {
+  const pages = await getPages();
+
+  return (
+    pages?.map(({ slug, title }) => ({
+      params: { slug: slug.current },
+      props: { title },
+    })) || []
+  );
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <main>
+    <Header title={title} />
+    <a href="/">Home</a>
+  </main>
+</Layout>
