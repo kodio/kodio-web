@@ -8,8 +8,8 @@
     "dev": "npm run dev --prefix web",
     "build": "npm run build --prefix web",
     "sanity": "npm run start --prefix sanity",
-    "lint": "npm run lint --prefix web && npm run lint --prefix sanity",
-    "postinstall": "npm install --prefix web && npm install --prefix sanity"
+    "verify": "npm run verify --prefix web && npm run verify --prefix sanity",
+    "postinstall": "npm ci --prefix web && npm ci --prefix sanity"
   },
   "devDependencies": {
     "prettier": "^2.7.1"

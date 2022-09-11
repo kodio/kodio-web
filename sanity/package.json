@@ -7,9 +7,9 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy",
-    "lint": "npm run prettier:check && eslint . --max-warnings 0",
-    "prettier:check": "prettier -l ."
+    "lint": "eslint . --max-warnings 0",
+    "prettier:check": "prettier -l .",
+    "verify": "npm run lint && npm run prettier:check"
   },
   "dependencies": {
     "react": "^17.0.0",
