@@ -18,5 +18,10 @@ export const page = defineType({
       type: 'slug',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'blockContent',
+    }),
   ],
 });

@@ -1,4 +1,5 @@
 ---
+import { PortableText } from 'astro-portabletext';
 import Heading from 'components/Heading.astro';
 import Layout from 'layouts/Layout.astro';
 import { getPages } from 'lib/sanity';
@@ -7,16 +8,17 @@ export async function getStaticPaths() {
   const pages = await getPages();
 
   return (
-    pages?.map(({ slug, title }) => ({
+    pages?.map(({ slug, title, content }) => ({
       params: { slug: slug.current },
-      props: { title },
+      props: { title, content },
     })) || []
   );
 }
 
-const { title } = Astro.props;
+const { title, content } = Astro.props;
 ---
 
 <Layout title={title}>
   <Heading title={title} />
+  <PortableText value={content} />
 </Layout>

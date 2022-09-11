@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "@sanity/client": "^3.4.1",
-    "astro": "^1.2.1"
+    "astro": "^1.2.1",
+    "astro-portabletext": "^0.3.0"
   },
   "devDependencies": {
     "@types/node": "^18.7.16",

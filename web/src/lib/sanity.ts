@@ -11,5 +11,7 @@ const sanityConfig = {
 const client = sanityClient(sanityConfig);
 
 export function getPages() {
-  return client.fetch<Page[] | null>(`*[_type == "page"] { title, slug }`);
+  return client.fetch<Page[] | null>(
+    `*[_type == "page"] { title, slug, content }`
+  );
 }
