@@ -15,7 +15,12 @@ const { title } = Astro.props;
     <title>{title ? `${title} | Kodio` : 'Kodio'}</title>
   </head>
   <body>
-    <slot />
+    <header>
+      <a href="/kodio-web/">Kodio</a>
+    </header>
+    <main>
+      <slot />
+    </main>
     <style>
       :root {
         --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
@@ -36,6 +41,12 @@ const { title } = Astro.props;
 
       body {
         margin: 0;
+      }
+
+      main {
+        margin: auto;
+        padding: 1em;
+        max-width: 60ch;
       }
     </style>
 

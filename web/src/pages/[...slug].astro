@@ -1,5 +1,5 @@
 ---
-import Header from 'components/Header.astro';
+import Heading from 'components/Heading.astro';
 import Layout from 'layouts/Layout.astro';
 import { getPages } from 'lib/sanity';
 
@@ -18,8 +18,5 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main>
-    <Header title={title} />
-    <a href="/kodio-web/">Home</a>
-  </main>
+  <Heading title={title} />
 </Layout>

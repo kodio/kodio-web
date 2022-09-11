@@ -1,21 +1,18 @@
 ---
 import Layout from 'layouts/Layout.astro';
+import { getPages } from 'lib/sanity';
+
+const pages = await getPages();
 ---
 
 <Layout>
-  <main>
-    <a href="/kodio-web/kodio/">Kodio</a>
-  </main>
+  <ul>
+    {
+      pages?.map(({ title, slug }) => (
+        <li>
+          <a href={`/kodio-web/${slug.current}`}>{title}</a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
-
-<style>
-  h1 {
-    margin: 2rem 0;
-  }
-
-  main {
-    margin: auto;
-    padding: 1em;
-    max-width: 60ch;
-  }
-</style>
