@@ -47,6 +47,7 @@ jobs:
           path: "web/dist/"
 
   deploy:
+    name: Deploy
     needs: build
     environment:
       name: github-pages
