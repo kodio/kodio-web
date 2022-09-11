@@ -2,7 +2,8 @@ name: Build and deploy
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
   # Allows external webhook trigger
@@ -34,6 +35,9 @@ jobs:
 
       - name: Install
         run: npm ci --prefix web
+
+      - name: Verify
+        run: npm run verify --prefix web
 
       - name: Build
         run: npm run build --prefix web
