@@ -29,7 +29,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Install
@@ -41,7 +41,7 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'web/dist/'
+          path: web/dist/
 
   deploy:
     name: Deploy
