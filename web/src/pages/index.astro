@@ -1,4 +1,5 @@
 ---
+import Link from 'components/Link.astro';
 import Layout from 'layouts/Layout.astro';
 import { getPages } from 'lib/sanity';
 
@@ -10,7 +11,7 @@ const pages = await getPages();
     {
       pages?.map(({ title, slug }) => (
         <li>
-          <a href={`/kodio-web/${slug.current}`}>{title}</a>
+          <Link href={`/${slug.current}`} label={title} />
         </li>
       ))
     }
