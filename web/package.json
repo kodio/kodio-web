@@ -15,6 +15,7 @@
     "verify": "npm run check && npm run typecheck && npm run lint && npm run prettier:check"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^1.0.0",
     "@fontsource/lora": "^4.5.11",
     "@sanity/client": "^3.4.1",
     "astro": "^1.2.1",

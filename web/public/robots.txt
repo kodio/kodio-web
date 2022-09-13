@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://glitner.github.io/kodio-web/sitemap.xml
