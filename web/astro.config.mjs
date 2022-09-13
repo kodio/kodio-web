@@ -2,6 +2,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://frederikgdl.github.io',
+  site: 'https://Glitner.github.io',
   base: '/kodio-web',
 });
