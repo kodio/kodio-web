@@ -25,7 +25,7 @@ jobs:
           cache-dependency-path: |
             package-lock.json
             web/package-lock.json
-            sanity/package-lock.json
+            cms/package-lock.json
 
       - name: Install
         run: npm ci

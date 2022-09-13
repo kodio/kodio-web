@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "npm run dev --prefix web",
     "build": "npm run build --prefix web",
-    "sanity": "npm run start --prefix sanity",
-    "verify": "npm run verify --prefix web && npm run verify --prefix sanity",
-    "postinstall": "npm ci --prefix web && npm ci --prefix sanity"
+    "cms": "npm run start --prefix cms",
+    "verify": "npm run verify --prefix web && npm run verify --prefix cms",
+    "postinstall": "npm ci --prefix web && npm ci --prefix cms"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
