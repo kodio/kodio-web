@@ -6,7 +6,7 @@ export default createConfig({
   name: 'default',
   title: 'kodio-sanity-tmp',
 
-  projectId: '8h68qv9e',
+  projectId: '7veh4wq9',
   dataset: 'production',
 
   plugins: [deskTool()],

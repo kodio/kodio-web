@@ -2,7 +2,7 @@ import sanityClient from '@sanity/client';
 import type { Page } from 'types/sanity';
 
 const sanityConfig = {
-  projectId: import.meta.env.SANITY_PROJECT_ID || '8h68qv9e',
+  projectId: import.meta.env.SANITY_PROJECT_ID || '7veh4wq9',
   dataset: import.meta.env.SANITY_DATASET || 'production',
   useCdn: false,
   apiVersion: '2022-09-06',
