@@ -24,6 +24,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    env:
+      SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
     steps:
       - uses: actions/checkout@v3
 
