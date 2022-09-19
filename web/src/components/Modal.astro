@@ -1,0 +1,65 @@
+---
+export interface Props {
+  id: string;
+  openButtonId: string;
+  closeButtonId: string;
+}
+
+const { id, openButtonId, closeButtonId } = Astro.props;
+---
+
+<dialog id={id}>
+  <slot>Modal content</slot>
+</dialog>
+
+<style>
+  dialog {
+    position: fixed;
+    display: block;
+    inset: 0;
+    border: none;
+    max-width: unset;
+    max-height: unset;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+  }
+
+  dialog,
+  dialog[open]::backdrop {
+    visibility: hidden;
+    translate: 100%;
+    transition: visibility 0s ease-in-out 300ms, translate 300ms ease-in-out;
+  }
+
+  dialog[open].in,
+  dialog[open].in::backdrop {
+    transition-delay: 0s;
+  }
+
+  dialog[open].in,
+  dialog[open].in::backdrop {
+    translate: none;
+    visibility: visible;
+  }
+</style>
+<script define:vars={{ id, openButtonId, closeButtonId }}>
+  const menuElement = document.getElementById(id);
+  const openMenuButton = document.getElementById(openButtonId);
+  const closeMenuButton = document.getElementById(closeButtonId);
+
+  function closeModal() {
+    menuElement?.close();
+    menuElement?.removeEventListener('transitionend', closeModal);
+  }
+
+  openMenuButton?.addEventListener('click', function () {
+    menuElement?.showModal();
+    menuElement?.classList.add('in');
+  });
+
+  closeMenuButton?.addEventListener('click', function () {
+    menuElement?.classList.remove('in');
+    menuElement?.addEventListener('transitionend', closeModal);
+  });
+</script>

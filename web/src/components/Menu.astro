@@ -1,0 +1,56 @@
+---
+import Button from 'components/Button.astro';
+import Link from 'components/Link.astro';
+import Logo from 'components/Logo.astro';
+import Modal from 'components/Modal.astro';
+import { getPages } from 'lib/sanity';
+
+const pages = await getPages();
+---
+
+<Button id="menu-open" ariaLabel="Åpne meny">
+  <div></div>
+  <div></div>
+  <div></div>
+</Button>
+<Modal id="menu" openButtonId="menu-open" closeButtonId="menu-close">
+  <div class="menu__header">
+    <Logo />
+    <Button id="menu-close">X</Button>
+  </div>
+  <ul>
+    {
+      pages?.map(({ title, slug }) => (
+        <li>
+          <Link href={`/${slug.current}`} label={title} />
+        </li>
+      ))
+    }
+  </ul>
+</Modal>
+
+<style>
+  :global(#menu-open) > :global(div) {
+    background-color: black;
+    width: 1rem;
+    height: 2px;
+    margin: 5px;
+  }
+
+  .menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 2rem;
+  }
+
+  .menu__header > :global(#menu-close) {
+    height: 36px;
+    width: 36px;
+  }
+
+  ul {
+    padding: 4rem;
+  }
+</style>

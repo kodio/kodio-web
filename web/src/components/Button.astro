@@ -1,0 +1,29 @@
+---
+export interface Props {
+  id?: string;
+  ariaLabel?: string;
+}
+
+const { id, ariaLabel } = Astro.props;
+---
+
+<button id={id} aria-label={ariaLabel}>
+  <slot />
+</button>
+
+<style>
+  button {
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 2px black;
+  }
+
+  button:active {
+    box-shadow: 1px 1px black;
+    translate: 1px 1px;
+  }
+</style>
