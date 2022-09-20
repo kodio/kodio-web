@@ -43,23 +43,24 @@ const { id, openButtonId, closeButtonId } = Astro.props;
     visibility: visible;
   }
 </style>
+
 <script define:vars={{ id, openButtonId, closeButtonId }}>
   const menuElement = document.getElementById(id);
   const openMenuButton = document.getElementById(openButtonId);
   const closeMenuButton = document.getElementById(closeButtonId);
 
   function closeModal() {
-    menuElement?.close();
-    menuElement?.removeEventListener('transitionend', closeModal);
+    menuElement.close();
+    menuElement.removeEventListener('transitionend', closeModal);
   }
 
-  openMenuButton?.addEventListener('click', function () {
-    menuElement?.showModal();
-    menuElement?.classList.add('in');
+  openMenuButton.addEventListener('click', function () {
+    menuElement.showModal();
+    menuElement.classList.add('in');
   });
 
-  closeMenuButton?.addEventListener('click', function () {
-    menuElement?.classList.remove('in');
-    menuElement?.addEventListener('transitionend', closeModal);
+  closeMenuButton.addEventListener('click', function () {
+    menuElement.classList.remove('in');
+    menuElement.addEventListener('transitionend', closeModal);
   });
 </script>

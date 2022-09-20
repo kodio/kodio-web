@@ -1,4 +1,4 @@
-import sanityClient from '@sanity/client';
+import PicoSanity from 'picosanity';
 import type { Page } from 'types/sanity';
 
 const sanityConfig = {
@@ -8,10 +8,8 @@ const sanityConfig = {
   apiVersion: '2022-09-06',
 };
 
-const client = sanityClient(sanityConfig);
+const client = new PicoSanity(sanityConfig);
 
 export function getPages() {
-  return client.fetch<Page[] | null>(
-    `*[_type == "page"] { title, slug, content }`
-  );
+  return client.fetch<Page[] | null>(`*[_type == "page"] { title, slug, content }`);
 }

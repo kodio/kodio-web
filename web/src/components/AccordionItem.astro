@@ -1,0 +1,102 @@
+---
+const { header } = Astro.props;
+---
+
+<li class="accordion__item">
+  <h3>
+    <button
+      id="accordion-header-1"
+      class="accordion__header"
+      aria-expanded="false"
+      aria-controls="accordion-panel-1"
+    >
+      {header}
+      <svg
+        class="header__toggle-indicator"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="18" y1="13" x2="12" y2="19"></line>
+        <line x1="6" y1="13" x2="12" y2="19"></line>
+      </svg>
+    </button>
+  </h3>
+  <div
+    id="accordion-panel-1"
+    role="region"
+    class="accordion__panel"
+    aria-labelledby="accordion-header-1"
+  >
+    <div class="panel__inner">
+      <slot />
+    </div>
+  </div>
+</li>
+
+<style lang="scss">
+  .accordion__item,
+  .accordion__header {
+    width: 100%;
+  }
+
+  .accordion__item {
+    border: 2px solid var(--black);
+    border-radius: 4px;
+    transition: box-shadow 300ms;
+  }
+
+  .accordion__item:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .accordion__header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    padding: 1rem;
+    outline-offset: -2px;
+  }
+
+  .header__toggle-indicator {
+    width: 24px;
+    transition: rotate 300ms;
+  }
+
+  .accordion__panel {
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    transition: height 300ms ease-in-out, visibility 0s 300ms;
+  }
+
+  .panel__inner {
+    padding: 2rem 1rem;
+  }
+
+  .accordion__item.is-open {
+    box-shadow: 2px 2px var(--black);
+  }
+
+  .is-open {
+    .header__toggle-indicator {
+      rotate: 180deg;
+    }
+    .accordion__panel {
+      visibility: visible;
+      height: auto;
+      transition: height 0.3s ease-in-out, visibility 0s 0s;
+    }
+  }
+</style>

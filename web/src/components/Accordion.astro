@@ -1,0 +1,72 @@
+<div class="accordion">
+  <ul class="accordion__wrapper">
+    <slot />
+  </ul>
+</div>
+
+<script is:inline>
+  const accordionItems = [...document.querySelectorAll('.accordion__item')];
+
+  function getPanelHeight(accordionItem) {
+    const accordionInner = accordionItem.querySelector('.panel__inner');
+    return accordionInner.getBoundingClientRect().height;
+  }
+
+  function openAccordionItem(accordionItem) {
+    const accordionItemHeader = accordionItem.querySelector('.accordion__header');
+    const accordionPanel = accordionItem.querySelector('.accordion__panel');
+
+    accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
+    accordionItem.classList.add('is-open');
+    accordionItemHeader.setAttribute('aria-expanded', true);
+  }
+
+  function closeAccordionItem(accordionItem) {
+    const accordionItemHeader = accordionItem.querySelector('.accordion__header');
+    const accordionPanel = accordionItem.querySelector('.accordion__panel');
+
+    accordionItem.classList.remove('is-open');
+    accordionPanel.style.height = 0;
+    accordionItemHeader.setAttribute('aria-expanded', false);
+  }
+
+  function isAccordionOpen(accordionItem) {
+    return accordionItem.classList.contains('is-open');
+  }
+
+  function recalculateHeight() {
+    const openAccordionItems = accordionItems.filter(isAccordionOpen);
+
+    openAccordionItems.forEach((openAccordionItem) => {
+      const accordionPanel = openAccordionItem.querySelector('.accordion__panel');
+      accordionPanel.style.height = `${getPanelHeight(openAccordionItem)}px`;
+    });
+  }
+
+  accordionItems.forEach((item, index) => {
+    const accordionItemHeader = item.querySelector('.accordion__header');
+    const accordionItemPanel = item.querySelector('.accordion__panel');
+
+    accordionItemHeader.setAttribute('id', `accordion-item${index + 1}`);
+    accordionItemPanel.setAttribute('id', `item${index + 1}`);
+    accordionItemHeader.setAttribute('aria-controls', `item${index + 1}`);
+    accordionItemPanel.setAttribute('aria-labelledby', `accordion-item${index + 1}`);
+
+    accordionItemHeader.addEventListener('click', () => {
+      isAccordionOpen(item) ? closeAccordionItem(item) : openAccordionItem(item);
+    });
+  });
+
+  window.addEventListener('resize', recalculateHeight);
+</script>
+
+<style>
+  .accordion {
+    margin-bottom: 2rem;
+  }
+
+  .accordion__wrapper {
+    list-style: none;
+    padding: 0;
+  }
+</style>

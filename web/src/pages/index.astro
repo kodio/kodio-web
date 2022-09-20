@@ -1,4 +1,6 @@
 ---
+import Accordion from 'components/Accordion.astro';
+import AccordionItem from 'components/AccordionItem.astro';
 import Link from 'components/Link.astro';
 import Layout from 'layouts/Layout.astro';
 import { getPages } from 'lib/sanity';
@@ -7,6 +9,16 @@ const pages = await getPages();
 ---
 
 <Layout>
+  <Accordion>
+    <AccordionItem header="First item">
+      <p>Paragraph</p>
+      <Link href="/" label="Link" />
+    </AccordionItem>
+    <AccordionItem header="Second item">
+      <p>Paragraph</p>
+      <Link href="/" label="Link" />
+    </AccordionItem>
+  </Accordion>
   <ul>
     {
       pages?.map(({ title, slug }) => (

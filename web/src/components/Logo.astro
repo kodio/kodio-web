@@ -2,9 +2,10 @@
 import Link from 'components/Link.astro';
 ---
 
-<Link id="logo" href="/" label="Kodio." />
+<Link className="logo" href="/" label="Kodio." />
+
 <style>
-  :global(#logo) {
+  :global(.logo) {
     color: var(--color-text);
     font-size: 2rem;
     text-decoration: none;
