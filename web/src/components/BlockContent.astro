@@ -1,0 +1,12 @@
+---
+import type { ArbitraryTypedObject } from '@portabletext/types';
+import { PortableText } from 'astro-portabletext';
+
+export interface Props {
+  value: ArbitraryTypedObject[] | undefined;
+}
+
+const { value } = Astro.props;
+---
+
+<PortableText value={value} />

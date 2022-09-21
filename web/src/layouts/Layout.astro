@@ -23,9 +23,13 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
-    <style>
+    <style lang="scss">
       :root {
         --black: #131d22;
+        --kodio-yellow: #f7e06a;
+        --kodio-dark: #112f3a;
+        --kodio-purple: #d3afe9;
+        --kodio-orange: #ef8354;
         --color-text: var(--black);
         --color-bg: hsl(10, 21%, 95%);
         --header-height: 144px;
@@ -35,14 +39,14 @@ const { title } = Astro.props;
         font-family: 'Lora', system-ui, sans-serif;
         font-size: 100%;
         color: var(--color-text);
-        background-color: var(--color-bg);
+        background-color: var(--kodio-yellow);
         scroll-behavior: smooth;
       }
 
       main {
         margin: auto;
-        padding: 1em;
-        max-width: 60vw;
+        padding: 2rem;
+        max-width: calc(1148px + 20px * 2);
       }
     </style>
     <style is:global>
