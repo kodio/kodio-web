@@ -50,17 +50,17 @@ const { id, openButtonId, closeButtonId } = Astro.props;
   const closeMenuButton = document.getElementById(closeButtonId);
 
   function closeModal() {
-    menuElement.close();
-    menuElement.removeEventListener('transitionend', closeModal);
+    menuElement?.close();
+    menuElement?.removeEventListener('transitionend', closeModal);
   }
 
   openMenuButton.addEventListener('click', function () {
-    menuElement.showModal();
-    menuElement.classList.add('in');
+    menuElement?.showModal();
+    menuElement?.classList.add('in');
   });
 
   closeMenuButton.addEventListener('click', function () {
-    menuElement.classList.remove('in');
-    menuElement.addEventListener('transitionend', closeModal);
+    menuElement?.classList.remove('in');
+    menuElement?.addEventListener('transitionend', closeModal);
   });
 </script>
