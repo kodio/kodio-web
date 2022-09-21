@@ -18,6 +18,15 @@ const pages = await getPages();
       <p>Paragraph</p>
       <Link href="/" label="Link" />
     </AccordionItem>
+    <AccordionItem header="Color palette">
+      <h4>Click to change background color</h4>
+      <div class="color-palette">
+        <button class="yellow"></button>
+        <button class="dark"></button>
+        <button class="purple"></button>
+        <button class="orange"></button>
+      </div>
+    </AccordionItem>
   </Accordion>
   <ul>
     {
@@ -29,3 +38,67 @@ const pages = await getPages();
     }
   </ul>
 </Layout>
+
+<style lang="scss">
+  .color-palette {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  .color-palette > button {
+    aspect-ratio: 1;
+    border: 1px solid var(--white);
+    cursor: pointer;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  .yellow {
+    background-color: var(--kodio-yellow);
+  }
+
+  .dark {
+    background-color: var(--kodio-dark);
+  }
+
+  .purple {
+    background-color: var(--kodio-purple);
+  }
+
+  .orange {
+    background-color: var(--kodio-orange);
+  }
+</style>
+<script>
+  const yellowButton = document.querySelector('button.yellow');
+  const darkButton = document.querySelector('button.dark');
+  const purpleButton = document.querySelector('button.purple');
+  const orangeButton = document.querySelector('button.orange');
+
+  yellowButton?.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#f7e06a';
+    document.body.style.color = 'unset';
+  });
+
+  darkButton?.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#112f3a';
+    document.body.style.color = '#ffffff';
+  });
+
+  purpleButton?.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#d3afe9';
+    document.body.style.color = 'unset';
+  });
+
+  orangeButton?.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#ef8354';
+    document.body.style.color = 'unset';
+  });
+</script>
