@@ -56,7 +56,7 @@ const { header } = Astro.props;
   .accordion__item {
     border: 2px solid var(--black);
     border-radius: 4px;
-    transition: box-shadow 300ms;
+    transition: box-shadow 0.3s;
   }
 
   .accordion__item:not(:last-child) {
@@ -75,14 +75,14 @@ const { header } = Astro.props;
 
   .header__toggle-indicator {
     width: 24px;
-    transition: rotate 300ms;
+    transition: rotate 0.3s;
   }
 
   .accordion__panel {
     visibility: hidden;
     overflow: hidden;
     height: 0;
-    transition: height 300ms ease-in-out, visibility 0s 300ms;
+    transition: height 0.3s ease-in-out, visibility 0s 0.3s;
   }
 
   .panel__inner {
