@@ -77,28 +77,28 @@ const pages = await getPages();
   }
 </style>
 <script>
-  const yellowButton = document.querySelector('button.yellow');
-  const darkButton = document.querySelector('button.dark');
-  const purpleButton = document.querySelector('button.purple');
-  const orangeButton = document.querySelector('button.orange');
+  const yellowButton = document.querySelector<HTMLButtonElement>('button.yellow');
+  const darkButton = document.querySelector<HTMLButtonElement>('button.dark');
+  const purpleButton = document.querySelector<HTMLButtonElement>('button.purple');
+  const orangeButton = document.querySelector<HTMLButtonElement>('button.orange');
 
   yellowButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = '#f7e06a';
-    document.body.style.color = 'unset';
+    document.body.style.backgroundColor = 'var(--kodio-yellow)';
+    document.body.style.color = '';
   });
 
   darkButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = '#112f3a';
-    document.body.style.color = '#ffffff';
+    document.body.style.backgroundColor = 'var(--kodio-dark)';
+    document.body.style.color = 'var(--white)';
   });
 
   purpleButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = '#d3afe9';
-    document.body.style.color = 'unset';
+    document.body.style.backgroundColor = 'var(--kodio-purple)';
+    document.body.style.color = '';
   });
 
   orangeButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = '#ef8354';
-    document.body.style.color = 'unset';
+    document.body.style.backgroundColor = 'var(--kodio-orange)';
+    document.body.style.color = '';
   });
 </script>

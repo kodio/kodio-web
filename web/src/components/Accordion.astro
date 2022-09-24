@@ -4,33 +4,39 @@
   </ul>
 </div>
 
-<script is:inline>
-  const accordionItems = [...document.querySelectorAll('.accordion__item')];
+<script>
+  const accordionItems = [...document.querySelectorAll<HTMLLIElement>('.accordion__item')];
 
-  function getPanelHeight(accordionItem) {
-    const accordionInner = accordionItem.querySelector('.panel__inner');
-    return accordionInner.getBoundingClientRect().height;
+  function getPanelHeight(accordionItem: HTMLLIElement) {
+    const accordionInner = accordionItem.querySelector<HTMLDivElement>('.panel__inner');
+    return accordionInner?.getBoundingClientRect().height;
   }
 
-  function openAccordionItem(accordionItem) {
-    const accordionItemHeader = accordionItem.querySelector('.accordion__header');
-    const accordionPanel = accordionItem.querySelector('.accordion__panel');
+  function openAccordionItem(accordionItem: HTMLLIElement) {
+    const accordionItemHeader =
+      accordionItem.querySelector<HTMLButtonElement>('.accordion__header');
+    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion__panel');
+
+    if (!accordionItemHeader || !accordionPanel) return;
 
     accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
     accordionItem.classList.add('is-open');
-    accordionItemHeader.setAttribute('aria-expanded', true);
+    accordionItemHeader.setAttribute('aria-expanded', 'true');
   }
 
-  function closeAccordionItem(accordionItem) {
-    const accordionItemHeader = accordionItem.querySelector('.accordion__header');
-    const accordionPanel = accordionItem.querySelector('.accordion__panel');
+  function closeAccordionItem(accordionItem: HTMLLIElement) {
+    const accordionItemHeader =
+      accordionItem.querySelector<HTMLButtonElement>('.accordion__header');
+    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion__panel');
+
+    if (!accordionItemHeader || !accordionPanel) return;
 
     accordionItem.classList.remove('is-open');
-    accordionPanel.style.height = 0;
-    accordionItemHeader.setAttribute('aria-expanded', false);
+    accordionPanel.style.height = '0';
+    accordionItemHeader.setAttribute('aria-expanded', 'false');
   }
 
-  function isAccordionOpen(accordionItem) {
+  function isAccordionOpen(accordionItem: HTMLLIElement) {
     return accordionItem.classList.contains('is-open');
   }
 
@@ -38,14 +44,19 @@
     const openAccordionItems = accordionItems.filter(isAccordionOpen);
 
     openAccordionItems.forEach((openAccordionItem) => {
-      const accordionPanel = openAccordionItem.querySelector('.accordion__panel');
+      const accordionPanel = openAccordionItem.querySelector<HTMLDivElement>('.accordion__panel');
+
+      if (!accordionPanel) return;
+
       accordionPanel.style.height = `${getPanelHeight(openAccordionItem)}px`;
     });
   }
 
   accordionItems.forEach((item, index) => {
-    const accordionItemHeader = item.querySelector('.accordion__header');
-    const accordionItemPanel = item.querySelector('.accordion__panel');
+    const accordionItemHeader = item.querySelector<HTMLButtonElement>('.accordion__header');
+    const accordionItemPanel = item.querySelector<HTMLDivElement>('.accordion__panel');
+
+    if (!accordionItemHeader || !accordionItemPanel) return;
 
     accordionItemHeader.setAttribute('id', `accordion-item${index + 1}`);
     accordionItemPanel.setAttribute('id', `item${index + 1}`);
