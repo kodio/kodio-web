@@ -1,4 +1,5 @@
 import PicoSanity from 'picosanity';
+import groq from 'groq';
 import type { Page } from 'types/sanity';
 
 const sanityConfig = {
@@ -11,5 +12,21 @@ const sanityConfig = {
 const client = new PicoSanity(sanityConfig);
 
 export function getPages() {
-  return client.fetch<Page[] | null>(`*[_type == "page"] { title, slug, content }`);
+  return client.fetch<Page[] | null>(pageQuery);
 }
+
+const pageQuery = groq`
+*[_type == "page"] {
+  title,
+  slug,
+  content[] {
+    ...,
+    markDefs[] {
+      ...,
+      _type == "blockContentInternalLink" => {
+        "slug": @.reference->slug
+      }
+    }
+  }
+}
+`;

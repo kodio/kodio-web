@@ -1,0 +1,22 @@
+---
+import type { ArbitraryTypedObject } from '@portabletext/types';
+import { PortableText } from 'astro-portabletext';
+import BlockContentExternalLink from './BlockContentExternalLink.astro';
+import BlockContentInternalLink from './BlockContentInternalLink.astro';
+
+export interface Props {
+  value: ArbitraryTypedObject[] | undefined;
+}
+
+const { value } = Astro.props;
+---
+
+<PortableText
+  value={value}
+  components={{
+    mark: {
+      blockContentExternalLink: BlockContentExternalLink,
+      blockContentInternalLink: BlockContentInternalLink,
+    },
+  }}
+/>

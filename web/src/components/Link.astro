@@ -1,12 +1,10 @@
 ---
 export interface Props {
-  id?: string;
   className?: string;
   href: string;
-  label: string;
 }
 
-const { id, className, href, label } = Astro.props;
+const { className, href } = Astro.props;
 ---
 
-<a id={id} class={className} href={`/kodio-web${href}`}>{label}</a>
+<a class={className} href={`/kodio-web${href}`}><slot /></a>

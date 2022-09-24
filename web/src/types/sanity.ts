@@ -1,6 +1,6 @@
 import type { ArbitraryTypedObject } from '@portabletext/types';
 
-interface Slug {
+export interface Slug {
   _type: 'slug';
   current: string;
 }

@@ -51,7 +51,7 @@ const pages = await getPages();
     {
       pages?.map(({ title, slug }) => (
         <li>
-          <Link href={`/${slug.current}`} label={title} />
+          <Link href={`/${slug.current}`}>{title}</Link>
         </li>
       ))
     }

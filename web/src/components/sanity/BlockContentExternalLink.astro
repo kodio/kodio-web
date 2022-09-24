@@ -1,0 +1,11 @@
+---
+import type { Mark, Props } from 'astro-portabletext';
+
+const { node, astroClass } = Astro.props as Props<Mark<{ href: string; blank: boolean }>>;
+
+const href = node.markDef.href;
+const target = node.markDef.blank ? '_blank' : undefined;
+const rel = node.markDef.blank ? 'noreferrer' : undefined;
+---
+
+<a class={astroClass} href={href} target={target} rel={rel}><slot /></a>

@@ -12,11 +12,11 @@ const pages = await getPages();
   <Accordion>
     <AccordionItem header="First item">
       <p>Paragraph</p>
-      <Link href="/" label="Link" />
+      <Link href="/">Link</Link>
     </AccordionItem>
     <AccordionItem header="Second item">
       <p>Paragraph</p>
-      <Link href="/" label="Link" />
+      <Link href="/">Link</Link>
     </AccordionItem>
     <AccordionItem header="Color palette">
       <h4>Click to change background color</h4>
@@ -32,7 +32,7 @@ const pages = await getPages();
     {
       pages?.map(({ title, slug }) => (
         <li>
-          <Link href={`/${slug.current}`} label={title} />
+          <Link href={`/${slug.current}`}>{title}</Link>
         </li>
       ))
     }

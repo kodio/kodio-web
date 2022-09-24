@@ -12,8 +12,10 @@
     "verify": "npm run lint && npm run prettier:check"
   },
   "dependencies": {
+    "@sanity/vision": "^3.0.0-dev-preview.20",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.4.0",
     "react-is": "^17.0.2",
     "sanity": "3.0.0-dev-preview.20",
     "styled-components": "^5.2.0"
