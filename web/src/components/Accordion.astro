@@ -22,6 +22,13 @@
     accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
     accordionItem.classList.add('is-open');
     accordionItemHeader.setAttribute('aria-expanded', 'true');
+    accordionPanel.addEventListener(
+      'transitionend',
+      () => {
+        accordionPanel.style.height = 'auto';
+      },
+      { once: true }
+    );
   }
 
   function closeAccordionItem(accordionItem: HTMLLIElement) {
@@ -32,24 +39,21 @@
     if (!accordionItemHeader || !accordionPanel) return;
 
     accordionItem.classList.remove('is-open');
-    accordionPanel.style.height = '0';
+    accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
     accordionItemHeader.setAttribute('aria-expanded', 'false');
+    accordionPanel.addEventListener(
+      'transitionrun',
+      () => {
+        setTimeout(() => {
+          accordionPanel.style.height = '0';
+        }, 0);
+      },
+      { once: true }
+    );
   }
 
   function isAccordionOpen(accordionItem: HTMLLIElement) {
     return accordionItem.classList.contains('is-open');
-  }
-
-  function recalculateHeight() {
-    const openAccordionItems = accordionItems.filter(isAccordionOpen);
-
-    openAccordionItems.forEach((openAccordionItem) => {
-      const accordionPanel = openAccordionItem.querySelector<HTMLDivElement>('.accordion__panel');
-
-      if (!accordionPanel) return;
-
-      accordionPanel.style.height = `${getPanelHeight(openAccordionItem)}px`;
-    });
   }
 
   accordionItems.forEach((item, index) => {
@@ -67,8 +71,6 @@
       isAccordionOpen(item) ? closeAccordionItem(item) : openAccordionItem(item);
     });
   });
-
-  window.addEventListener('resize', recalculateHeight);
 </script>
 
 <style>
