@@ -17,28 +17,8 @@ const { color } = Astro.props;
     position: relative;
     background-color: var(--color);
 
-    &:not(:first-child)::before {
-      content: '';
-      position: absolute;
-      background-color: transparent;
-      top: -20px;
-      left: 0;
-      height: 20px;
-      width: 10px;
-      border-bottom-left-radius: 10px;
-      box-shadow: 0 10px 0 0 var(--color);
-    }
-
-    &:not(:first-child)::after {
-      content: '';
-      position: absolute;
-      background-color: transparent;
-      top: -20px;
-      right: 0;
-      height: 20px;
-      width: 10px;
-      border-bottom-right-radius: 10px;
-      box-shadow: 0 10px 0 0 var(--color);
+    &:not(:first-child) {
+      @include section-inverted-corner(var(--color));
     }
 
     :global(:last-child) {

@@ -1,0 +1,22 @@
+@mixin section-inverted-corner($color) {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: transparent;
+    top: -20px;
+    height: 20px;
+    width: 10px;
+    box-shadow: 0 10px 0 0 $color;
+  }
+
+  &::before {
+    left: 0;
+    border-bottom-left-radius: 10px;
+  }
+
+  &::after {
+    right: 0;
+    border-bottom-right-radius: 10px;
+  }
+}

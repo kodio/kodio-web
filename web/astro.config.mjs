@@ -11,8 +11,10 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           additionalData(source, fp) {
+            if (fp.endsWith('main.scss')) return source;
+            if (fp.endsWith('mixins.scss')) return source;
             if (fp.endsWith('variables.scss')) return source;
-            return `@import "src/variables.scss"; ${source}`;
+            return `@import "src/main.scss"; ${source}`;
           },
         },
       },
