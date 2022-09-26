@@ -1,14 +1,15 @@
 ---
 export interface Props {
   id: string;
+  label: string;
   openButtonId: string;
   closeButtonId: string;
 }
 
-const { id, openButtonId, closeButtonId } = Astro.props;
+const { id, label, openButtonId, closeButtonId } = Astro.props;
 ---
 
-<dialog id={id}>
+<dialog id={id} aria-label={label}>
   <slot>Modal content</slot>
 </dialog>
 

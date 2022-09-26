@@ -22,6 +22,7 @@ const menuConfig = await getMenuConfig();
 </nav>
 <Button id="menu-open" className="menu-button" ariaLabel="Åpne meny">
   <svg
+    aria-hidden="true"
     width="28"
     height="28"
     viewBox="0 0 24 24"
@@ -37,13 +38,14 @@ const menuConfig = await getMenuConfig();
     <line x1="4" y1="18" x2="20" y2="18"></line>
   </svg>
 </Button>
-<Modal id="menu" openButtonId="menu-open" closeButtonId="menu-close">
+<Modal id="menu" label="Meny" openButtonId="menu-open" closeButtonId="menu-close">
   <div class="menu-header">
     <Link href="/" className="logo-link">
       <Logo />
     </Link>
     <Button id="menu-close" ariaLabel="Lukk meny">
       <svg
+        aria-hidden="true"
         width="28"
         height="28"
         viewBox="0 0 24 24"
