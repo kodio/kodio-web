@@ -3,6 +3,7 @@ import { visionTool } from '@sanity/vision';
 import { deskTool } from 'sanity/desk';
 import Logo from './components/Logo';
 import { schemaTypes } from './schemas';
+import { structure } from './structure';
 
 export default createConfig({
   name: 'default',
@@ -12,7 +13,12 @@ export default createConfig({
   projectId: '7veh4wq9',
   dataset: 'production',
 
-  plugins: [deskTool(), visionTool()],
+  plugins: [
+    deskTool({
+      structure,
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,

@@ -1,21 +1,18 @@
-<div class="accordion">
-  <ul class="accordion__wrapper">
-    <slot />
-  </ul>
-</div>
+<ul class="accordion">
+  <slot />
+</ul>
 
 <script>
-  const accordionItems = [...document.querySelectorAll<HTMLLIElement>('.accordion__item')];
+  const accordionItems = [...document.querySelectorAll<HTMLLIElement>('.accordion-item')];
 
   function getPanelHeight(accordionItem: HTMLLIElement) {
-    const accordionInner = accordionItem.querySelector<HTMLDivElement>('.panel__inner');
+    const accordionInner = accordionItem.querySelector<HTMLDivElement>('.accordion-panel-inner');
     return accordionInner?.getBoundingClientRect().height;
   }
 
   function openAccordionItem(accordionItem: HTMLLIElement) {
-    const accordionItemHeader =
-      accordionItem.querySelector<HTMLButtonElement>('.accordion__header');
-    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion__panel');
+    const accordionItemHeader = accordionItem.querySelector<HTMLButtonElement>('.accordion-header');
+    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion-panel');
 
     if (!accordionItemHeader || !accordionPanel) return;
 
@@ -32,9 +29,8 @@
   }
 
   function closeAccordionItem(accordionItem: HTMLLIElement) {
-    const accordionItemHeader =
-      accordionItem.querySelector<HTMLButtonElement>('.accordion__header');
-    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion__panel');
+    const accordionItemHeader = accordionItem.querySelector<HTMLButtonElement>('.accordion-header');
+    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion-panel');
 
     if (!accordionItemHeader || !accordionPanel) return;
 
@@ -57,15 +53,15 @@
   }
 
   accordionItems.forEach((item, index) => {
-    const accordionItemHeader = item.querySelector<HTMLButtonElement>('.accordion__header');
-    const accordionItemPanel = item.querySelector<HTMLDivElement>('.accordion__panel');
+    const accordionItemHeader = item.querySelector<HTMLButtonElement>('.accordion-header');
+    const accordionItemPanel = item.querySelector<HTMLDivElement>('.accordion-panel');
 
     if (!accordionItemHeader || !accordionItemPanel) return;
 
-    accordionItemHeader.setAttribute('id', `accordion-item${index + 1}`);
-    accordionItemPanel.setAttribute('id', `item${index + 1}`);
-    accordionItemHeader.setAttribute('aria-controls', `item${index + 1}`);
-    accordionItemPanel.setAttribute('aria-labelledby', `accordion-item${index + 1}`);
+    accordionItemHeader.setAttribute('id', `accordion-header-${index + 1}`);
+    accordionItemPanel.setAttribute('id', `accordion-panel-${index + 1}`);
+    accordionItemHeader.setAttribute('aria-controls', `accordion-panel-${index + 1}`);
+    accordionItemPanel.setAttribute('aria-labelledby', `accordion-header-${index + 1}`);
 
     accordionItemHeader.addEventListener('click', () => {
       isAccordionOpen(item) ? closeAccordionItem(item) : openAccordionItem(item);
@@ -73,13 +69,9 @@
   });
 </script>
 
-<style>
+<style lang="scss">
   .accordion {
     margin-bottom: 2rem;
-  }
-
-  .accordion__wrapper {
     list-style: none;
-    padding: 0;
   }
 </style>

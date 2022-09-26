@@ -1,0 +1,17 @@
+---
+import type { ExternalLink, InternalLink } from 'types/sanity';
+
+export interface Props {
+  link: ExternalLink | InternalLink;
+}
+
+const { link } = Astro.props;
+
+const isInternalLink = link._type === 'internalLink';
+const href = isInternalLink ? `/kodio-web/${link.slug.current}` : link.href;
+const label = link.label || href;
+const target = !isInternalLink && link.blank ? '_blank' : undefined;
+const rel = !isInternalLink && link.blank ? 'noopener' : undefined;
+---
+
+<a href={href} target={target} rel={rel}>{label}</a>

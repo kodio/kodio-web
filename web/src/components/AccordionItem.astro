@@ -6,19 +6,17 @@ export interface Props {
 const { header } = Astro.props;
 ---
 
-<li class="accordion__item">
+<li class="accordion-item">
   <h3>
     <button
       id="accordion-header-1"
-      class="accordion__header"
+      class="accordion-header"
       aria-expanded="false"
       aria-controls="accordion-panel-1"
     >
       {header}
       <svg
-        class="header__toggle-indicator"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
+        class="accordion-toggle-indicator"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -38,32 +36,32 @@ const { header } = Astro.props;
   <div
     id="accordion-panel-1"
     role="region"
-    class="accordion__panel"
+    class="accordion-panel"
     aria-labelledby="accordion-header-1"
   >
-    <div class="panel__inner">
+    <div class="accordion-panel-inner">
       <slot />
     </div>
   </div>
 </li>
 
 <style lang="scss">
-  .accordion__item,
-  .accordion__header {
+  .accordion-item,
+  .accordion-header {
     width: 100%;
   }
 
-  .accordion__item {
+  .accordion-item {
     border: 2px solid var(--black);
     border-radius: 4px;
     transition: box-shadow 0.3s;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
   }
 
-  .accordion__item:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-
-  .accordion__header {
+  .accordion-header {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -73,32 +71,31 @@ const { header } = Astro.props;
     outline-offset: -2px;
   }
 
-  .header__toggle-indicator {
+  .accordion-toggle-indicator {
+    flex-shrink: 0;
     width: 24px;
     transition: rotate 0.3s;
   }
 
-  .accordion__panel {
+  .accordion-panel {
     visibility: hidden;
     overflow: hidden;
     height: 0;
     transition: height 0.3s ease-in-out, visibility 0s 0.3s;
   }
 
-  .panel__inner {
+  .accordion-panel-inner {
     padding: 2rem 1rem;
   }
 
-  .accordion__item.is-open {
-    box-shadow: 2px 2px var(--black);
-  }
-
   .is-open {
-    .header__toggle-indicator {
+    box-shadow: 2px 2px var(--black);
+
+    .accordion-toggle-indicator {
       rotate: 180deg;
     }
 
-    .accordion__panel {
+    .accordion-panel {
       visibility: visible;
       transition: height 0.3s ease-in-out, visibility 0s 0s;
     }

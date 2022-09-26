@@ -1,0 +1,29 @@
+---
+export interface Props {
+  color: string;
+}
+
+const { color } = Astro.props;
+---
+
+<section>
+  <div class="content-wrapper">
+    <slot />
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ color }}>
+  section {
+    background-color: var(--color);
+
+    :global(:last-child) {
+      margin-bottom: 0;
+    }
+
+    .content-wrapper {
+      margin: auto;
+      padding: var(--content-padding);
+      max-width: calc(var(--content-max-width) + var(--content-padding) * 2);
+    }
+  }
+</style>

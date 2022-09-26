@@ -1,7 +1,8 @@
 ---
 import type { ArbitraryTypedObject } from '@portabletext/types';
 import BlockContent from 'components/sanity/BlockContent.astro';
-import Layout from 'layouts/Layout.astro';
+import BaseLayout from 'layouts/BaseLayout.astro';
+import SectionLayout from 'layouts/SectionLayout.astro';
 import { getPages } from 'lib/sanity';
 
 export async function getStaticPaths() {
@@ -23,7 +24,9 @@ export interface Props {
 const { title, content } = Astro.props;
 ---
 
-<Layout title={title}>
-  <h1>{title}</h1>
-  <BlockContent value={content} />
-</Layout>
+<BaseLayout title={title}>
+  <SectionLayout color="var(--white)">
+    <h1>{title}</h1>
+    <BlockContent value={content} />
+  </SectionLayout>
+</BaseLayout>

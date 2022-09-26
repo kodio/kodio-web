@@ -1,0 +1,60 @@
+---
+import Logo from 'components/Logo.astro';
+import SanityLink from 'components/sanity/SanityLink.astro';
+import { getFooterConfig } from 'lib/sanity';
+
+const footerConfig = await getFooterConfig();
+---
+
+<footer>
+  <Logo />
+  <ul>
+    {
+      footerConfig?.links.map((link) => (
+        <li>
+          <SanityLink link={link} />
+        </li>
+      ))
+    }
+  </ul>
+</footer>
+
+<style lang="scss">
+  footer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem calc(var(--content-padding) - 1rem);
+    background-color: var(--kodio-dark);
+    color: var(--white);
+
+    @media (min-width: $width-l) {
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+    }
+
+    :global(.logo) {
+      padding: 1rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      list-style: none;
+      font-size: 120%;
+
+      @media (min-width: $width-l) {
+        flex-direction: row;
+      }
+
+      li {
+        padding: 1rem;
+
+        :global(a) {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+</style>

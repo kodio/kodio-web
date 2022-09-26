@@ -3,14 +3,25 @@ import Button from 'components/Button.astro';
 import Link from 'components/Link.astro';
 import Logo from 'components/Logo.astro';
 import Modal from 'components/Modal.astro';
-import { getPages } from 'lib/sanity';
+import SanityLink from 'components/sanity/SanityLink.astro';
+import { getMenuConfig } from 'lib/sanity';
 
-const pages = await getPages();
+const menuConfig = await getMenuConfig();
 ---
 
-<Button id="menu-open" ariaLabel="Åpne meny">
+<nav>
+  <ul>
+    {
+      menuConfig?.links.map((link) => (
+        <li>
+          <SanityLink link={link} />
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+<Button id="menu-open" className="menu-button" ariaLabel="Åpne meny">
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     width="28"
     height="28"
     viewBox="0 0 24 24"
@@ -27,11 +38,12 @@ const pages = await getPages();
   </svg>
 </Button>
 <Modal id="menu" openButtonId="menu-open" closeButtonId="menu-close">
-  <div class="menu__header">
-    <Logo />
-    <Button id="menu-close">
+  <div class="menu-header">
+    <Link href="/" className="logo-link">
+      <Logo />
+    </Link>
+    <Button id="menu-close" ariaLabel="Lukk meny">
       <svg
-        xmlns="http://www.w3.org/2000/svg"
         width="28"
         height="28"
         viewBox="0 0 24 24"
@@ -47,19 +59,46 @@ const pages = await getPages();
       </svg>
     </Button>
   </div>
-  <ul>
+  <ul class="modal-list">
     {
-      pages?.map(({ title, slug }) => (
+      menuConfig?.links.map((link) => (
         <li>
-          <Link href={`/${slug.current}`}>{title}</Link>
+          <SanityLink link={link} />
         </li>
       ))
     }
   </ul>
 </Modal>
 
-<style>
-  .menu__header {
+<style lang="scss">
+  .logo-link {
+    text-decoration: none;
+  }
+
+  nav,
+  .modal-list {
+    :global(a) {
+      text-decoration: none;
+    }
+  }
+
+  nav > ul {
+    display: none;
+    gap: 1.5rem;
+    list-style: none;
+
+    @media (min-width: $width-m) {
+      display: flex;
+    }
+  }
+
+  .menu-button {
+    @media (min-width: $width-m) {
+      display: none;
+    }
+  }
+
+  .menu-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,7 +106,7 @@ const pages = await getPages();
     padding: 0 2rem;
   }
 
-  ul {
+  .modal-list {
     padding: 4rem;
   }
 </style>

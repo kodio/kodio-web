@@ -8,16 +8,28 @@ export const internalLink = defineType({
   icon: InternalLinkIcon,
   fields: [
     defineField({
+      name: 'label',
+      title: 'Label',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'reference',
       title: 'Page',
       type: 'reference',
       to: [{ type: 'page' }],
     }),
-    defineField({
-      name: 'label',
-      title: 'Label',
-      type: 'string',
-      description: 'The title of the page will be used as label if left blank',
-    }),
   ],
+  preview: {
+    select: {
+      label: 'label',
+      to: 'reference.title',
+    },
+    prepare({ label, to }) {
+      return {
+        title: label,
+        subtitle: `Internal link - ${to}`,
+      };
+    },
+  },
 });

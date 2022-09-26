@@ -1,6 +1,7 @@
 ---
 import type { ArbitraryTypedObject } from '@portabletext/types';
 import { PortableText } from 'astro-portabletext';
+import UnorderedList from 'components/UnorderedList.astro';
 import BlockContentExternalLink from './BlockContentExternalLink.astro';
 import BlockContentInternalLink from './BlockContentInternalLink.astro';
 
@@ -14,6 +15,7 @@ const { value } = Astro.props;
 <PortableText
   value={value}
   components={{
+    list: { bullet: UnorderedList },
     mark: {
       blockContentExternalLink: BlockContentExternalLink,
       blockContentInternalLink: BlockContentInternalLink,

@@ -1,6 +1,6 @@
 import PicoSanity from 'picosanity';
 import groq from 'groq';
-import type { Page } from 'types/sanity';
+import type { FooterConfig, MenuConfig, Page } from 'types/sanity';
 
 const sanityConfig = {
   projectId: '7veh4wq9',
@@ -15,6 +15,14 @@ export function getPages() {
   return client.fetch<Page[] | null>(pageQuery);
 }
 
+export function getMenuConfig() {
+  return client.fetch<MenuConfig | null>(menuConfigQuery);
+}
+
+export function getFooterConfig() {
+  return client.fetch<FooterConfig | null>(footerConfigQuery);
+}
+
 const pageQuery = groq`
 *[_type == "page"] {
   title,
@@ -26,6 +34,28 @@ const pageQuery = groq`
       _type == "blockContentInternalLink" => {
         "slug": @.reference->slug
       }
+    }
+  }
+}
+`;
+
+const menuConfigQuery = groq`
+*[_type == 'menuConfig'][0] {
+  links[] {
+    ...,
+    _type == "internalLink" => {
+      "slug": @.reference->slug
+    }
+  }
+}
+`;
+
+const footerConfigQuery = groq`
+*[_type == 'footerConfig'][0] {
+  links[] {
+    ...,
+    _type == "internalLink" => {
+      "slug": @.reference->slug
     }
   }
 }

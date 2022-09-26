@@ -1,5 +1,6 @@
 ---
 import '@fontsource/lora';
+import Footer from 'components/Footer.astro';
 import Header from 'components/Header.astro';
 
 export interface Props {
@@ -23,6 +24,7 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
+    <Footer />
     <style lang="scss">
       :root {
         --black: #131d22;
@@ -32,13 +34,11 @@ const { title } = Astro.props;
         --kodio-purple: #d3afe9;
         --kodio-orange: #ef8354;
         --color-text: var(--black);
-        --color-bg: var(--kodio-yellow);
+        --color-bg: var(--kodio-dark);
         --header-height: 144px;
         --focus-color: var(--kodio-orange);
-      }
-
-      html {
-        scroll-behavior: smooth;
+        --content-max-width: 1148px;
+        --content-padding: 2rem;
       }
 
       body {
@@ -46,12 +46,6 @@ const { title } = Astro.props;
         font-size: 100%;
         color: var(--color-text);
         background-color: var(--color-bg);
-      }
-
-      main {
-        margin: auto;
-        padding: 2rem;
-        max-width: calc(1148px + 20px * 2);
       }
     </style>
     <style is:global>
@@ -77,16 +71,22 @@ const { title } = Astro.props;
         height: 100%;
       }
 
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
       body {
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       img,
       picture,
       video,
-      canvas,
-      svg {
+      canvas {
         display: block;
         max-width: 100%;
       }
@@ -106,6 +106,15 @@ const { title } = Astro.props;
       h5,
       h6 {
         overflow-wrap: break-word;
+      }
+
+      ul,
+      ol {
+        padding: 0;
+      }
+
+      button {
+        cursor: pointer;
       }
 
       @media (prefers-reduced-motion: reduce) {

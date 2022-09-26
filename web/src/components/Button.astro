@@ -1,29 +1,31 @@
 ---
 export interface Props {
   id?: string;
+  className?: string;
   ariaLabel?: string;
+  type?: 'button' | 'submit';
 }
 
-const { id, ariaLabel } = Astro.props;
+const { id, className, ariaLabel, type = 'button' } = Astro.props;
 ---
 
-<button id={id} aria-label={ariaLabel}>
+<button id={id} class:list={[className]} aria-label={ariaLabel} type={type}>
   <slot />
 </button>
 
-<style>
+<style lang="scss">
   button {
-    cursor: pointer;
+    display: flex;
     position: relative;
     background: transparent;
     padding: 4px;
     border-radius: 5px;
     border: 1px solid var(--black);
     box-shadow: 2px 2px var(--black);
-  }
 
-  button:active {
-    box-shadow: 1px 1px var(--black);
-    translate: 1px 1px;
+    &:active {
+      box-shadow: 1px 1px var(--black);
+      translate: 1px 1px;
+    }
   }
 </style>

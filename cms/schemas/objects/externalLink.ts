@@ -29,4 +29,17 @@ export const externalLink = defineType({
       initialValue: true,
     }),
   ],
+  preview: {
+    select: {
+      href: 'href',
+      label: 'label',
+      blank: 'blank',
+    },
+    prepare({ href, label, blank }) {
+      return {
+        title: label || href,
+        subtitle: `External link${blank ? ' - new tab' : ''}`,
+      };
+    },
+  },
 });

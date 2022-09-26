@@ -1,19 +1,27 @@
 ---
+import Link from 'components/Link.astro';
 import Logo from 'components/Logo.astro';
 import Menu from 'components/Menu.astro';
 ---
 
 <header>
-  <Logo />
+  <Link href="/" className="logo-link">
+    <Logo />
+  </Link>
   <Menu />
 </header>
 
-<style>
+<style lang="scss">
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: var(--header-height);
     padding: 0 2rem;
+    background-color: var(--kodio-yellow);
+
+    .logo-link {
+      text-decoration: none;
+    }
   }
 </style>

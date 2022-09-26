@@ -16,4 +16,12 @@ module.exports = {
       },
     },
   ],
+  rules: {
+    'jsx-a11y/no-redundant-roles': [
+      'error',
+      {
+        ul: ['list'],
+      },
+    ],
+  },
 };

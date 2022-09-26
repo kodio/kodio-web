@@ -2,42 +2,59 @@
 import Accordion from 'components/Accordion.astro';
 import AccordionItem from 'components/AccordionItem.astro';
 import Link from 'components/Link.astro';
-import Layout from 'layouts/Layout.astro';
+import BaseLayout from 'layouts/BaseLayout.astro';
+import SectionLayout from 'layouts/SectionLayout.astro';
 import { getPages } from 'lib/sanity';
 
 const pages = await getPages();
 ---
 
-<Layout>
-  <Accordion>
-    <AccordionItem header="First item">
-      <p>Paragraph</p>
-      <Link href="/">Link</Link>
-    </AccordionItem>
-    <AccordionItem header="Second item">
-      <p>Paragraph</p>
-      <Link href="/">Link</Link>
-    </AccordionItem>
-    <AccordionItem header="Color palette">
-      <h4>Click to change background color</h4>
-      <div class="color-palette">
-        <button class="yellow"></button>
-        <button class="dark"></button>
-        <button class="purple"></button>
-        <button class="orange"></button>
-      </div>
-    </AccordionItem>
-  </Accordion>
-  <ul>
-    {
-      pages?.map(({ title, slug }) => (
-        <li>
-          <Link href={`/${slug.current}`}>{title}</Link>
-        </li>
-      ))
-    }
-  </ul>
-</Layout>
+<BaseLayout>
+  <SectionLayout color="var(--kodio-yellow)">
+    <Accordion>
+      <AccordionItem header="First item">
+        <p>Paragraph</p>
+        <Link href="/">Link</Link>
+      </AccordionItem>
+      <AccordionItem header="Second item">
+        <p>Paragraph</p>
+        <Link href="/">Link</Link>
+      </AccordionItem>
+      <AccordionItem header="Color palette">
+        <h4>Click to change background color</h4>
+        <div class="color-palette">
+          <button class="yellow"></button>
+          <button class="dark"></button>
+          <button class="purple"></button>
+          <button class="orange"></button>
+        </div>
+      </AccordionItem>
+    </Accordion>
+  </SectionLayout>
+  <SectionLayout color="var(--white)">
+    <Accordion>
+      <AccordionItem header="First item">
+        <p>Paragraph</p>
+        <Link href="/">Link</Link>
+      </AccordionItem>
+      <AccordionItem header="Second item">
+        <p>Paragraph</p>
+        <Link href="/">Link</Link>
+      </AccordionItem>
+    </Accordion>
+  </SectionLayout>
+  <SectionLayout color="var(--kodio-purple)">
+    <ul>
+      {
+        pages?.map(({ title, slug }) => (
+          <li>
+            <Link href={`/${slug.current}`}>{title}</Link>
+          </li>
+        ))
+      }
+    </ul>
+  </SectionLayout>
+</BaseLayout>
 
 <style lang="scss">
   .color-palette {
@@ -45,7 +62,7 @@ const pages = await getPages();
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 
-    @media (min-width: 768px) {
+    @media (min-width: $width-m) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
@@ -77,28 +94,38 @@ const pages = await getPages();
   }
 </style>
 <script>
+  const sections = [...document.querySelectorAll<HTMLDivElement>('section')];
+  const header = document.querySelector<HTMLDivElement>('header');
   const yellowButton = document.querySelector<HTMLButtonElement>('button.yellow');
   const darkButton = document.querySelector<HTMLButtonElement>('button.dark');
   const purpleButton = document.querySelector<HTMLButtonElement>('button.purple');
   const orangeButton = document.querySelector<HTMLButtonElement>('button.orange');
 
+  function setTheme(backgroundColor: string, color: string) {
+    if (!header) return;
+
+    header.style.backgroundColor = backgroundColor;
+    header.style.color = color;
+
+    sections.forEach((section) => {
+      section.style.backgroundColor = backgroundColor;
+      section.style.color = color;
+    });
+  }
+
   yellowButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = 'var(--kodio-yellow)';
-    document.body.style.color = '';
+    setTheme('var(--kodio-yellow)', '');
   });
 
   darkButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = 'var(--kodio-dark)';
-    document.body.style.color = 'var(--white)';
+    setTheme('var(--kodio-dark)', 'var(--white)');
   });
 
   purpleButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = 'var(--kodio-purple)';
-    document.body.style.color = '';
+    setTheme('var(--kodio-purple)', '');
   });
 
   orangeButton?.addEventListener('click', () => {
-    document.body.style.backgroundColor = 'var(--kodio-orange)';
-    document.body.style.color = '';
+    setTheme('var(--kodio-orange)', '');
   });
 </script>
