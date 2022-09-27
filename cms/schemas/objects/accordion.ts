@@ -13,6 +13,7 @@ export const accordion = defineType({
       title: 'Items',
       type: 'array',
       of: [{ type: 'accordionItem' }],
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
@@ -39,11 +40,13 @@ export const accordionItem = defineType({
       name: 'header',
       title: 'Header',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {

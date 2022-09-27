@@ -1,6 +1,6 @@
 import PicoSanity from 'picosanity';
 import groq from 'groq';
-import type { FooterConfig, MenuConfig, Page } from 'types/sanity';
+import type { FooterConfig, LandingPage, MenuConfig, Page } from 'types/sanity';
 
 const sanityConfig = {
   projectId: '7veh4wq9',
@@ -10,6 +10,10 @@ const sanityConfig = {
 };
 
 const client = new PicoSanity(sanityConfig);
+
+export function getLandingPage() {
+  return client.fetch<LandingPage>(landingPageQuery);
+}
 
 export function getPages() {
   return client.fetch<Page[] | null>(pageQuery);
@@ -23,10 +27,7 @@ export function getFooterConfig() {
   return client.fetch<FooterConfig | null>(footerConfigQuery);
 }
 
-const pageQuery = groq`
-*[_type == "page"] {
-  title,
-  slug,
+const sectionsQuery = groq`
   sections[] {
     ...,
     content[] {
@@ -54,6 +55,19 @@ const pageQuery = groq`
       }
     }
   }
+`;
+
+const landingPageQuery = groq`
+*[_type == "landingPage"][0] {
+  ${sectionsQuery}
+}
+`;
+
+const pageQuery = groq`
+*[_type == "page"] {
+  title,
+  slug,
+  ${sectionsQuery}
 }
 `;
 

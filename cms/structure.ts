@@ -1,4 +1,4 @@
-import { FiCompass, FiTool } from 'react-icons/fi';
+import { FiCompass, FiHome, FiTool } from 'react-icons/fi';
 import type { ConfigContext, StructureBuilder } from 'sanity/desk';
 
 export const structure = (S: StructureBuilder, context: ConfigContext) =>
@@ -23,11 +23,11 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
             ])
         ),
       S.divider(),
-      //   S.listItem()
-      //     .title('Landing page')
-      //     .icon(FiHome)
-      //     .child(
-      //       S.document().title('Landing page').schemaType('landingPage').documentId('landingPage')
-      //     ),
+      S.listItem()
+        .title('Landing page')
+        .icon(FiHome)
+        .child(
+          S.document().title('Landing page').schemaType('landingPage').documentId('landingPage')
+        ),
       S.documentTypeListItem('page').title('Pages'),
     ]);

@@ -31,6 +31,10 @@ export interface InternalLink {
   label?: string;
 }
 
+export interface LandingPage {
+  sections?: Section[];
+}
+
 export interface MenuConfig {
   links: (InternalLink | ExternalLink)[];
 }

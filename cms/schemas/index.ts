@@ -1,4 +1,5 @@
 import { footerConfig } from './documents/footerConfig';
+import { landingPage } from './documents/landingPage';
 import { menuConfig } from './documents/menuConfig';
 import { page } from './documents/page';
 import { accordion, accordionItem } from './objects/accordion';
@@ -11,6 +12,7 @@ import { section } from './objects/section';
 export const schemaTypes = [
   /* documents */
   footerConfig,
+  landingPage,
   menuConfig,
   page,
 

@@ -25,12 +25,14 @@ export const section = defineType({
         layout: 'radio',
       },
       initialValue: 'white',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'content',
       title: 'Content',
       type: 'array',
       of: [{ type: 'accordion' }, { type: 'article' }],
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
