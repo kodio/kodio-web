@@ -7,7 +7,7 @@ const { color } = Astro.props;
 ---
 
 <section>
-  <div class="content-wrapper">
+  <div>
     <slot />
   </div>
 </section>
@@ -25,7 +25,7 @@ const { color } = Astro.props;
       margin-bottom: 0;
     }
 
-    .content-wrapper {
+    > div {
       margin: auto;
       padding: var(--content-padding);
       max-width: calc(var(--content-max-width) + var(--content-padding) * 2);

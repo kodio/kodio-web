@@ -1,0 +1,19 @@
+---
+import Accordion from 'components/Accordion.astro';
+import AccordionItem from 'components/AccordionItem.astro';
+import BlockContent from 'components/sanity/BlockContent.astro';
+import type { Props } from 'astro-portabletext';
+import type { Accordion as AccordionType } from 'types/sanity';
+
+const { node, astroClass } = Astro.props as Props<AccordionType>;
+---
+
+<Accordion className={astroClass}>
+  {
+    node.items?.map((item) => (
+      <AccordionItem header={item.header ?? ''}>
+        <BlockContent value={item.body} />
+      </AccordionItem>
+    ))
+  }
+</Accordion>

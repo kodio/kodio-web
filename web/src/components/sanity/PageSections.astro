@@ -1,0 +1,29 @@
+---
+import { PortableText } from 'astro-portabletext';
+import SectionLayout from 'layouts/SectionLayout.astro';
+import AccordionBlock from './blocks/AccordionBlock.astro';
+import ArticleBlock from './blocks/ArticleBlock.astro';
+import type { Section } from 'types/sanity';
+
+export interface Props {
+  sections?: Section[] | undefined;
+}
+
+const { sections } = Astro.props;
+---
+
+{
+  sections?.map((section) => (
+    <SectionLayout color={`var(--${section.color})`}>
+      <PortableText
+        value={section.content}
+        components={{
+          type: {
+            accordion: AccordionBlock,
+            article: ArticleBlock,
+          },
+        }}
+      />
+    </SectionLayout>
+  ))
+}

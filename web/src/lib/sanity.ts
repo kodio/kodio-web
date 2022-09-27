@@ -27,12 +27,30 @@ const pageQuery = groq`
 *[_type == "page"] {
   title,
   slug,
-  content[] {
+  sections[] {
     ...,
-    markDefs[] {
+    content[] {
       ...,
-      _type == "blockContentInternalLink" => {
-        "slug": @.reference->slug
+      body[] {
+        ...,
+        markDefs[] {
+          ...,
+          _type == "blockContentInternalLink" => {
+            "slug": @.reference->slug
+          }
+        }
+      },
+      items[] {
+        ...,
+        body[] {
+          ...,
+          markDefs[] {
+            ...,
+            _type == "blockContentInternalLink" => {
+              "slug": @.reference->slug
+            }
+          }
+        }
       }
     }
   }

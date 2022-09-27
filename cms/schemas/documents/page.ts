@@ -1,9 +1,11 @@
+import { FiFileText } from 'react-icons/fi';
 import { defineField, defineType } from 'sanity';
 
 export const page = defineType({
   name: 'page',
   title: 'Page',
   type: 'document',
+  icon: FiFileText,
   fields: [
     defineField({
       name: 'title',
@@ -19,9 +21,10 @@ export const page = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'content',
-      title: 'Content',
-      type: 'blockContent',
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [{ type: 'section' }],
     }),
   ],
 });

@@ -29,6 +29,7 @@ export const internalLink = defineType({
       return {
         title: label,
         subtitle: `Internal link - ${to}`,
+        media: InternalLinkIcon,
       };
     },
   },

@@ -1,9 +1,11 @@
+import { FiCompass } from 'react-icons/fi';
 import { defineField, defineType } from 'sanity';
 
 export const menuConfig = defineType({
   name: 'menuConfig',
   title: 'Menu config',
   type: 'document',
+  icon: FiCompass,
   fields: [
     defineField({
       name: 'links',

@@ -39,6 +39,7 @@ export const externalLink = defineType({
       return {
         title: label || href,
         subtitle: `External link${blank ? ' - new tab' : ''}`,
+        media: ExternalLinkIcon,
       };
     },
   },

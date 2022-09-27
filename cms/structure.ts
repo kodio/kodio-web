@@ -1,4 +1,4 @@
-import { GrConfigure, GrNavigate } from 'react-icons/gr';
+import { FiCompass, FiTool } from 'react-icons/fi';
 import type { ConfigContext, StructureBuilder } from 'sanity/desk';
 
 export const structure = (S: StructureBuilder, context: ConfigContext) =>
@@ -7,25 +7,25 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
     .items([
       S.listItem()
         .title('Config')
-        .icon(GrConfigure)
+        .icon(FiTool)
         .child(
           S.list()
             .title('Config')
             .items([
               S.listItem()
                 .title('Menu config')
-                .icon(GrNavigate)
+                .icon(FiCompass)
                 .child(S.document().schemaType('menuConfig').documentId('menuConfig')),
               S.listItem()
                 .title('Footer config')
-                .icon(GrNavigate)
+                .icon(FiCompass)
                 .child(S.document().schemaType('footerConfig').documentId('footerConfig')),
             ])
         ),
       S.divider(),
       //   S.listItem()
       //     .title('Landing page')
-      //     .icon(GrHome)
+      //     .icon(FiHome)
       //     .child(
       //       S.document().title('Landing page').schemaType('landingPage').documentId('landingPage')
       //     ),

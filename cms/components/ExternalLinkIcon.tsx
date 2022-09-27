@@ -1,5 +1,1 @@
-import { FaExternalLinkAlt } from 'react-icons/fa';
-
-export default function ExternalLinkIcon() {
-  return <FaExternalLinkAlt />;
-}
+export { FiExternalLink as default } from 'react-icons/fi';

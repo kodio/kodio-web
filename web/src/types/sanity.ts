@@ -1,5 +1,19 @@
 import type { ArbitraryTypedObject } from '@portabletext/types';
 
+export interface Accordion {
+  items?: AccordionItem[];
+}
+
+export interface AccordionItem {
+  header?: string;
+  body?: ArbitraryTypedObject[];
+}
+
+export interface Article {
+  header?: string;
+  body?: ArbitraryTypedObject[];
+}
+
 export interface ExternalLink {
   _type: 'externalLink';
   blank?: boolean;
@@ -24,8 +38,16 @@ export interface MenuConfig {
 export interface Page {
   title: string;
   slug: Slug;
-  content?: ArbitraryTypedObject[];
+  sections?: Section[];
 }
+
+export interface Section {
+  _type: 'section';
+  color: string;
+  content?: SectionContent[];
+}
+
+type SectionContent = Accordion | Article;
 
 export interface Slug {
   _type: 'slug';

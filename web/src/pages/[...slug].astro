@@ -1,32 +1,28 @@
 ---
-import type { ArbitraryTypedObject } from '@portabletext/types';
-import BlockContent from 'components/sanity/BlockContent.astro';
+import PageSections from 'components/sanity/PageSections.astro';
 import BaseLayout from 'layouts/BaseLayout.astro';
-import SectionLayout from 'layouts/SectionLayout.astro';
 import { getPages } from 'lib/sanity';
+import type { Section } from 'types/sanity';
 
 export async function getStaticPaths() {
   const pages = await getPages();
 
   return (
-    pages?.map(({ slug, title, content }) => ({
+    pages?.map(({ slug, title, sections }) => ({
       params: { slug: slug.current },
-      props: { title, content },
+      props: { title, sections },
     })) || []
   );
 }
 
 export interface Props {
   title: string;
-  content?: ArbitraryTypedObject[];
+  sections?: Section[];
 }
 
-const { title, content } = Astro.props;
+const { title, sections } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <SectionLayout color="var(--white)">
-    <h1>{title}</h1>
-    <BlockContent value={content} />
-  </SectionLayout>
+  <PageSections sections={sections} />
 </BaseLayout>

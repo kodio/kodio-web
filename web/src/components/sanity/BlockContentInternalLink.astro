@@ -1,7 +1,7 @@
 ---
+import Link from 'components/Link.astro';
 import type { Mark, Props } from 'astro-portabletext';
 import type { Slug } from 'types/sanity';
-import Link from 'components/Link.astro';
 
 const { node, astroClass = '' } = Astro.props as Props<Mark<{ slug: Slug }>>;
 

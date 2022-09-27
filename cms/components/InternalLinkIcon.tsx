@@ -1,5 +1,1 @@
-import { FaLink } from 'react-icons/fa';
-
-export default function InternalLinkIcon() {
-  return <FaLink />;
-}
+export { FiLink as default } from 'react-icons/fi';

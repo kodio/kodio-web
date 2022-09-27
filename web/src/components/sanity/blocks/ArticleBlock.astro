@@ -1,0 +1,11 @@
+---
+import BlockContent from 'components/sanity/BlockContent.astro';
+import type { Props } from 'astro-portabletext';
+import type { Article } from 'types/sanity';
+
+const { node, astroClass } = Astro.props as Props<Article>;
+---
+
+<div class={astroClass}>
+  <BlockContent value={node.body} />
+</div>
