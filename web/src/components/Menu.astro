@@ -1,8 +1,8 @@
 ---
 import Button from 'components/Button.astro';
+import FullScreenModal from 'components/FullScreenModal.astro';
 import Link from 'components/Link.astro';
 import Logo from 'components/Logo.astro';
-import Modal from 'components/Modal.astro';
 import SanityLink from 'components/sanity/SanityLink.astro';
 import { getMenuConfig } from 'lib/sanity';
 
@@ -38,7 +38,7 @@ const menuConfig = await getMenuConfig();
     <line x1="4" y1="18" x2="20" y2="18"></line>
   </svg>
 </Button>
-<Modal id="menu" label="Meny" openButtonId="menu-open" closeButtonId="menu-close">
+<FullScreenModal id="menu" label="Meny" openButtonId="menu-open" closeButtonId="menu-close">
   <div class="menu-header">
     <Link href="/" className="logo-link">
       <Logo />
@@ -70,7 +70,7 @@ const menuConfig = await getMenuConfig();
       ))
     }
   </ul>
-</Modal>
+</FullScreenModal>
 
 <style lang="scss">
   .logo-link {

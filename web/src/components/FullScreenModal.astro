@@ -1,0 +1,94 @@
+---
+export interface Props {
+  id: string;
+  label: string;
+  openButtonId: string;
+  closeButtonId: string;
+}
+
+const { id, label, openButtonId, closeButtonId } = Astro.props;
+---
+
+<div id={id} class="fullscreen-modal" role="dialog" aria-label={label}>
+  <slot />
+</div>
+
+<script define:vars={{ id, openButtonId, closeButtonId }}>
+  const body = document.querySelector('body');
+  const modal = document.getElementById(id);
+  const openModalButton = document.getElementById(openButtonId);
+  const closeModalButton = modal.querySelector(`#${closeButtonId}`);
+
+  function getKeyboardFocusableElements(element) {
+    return [
+      ...element.querySelectorAll(
+        'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+      ),
+    ].filter((el) => !el.hasAttribute('disabled'));
+  }
+
+  function trapFocus(event) {
+    const focusables = getKeyboardFocusableElements(modal);
+    const firstFocusable = focusables[0];
+    const lastFocusable = focusables[focusables.length - 1];
+
+    if (document.activeElement === lastFocusable && event.key === 'Tab' && !event.shiftKey) {
+      event.preventDefault();
+      firstFocusable.focus();
+    }
+
+    if (document.activeElement === firstFocusable && event.key === 'Tab' && event.shiftKey) {
+      event.preventDefault();
+      lastFocusable.focus();
+    }
+  }
+
+  function closeOnEsc(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  }
+
+  function openModal() {
+    const firstFocusable = getKeyboardFocusableElements(modal)[0];
+
+    modal.classList.add('show');
+    body.classList.add('fullscreen-modal-is-active');
+    firstFocusable.focus();
+    document.addEventListener('keydown', trapFocus);
+    modal.addEventListener('keydown', closeOnEsc);
+  }
+
+  function closeModal() {
+    modal.classList.remove('show');
+    body.classList.remove('fullscreen-modal-is-active');
+    openModalButton.focus({ preventScroll: true });
+    document.removeEventListener('keydown', trapFocus);
+    modal.removeEventListener('keydown', closeOnEsc);
+  }
+
+  openModalButton.addEventListener('click', openModal);
+  closeModalButton.addEventListener('click', closeModal);
+</script>
+
+<style lang="scss">
+  body.fullscreen-modal-is-active {
+    overflow: hidden;
+  }
+
+  .fullscreen-modal {
+    position: fixed;
+    inset: 0;
+    background-color: var(--kodio-purple);
+    z-index: 1;
+    visibility: hidden;
+    translate: 100%;
+    transition: visibility 0s ease-in-out 0.3s, translate 0.3s ease-in-out;
+
+    &.show {
+      transition-delay: 0s;
+      translate: none;
+      visibility: visible;
+    }
+  }
+</style>
