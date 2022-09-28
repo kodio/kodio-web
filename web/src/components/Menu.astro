@@ -86,11 +86,16 @@ const menuConfig = await getMenuConfig();
 
   nav > ul {
     display: none;
-    gap: 1.5rem;
     list-style: none;
+    font-size: 120%;
+    font-weight: bold;
 
     @media (min-width: $width-m) {
       display: flex;
+    }
+
+    li {
+      padding: 2rem;
     }
   }
 

@@ -15,17 +15,6 @@ const { id, className, ariaLabel, type = 'button' } = Astro.props;
 
 <style lang="scss">
   button {
-    display: flex;
-    position: relative;
-    background: transparent;
-    padding: 4px;
-    border-radius: 5px;
-    border: 1px solid var(--black);
-    box-shadow: 2px 2px var(--black);
-
-    &:active {
-      box-shadow: 1px 1px var(--black);
-      translate: 1px 1px;
-    }
+    @include button(transparent);
   }
 </style>

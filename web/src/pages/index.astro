@@ -1,95 +1,13 @@
 ---
+import PageHeader from 'components/PageHeader.astro';
 import PageSections from 'components/sanity/PageSections.astro';
 import BaseLayout from 'layouts/BaseLayout.astro';
-import SectionLayout from 'layouts/SectionLayout.astro';
 import { getLandingPage } from 'lib/sanity';
 
 const landingPage = await getLandingPage();
 ---
 
-<BaseLayout>
-  <SectionLayout color="var(--kodio-yellow)">
-    <h1>Click to change background color</h1>
-    <div class="color-palette">
-      <button class="yellow"></button>
-      <button class="dark"></button>
-      <button class="purple"></button>
-      <button class="orange"></button>
-    </div>
-  </SectionLayout>
+<BaseLayout headerColor={landingPage.header.color}>
+  <PageHeader header={landingPage.header} />
   <PageSections sections={landingPage.sections} />
 </BaseLayout>
-
-<style lang="scss">
-  h1 {
-    margin-bottom: 1rem;
-  }
-
-  .color-palette {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-
-    @media (min-width: $width-m) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    button {
-      aspect-ratio: 1;
-      border: 1px solid var(--white);
-      cursor: pointer;
-    }
-
-    .yellow {
-      background-color: var(--kodio-yellow);
-    }
-
-    .dark {
-      background-color: var(--kodio-dark);
-    }
-
-    .purple {
-      background-color: var(--kodio-purple);
-    }
-
-    .orange {
-      background-color: var(--kodio-orange);
-    }
-  }
-</style>
-<script>
-  const sections = [...document.querySelectorAll<HTMLDivElement>('section')];
-  const header = document.querySelector<HTMLDivElement>('header');
-  const yellowButton = document.querySelector<HTMLButtonElement>('button.yellow');
-  const darkButton = document.querySelector<HTMLButtonElement>('button.dark');
-  const purpleButton = document.querySelector<HTMLButtonElement>('button.purple');
-  const orangeButton = document.querySelector<HTMLButtonElement>('button.orange');
-
-  function setTheme(backgroundColor: string, color: string) {
-    if (!header) return;
-
-    header.style.backgroundColor = backgroundColor;
-    header.style.color = color;
-
-    sections.forEach((section) => {
-      section.style.setProperty('--color', backgroundColor);
-      section.style.color = color;
-    });
-  }
-
-  yellowButton?.addEventListener('click', () => {
-    setTheme('var(--kodio-yellow)', '');
-  });
-
-  darkButton?.addEventListener('click', () => {
-    setTheme('var(--kodio-dark)', 'var(--white)');
-  });
-
-  purpleButton?.addEventListener('click', () => {
-    setTheme('var(--kodio-purple)', '');
-  });
-
-  orangeButton?.addEventListener('click', () => {
-    setTheme('var(--kodio-orange)', '');
-  });
-</script>

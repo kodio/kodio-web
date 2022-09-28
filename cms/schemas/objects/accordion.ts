@@ -9,8 +9,8 @@ export const accordion = defineType({
   icon: AccordionIcon,
   fields: [
     defineField({
-      name: 'items',
-      title: 'Items',
+      name: 'accordionItems',
+      title: 'Accordion items',
       type: 'array',
       of: [{ type: 'accordionItem' }],
       validation: (Rule) => Rule.required(),
@@ -18,7 +18,7 @@ export const accordion = defineType({
   ],
   preview: {
     select: {
-      items: 'items',
+      items: 'accordionItems',
     },
     prepare({ items }) {
       return {
@@ -37,8 +37,8 @@ export const accordionItem = defineType({
   icon: AccordionItemIcon,
   fields: [
     defineField({
-      name: 'header',
-      title: 'Header',
+      name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
@@ -51,11 +51,11 @@ export const accordionItem = defineType({
   ],
   preview: {
     select: {
-      header: 'header',
+      title: 'title',
     },
-    prepare({ header }) {
+    prepare({ title }) {
       return {
-        title: header,
+        title: title,
         media: AccordionItemIcon,
       };
     },

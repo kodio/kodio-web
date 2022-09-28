@@ -1,6 +1,7 @@
+import imageUrlBuilder from '@sanity/image-url';
 import PicoSanity from 'picosanity';
 import groq from 'groq';
-import type { FooterConfig, LandingPage, MenuConfig, Page } from 'types/sanity';
+import type { FooterConfig, ImageObj, LandingPage, MenuConfig, Page } from 'types/sanity';
 
 const sanityConfig = {
   projectId: '7veh4wq9',
@@ -9,7 +10,12 @@ const sanityConfig = {
   apiVersion: '2022-09-06',
 };
 
+const imageBuilder = imageUrlBuilder(sanityConfig);
 const client = new PicoSanity(sanityConfig);
+
+export function urlFor(image: ImageObj) {
+  return imageBuilder.image(image);
+}
 
 export function getLandingPage() {
   return client.fetch<LandingPage>(landingPageQuery);
@@ -41,7 +47,7 @@ const sectionsQuery = groq`
           }
         }
       },
-      items[] {
+      accordionItems[] {
         ...,
         body[] {
           ...,
@@ -59,6 +65,15 @@ const sectionsQuery = groq`
 
 const landingPageQuery = groq`
 *[_type == "landingPage"][0] {
+  header {
+    ...,
+    links[] {
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
+    }
+  },
   ${sectionsQuery}
 }
 `;
@@ -67,6 +82,15 @@ const pageQuery = groq`
 *[_type == "page"] {
   title,
   slug,
+  header {
+    ...,
+    links[] {
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
+    }
+  },
   ${sectionsQuery}
 }
 `;

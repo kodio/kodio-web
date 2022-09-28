@@ -10,8 +10,8 @@ const { node, astroClass } = Astro.props as Props<AccordionType>;
 
 <Accordion className={astroClass}>
   {
-    node.items?.map((item) => (
-      <AccordionItem header={item.header ?? ''}>
+    node.accordionItems?.map((item) => (
+      <AccordionItem title={item.title ?? ''}>
         <BlockContent value={item.body} />
       </AccordionItem>
     ))

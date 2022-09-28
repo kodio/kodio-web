@@ -21,6 +21,12 @@ export const page = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'header',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',

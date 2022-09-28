@@ -4,6 +4,9 @@ export interface Props {
 }
 
 const { color } = Astro.props;
+
+const backgroundColor = `var(--${color})`;
+const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--black)';
 ---
 
 <section>
@@ -12,13 +15,14 @@ const { color } = Astro.props;
   </div>
 </section>
 
-<style lang="scss" define:vars={{ color }}>
+<style lang="scss" define:vars={{ backgroundColor, textColor }}>
   section {
     position: relative;
-    background-color: var(--color);
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
 
     &:not(:first-child) {
-      @include section-inverted-corner(var(--color));
+      @include section-inverted-corner(var(--backgroundColor));
     }
 
     :global(:last-child) {

@@ -1,11 +1,11 @@
 import type { ArbitraryTypedObject } from '@portabletext/types';
 
 export interface Accordion {
-  items?: AccordionItem[];
+  accordionItems?: AccordionItem[];
 }
 
 export interface AccordionItem {
-  header?: string;
+  title?: string;
   body?: ArbitraryTypedObject[];
 }
 
@@ -25,6 +25,21 @@ export interface FooterConfig {
   links: (InternalLink | ExternalLink)[];
 }
 
+export interface Header {
+  color: string;
+  heading: string;
+  links?: (InternalLink | ExternalLink)[];
+  image?: ImageObj;
+}
+
+export interface ImageObj {
+  _type: 'imageObj';
+  asset?: {
+    _ref?: string;
+  };
+  alt?: string;
+}
+
 export interface InternalLink {
   _type: 'internalLink';
   slug: Slug;
@@ -32,6 +47,7 @@ export interface InternalLink {
 }
 
 export interface LandingPage {
+  header: Header;
   sections?: Section[];
 }
 
@@ -42,6 +58,7 @@ export interface MenuConfig {
 export interface Page {
   title: string;
   slug: Slug;
+  header: Header;
   sections?: Section[];
 }
 

@@ -2,6 +2,15 @@
 import Link from 'components/Link.astro';
 import Logo from 'components/Logo.astro';
 import Menu from 'components/Menu.astro';
+
+export interface Props {
+  color: string;
+}
+
+const { color } = Astro.props;
+
+const backgroundColor = `var(--${color})`;
+const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--kodio-dark)';
 ---
 
 <header>
@@ -11,14 +20,15 @@ import Menu from 'components/Menu.astro';
   <Menu />
 </header>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ backgroundColor, textColor }}>
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: var(--header-height);
-    padding: 0 2rem;
-    background-color: var(--kodio-yellow);
+    padding: 0 3rem;
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
 
     .logo-link {
       text-decoration: none;

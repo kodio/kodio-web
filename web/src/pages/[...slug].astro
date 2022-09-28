@@ -1,28 +1,31 @@
 ---
+import PageHeader from 'components/PageHeader.astro';
 import PageSections from 'components/sanity/PageSections.astro';
 import BaseLayout from 'layouts/BaseLayout.astro';
 import { getPages } from 'lib/sanity';
-import type { Section } from 'types/sanity';
+import type { Header, Section } from 'types/sanity';
 
 export async function getStaticPaths() {
   const pages = await getPages();
 
   return (
-    pages?.map(({ slug, title, sections }) => ({
+    pages?.map(({ slug, title, header, sections }) => ({
       params: { slug: slug.current },
-      props: { title, sections },
+      props: { title, header, sections },
     })) || []
   );
 }
 
 export interface Props {
   title: string;
+  header: Header;
   sections?: Section[];
 }
 
-const { title, sections } = Astro.props;
+const { title, header, sections } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} headerColor={header.color}>
+  <PageHeader header={header} />
   <PageSections sections={sections} />
 </BaseLayout>

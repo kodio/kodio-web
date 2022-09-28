@@ -8,6 +8,12 @@ export const landingPage = defineType({
   icon: FiHome,
   fields: [
     defineField({
+      name: 'header',
+      title: 'Header',
+      type: 'header',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',

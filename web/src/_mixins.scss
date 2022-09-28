@@ -1,3 +1,20 @@
+@mixin button($color) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: $color;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid var(--black);
+  box-shadow: 4px 4px var(--black);
+
+  &:active {
+    box-shadow: 2px 2px var(--black);
+    translate: 2px 2px;
+  }
+}
+
 @mixin section-inverted-corner($color) {
   &::before,
   &::after {

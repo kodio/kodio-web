@@ -1,9 +1,9 @@
 ---
 export interface Props {
-  header: string;
+  title: string;
 }
 
-const { header } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <li class="accordion-item">
@@ -14,7 +14,7 @@ const { header } = Astro.props;
       aria-expanded="false"
       aria-controls="accordion-panel-1"
     >
-      {header}
+      {title}
       <svg
         class="accordion-toggle-indicator"
         aria-hidden="true"
@@ -90,7 +90,7 @@ const { header } = Astro.props;
   }
 
   .is-open {
-    box-shadow: 2px 2px var(--black);
+    box-shadow: 4px 4px var(--black);
 
     .accordion-toggle-indicator {
       rotate: 180deg;
