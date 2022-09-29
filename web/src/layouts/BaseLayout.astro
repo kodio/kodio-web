@@ -63,9 +63,21 @@ const { title, headerColor } = Astro.props;
       }
 
       *:focus-visible {
-        outline: var(--focus-color) solid 2px;
-        outline-offset: 4px;
+        outline: none;
+      }
+
+      body.tabbed *:focus-visible {
+        outline: none;
+        position: relative;
         border-radius: 4px;
+      }
+
+      body.tabbed *:focus-visible::before {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border: 2px solid var(--focus-color);
+        border-radius: 5px;
       }
 
       html,
@@ -83,6 +95,10 @@ const { title, headerColor } = Astro.props;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
+
+      a {
+        display: inline-block;
       }
 
       img,
@@ -136,3 +152,15 @@ const { title, headerColor } = Astro.props;
     </style>
   </body>
 </html>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      document.body.classList.add('tabbed');
+    }
+  });
+
+  document.addEventListener('mousedown', () => {
+    document.body.classList.remove('tabbed');
+  });
+</script>
