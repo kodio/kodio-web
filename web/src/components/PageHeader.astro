@@ -1,7 +1,7 @@
 ---
+import Image from 'components/Image.astro';
 import SanityLink from 'components/sanity/SanityLink.astro';
 import SectionLayout from 'layouts/SectionLayout.astro';
-import { urlFor } from 'lib/sanity';
 import type { Header } from 'types/sanity';
 
 export interface Props {
@@ -19,11 +19,7 @@ const link = header.links?.[0];
       <h1>{header.heading}</h1>
       {link && <SanityLink link={link} />}
     </div>
-    {
-      header.image && (
-        <img class="header-image" src={urlFor(header.image).url()} alt={header.image.alt ?? ''} />
-      )
-    }
+    {header.image && <Image image={header.image} />}
   </div>
 </SectionLayout>
 

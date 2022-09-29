@@ -1,0 +1,13 @@
+---
+import { urlFor } from 'lib/sanity';
+import type { ImageObj } from 'types/sanity';
+
+export interface Props {
+  image: ImageObj;
+  className?: string;
+}
+
+const { image, className } = Astro.props;
+---
+
+<img class={className} src={urlFor(image).url()} alt={image.alt ?? ''} loading="lazy" />
