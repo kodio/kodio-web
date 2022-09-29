@@ -25,7 +25,7 @@ const sharedConfig = createPlugin({
       },
     },
   },
-})
+});
 
 export default createConfig([
   {
@@ -35,7 +35,7 @@ export default createConfig([
     projectId: '7veh4wq9',
     dataset: 'production',
     basePath: '/prod',
-    plugins: [sharedConfig()]
+    plugins: [sharedConfig()],
   },
   {
     name: 'dev',
@@ -44,6 +44,6 @@ export default createConfig([
     projectId: '7veh4wq9',
     dataset: 'dev',
     basePath: '/dev',
-    plugins: [sharedConfig()]
-  }
-])
+    plugins: [sharedConfig()],
+  },
+]);

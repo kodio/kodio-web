@@ -1,6 +1,6 @@
 import type { ArbitraryTypedObject } from '@portabletext/types';
 
-export interface Accordion {
+export interface Accordion extends ArbitraryTypedObject {
   accordionItems?: AccordionItem[];
 }
 
@@ -9,7 +9,7 @@ export interface AccordionItem {
   body?: ArbitraryTypedObject[];
 }
 
-export interface Article {
+export interface Article extends ArbitraryTypedObject {
   header?: string;
   body?: ArbitraryTypedObject[];
 }

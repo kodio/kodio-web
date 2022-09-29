@@ -1,11 +1,13 @@
 ---
 import Link from 'components/Link.astro';
-import type { Mark, Props } from 'astro-portabletext';
+import type { Mark, Props as PortableTextProps } from 'astro-portabletext/types';
 import type { Slug } from 'types/sanity';
 
-const { node, astroClass = '' } = Astro.props as Props<Mark<{ slug: Slug }>>;
+export type Props = PortableTextProps<Mark<{ slug: Slug } | undefined>>;
 
-const href = `/${node.markDef.slug.current}`;
+const { node, astroClass = '' } = Astro.props;
+
+const href = `/${node.markDef?.slug.current ?? ''}`;
 ---
 
 <Link className={astroClass} href={href}><slot /></Link>
