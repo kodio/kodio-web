@@ -9,7 +9,9 @@
     "deploy": "sanity deploy",
     "lint": "eslint . --max-warnings 0",
     "prettier:check": "prettier -l .",
-    "verify": "npm run lint && npm run prettier:check"
+    "verify": "npm run lint && npm run prettier:check",
+    "sanity": "sanity",
+    "copy-dataset": "node scripts/copy-dataset.js"
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.3",

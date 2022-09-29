@@ -1,17 +1,13 @@
 import { visionTool } from '@sanity/vision';
-import { createConfig } from 'sanity';
+import { createConfig, createPlugin } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import Logo from './components/Logo';
 import { schemaTypes } from './schemas';
 import { structure } from './structure';
 
-export default createConfig({
-  name: 'default',
-  title: 'kodio-sanity-tmp',
-  logo: Logo,
-  projectId: '7veh4wq9',
-  dataset: 'production',
+const sharedConfig = createPlugin({
+  name: 'sharedConfig',
   plugins: [
     deskTool({
       structure,
@@ -29,4 +25,25 @@ export default createConfig({
       },
     },
   },
-});
+})
+
+export default createConfig([
+  {
+    name: 'prod',
+    title: 'Prod',
+    logo: Logo,
+    projectId: '7veh4wq9',
+    dataset: 'production',
+    basePath: '/prod',
+    plugins: [sharedConfig()]
+  },
+  {
+    name: 'dev',
+    title: 'Dev',
+    logo: Logo,
+    projectId: '7veh4wq9',
+    dataset: 'dev',
+    basePath: '/dev',
+    plugins: [sharedConfig()]
+  }
+])
