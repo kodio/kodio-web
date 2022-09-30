@@ -1,9 +1,10 @@
 ---
 import type { Mark, Props as PortableTextProps } from 'astro-portabletext/types';
+import type { BlockContentExternalLink } from 'types/sanity';
 
-export type Props = PortableTextProps<Mark<{ href: string; blank: boolean } | undefined>>;
+export type Props = PortableTextProps<Mark<BlockContentExternalLink | undefined>>;
 
-const { node, astroClass } = Astro.props;
+const { node, class: astroClass } = Astro.props;
 
 const href = node.markDef?.href ?? '';
 const target = node.markDef?.blank ? '_blank' : undefined;

@@ -7,10 +7,13 @@ export const color = defineType({
   options: {
     list: [
       { title: 'White', value: 'white' },
-      { title: 'Yellow', value: 'kodio-yellow' },
-      { title: 'Purple', value: 'kodio-purple' },
-      { title: 'Dark', value: 'kodio-dark' },
-      { title: 'Orange', value: 'kodio-orange' },
+      { title: 'Kodio yellow', value: 'kodio-yellow' },
+      { title: 'Kodio purple', value: 'kodio-purple' },
+      { title: 'Kodio dark', value: 'kodio-dark' },
+      { title: 'Kodio orange', value: 'kodio-orange' },
+      { title: 'Yellow', value: 'yellow' },
+      { title: 'Pale yellow', value: 'pale-yellow' },
+      { title: 'Transparent', value: 'transparent' },
     ],
   },
 });

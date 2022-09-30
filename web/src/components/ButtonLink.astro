@@ -1,0 +1,23 @@
+---
+import SanityLink from 'components/sanity/SanityLink.astro';
+import type { Link } from 'types/sanity';
+
+export interface Props {
+  link: Link;
+}
+
+const { link } = Astro.props;
+---
+
+<SanityLink className="button-link" link={link} />
+
+<style lang="scss">
+  .button-link {
+    @include button(var(--linkColor));
+    text-decoration: none;
+    justify-self: start;
+    padding: 0.5rem 2rem;
+    font-size: 150%;
+    font-weight: bolder;
+  }
+</style>

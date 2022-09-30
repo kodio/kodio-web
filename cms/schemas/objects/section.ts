@@ -20,7 +20,7 @@ export const section = defineType({
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'accordion' }, { type: 'article' }],
+      of: [{ type: 'accordion' }, { type: 'article' }, { type: 'banner' }],
       validation: (Rule) => Rule.required(),
     }),
   ],

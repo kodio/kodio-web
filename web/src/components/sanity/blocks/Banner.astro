@@ -1,0 +1,66 @@
+---
+import Image from 'components/Image.astro';
+import BlockContent from 'components/sanity/BlockContent.astro';
+import type { Props as PortableTextProps } from 'astro-portabletext/types';
+import type { Banner } from 'types/sanity';
+import ButtonLink from 'components/ButtonLink.astro';
+
+export type Props = PortableTextProps<Banner>;
+
+const { node, class: astroClass } = Astro.props;
+
+const link = node.links?.[0];
+
+const linkColor =
+  !node.linkColor || node.linkColor === 'transparent' ? 'transparent' : `var(--${node.linkColor})`;
+const imgColumns = node.textPosition === 'left' ? '2 / 3' : '1 / 2';
+const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
+---
+
+<div class:list={['banner', astroClass]}>
+  {node.image && <Image image={node.image} />}
+  <div>
+    <h2>{node.heading}</h2>
+    <BlockContent value={node.body} />
+    {link && <ButtonLink link={link} />}
+  </div>
+</div>
+
+<style lang="scss" define:vars={{ linkColor, imgColumns, textColumns }}>
+  .banner {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+
+    @media (min-width: $width-l) {
+      gap: 10rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    > div {
+      grid-column: 1 /-1;
+      @media (min-width: $width-l) {
+        margin: auto 0;
+        grid-column: var(--textColumns);
+      }
+    }
+
+    :global(img) {
+      border-radius: 10px;
+      grid-column: 1 /-1;
+      @media (min-width: $width-l) {
+        grid-column: var(--imgColumns);
+      }
+    }
+
+    :global(h2),
+    :global(p) {
+      margin-bottom: 2rem;
+    }
+
+    :global(a) {
+      background-color: var(--linkColor);
+      width: fit-content;
+    }
+  }
+</style>

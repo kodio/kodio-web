@@ -5,6 +5,7 @@ import { menuConfig } from './documents/menuConfig';
 import { page } from './documents/page';
 import { accordion, accordionItem } from './objects/accordion';
 import { article } from './objects/article';
+import { banner } from './objects/banner';
 import { blockContent } from './objects/blockContent';
 import { color } from './objects/color';
 import { externalLink } from './objects/externalLink';
@@ -27,6 +28,7 @@ export const schemaTypes = [
   accordion,
   accordionItem,
   article,
+  banner,
   blockContent,
   color,
   externalLink,

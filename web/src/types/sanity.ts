@@ -10,8 +10,25 @@ export interface AccordionItem {
 }
 
 export interface Article extends ArbitraryTypedObject {
-  header?: string;
   body?: ArbitraryTypedObject[];
+}
+
+export interface Banner extends ArbitraryTypedObject {
+  heading?: string;
+  body?: ArbitraryTypedObject[];
+  image?: ImageObj;
+  textPosition?: 'left' | 'right';
+  links?: Link[];
+  linkColor?: string;
+}
+
+export interface BlockContentExternalLink {
+  href: string;
+  blank: boolean;
+}
+
+export interface BlockContentInternalLink {
+  slug: Slug;
 }
 
 export interface DefaultMetadata {
@@ -32,13 +49,13 @@ export interface FooterConfig {
 
 export interface FooterConfigSection {
   heading?: string;
-  links: (InternalLink | ExternalLink)[];
+  links: Link[];
 }
 
 export interface Header {
   color: string;
   heading: string;
-  links?: (InternalLink | ExternalLink)[];
+  links?: Link[];
   image?: ImageObj;
 }
 
@@ -55,9 +72,11 @@ export interface ImageObj extends Image {
 
 export interface InternalLink {
   _type: 'internalLink';
-  slug: Slug;
+  slug?: Slug;
   label?: string;
 }
+
+export type Link = InternalLink | ExternalLink;
 
 export interface LandingPage {
   metadata?: PageMetadata;
@@ -66,7 +85,7 @@ export interface LandingPage {
 }
 
 export interface MenuConfig {
-  links: (InternalLink | ExternalLink)[];
+  links: Link[];
 }
 
 export interface Page {
@@ -88,7 +107,7 @@ export interface Section {
   content?: SectionContent[];
 }
 
-type SectionContent = Accordion | Article;
+type SectionContent = Accordion | Article | Banner;
 
 export interface Slug {
   _type: 'slug';

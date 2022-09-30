@@ -5,7 +5,7 @@ import type { Article } from 'types/sanity';
 
 export type Props = PortableTextProps<Article>;
 
-const { node, astroClass } = Astro.props;
+const { node, class: astroClass } = Astro.props;
 ---
 
 <div class={astroClass}>

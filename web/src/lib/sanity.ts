@@ -69,6 +69,12 @@ const sectionsQuery = groq`
             }
           }
         }
+      },
+      links[] {
+        ...,
+        _type == "internalLink" => {
+          "slug": @.reference->slug
+        }
       }
     }
   }

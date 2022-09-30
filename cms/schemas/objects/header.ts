@@ -19,7 +19,7 @@ export const header = defineType({
     }),
     defineField({
       name: 'links',
-      title: 'Links',
+      title: 'Link',
       type: 'array',
       of: [{ type: 'internalLink' }, { type: 'externalLink' }],
       validation: (Rule) => Rule.max(1),
