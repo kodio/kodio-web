@@ -80,16 +80,18 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
 
   .fullscreen-modal {
     position: fixed;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 100vw;
+    right: -100vw;
     background-color: var(--kodio-purple);
     z-index: 1;
     visibility: hidden;
-    translate: 100%;
     transition: visibility 0s ease-in-out 0.3s, translate 0.3s ease-in-out;
 
     &.show {
       transition-delay: 0s;
-      translate: none;
+      translate: -100%;
       visibility: visible;
     }
   }
