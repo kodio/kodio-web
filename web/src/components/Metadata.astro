@@ -1,0 +1,29 @@
+---
+import { urlFor } from 'lib/sanity';
+import type { Image } from 'types/sanity';
+
+export interface Props {
+  title?: string | undefined;
+  slug: string;
+  description: string;
+  image: Image;
+}
+
+const { title, slug, description, image } = Astro.props;
+
+const formattedTitle = title ? `${title} | Kodio` : 'Kodio';
+---
+
+<title>{formattedTitle}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content="#fffffb" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={formattedTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={urlFor(image).width(1000).format('png').url()} />
+<meta
+  property="og:url"
+  content={`${import.meta.env.SITE?.slice(0, -1)}${import.meta.env.BASE_URL}${slug}`}
+/>
+<meta property="og:site_name" content="Kodio" />
+<meta name="twitter:card" content="summary_large_image" />

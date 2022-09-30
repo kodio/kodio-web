@@ -6,13 +6,13 @@ import Logo from 'components/Logo.astro';
 import SanityLink from 'components/sanity/SanityLink.astro';
 import { getMenuConfig } from 'lib/sanity';
 
-const menuConfig = await getMenuConfig();
+const { links } = await getMenuConfig();
 ---
 
 <nav>
   <ul>
     {
-      menuConfig?.links.map((link) => (
+      links.map((link) => (
         <li>
           <SanityLink link={link} />
         </li>
@@ -63,7 +63,7 @@ const menuConfig = await getMenuConfig();
   </div>
   <ul class="modal-list">
     {
-      menuConfig?.links.map((link) => (
+      links.map((link) => (
         <li>
           <SanityLink link={link} />
         </li>

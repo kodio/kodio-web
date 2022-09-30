@@ -1,3 +1,4 @@
+import { defaultMetadata } from './documents/defaultMetadata';
 import { footerConfig, footerConfigSection } from './documents/footerConfig';
 import { landingPage } from './documents/landingPage';
 import { menuConfig } from './documents/menuConfig';
@@ -10,10 +11,12 @@ import { externalLink } from './objects/externalLink';
 import { header } from './objects/header';
 import { imageObj } from './objects/imageObj';
 import { internalLink } from './objects/internalLink';
+import { pageMetadata } from './objects/pageMetadata';
 import { section } from './objects/section';
 
 export const schemaTypes = [
   /* documents */
+  defaultMetadata,
   footerConfig,
   footerConfigSection,
   landingPage,
@@ -30,5 +33,6 @@ export const schemaTypes = [
   header,
   imageObj,
   internalLink,
+  pageMetadata,
   section,
 ];

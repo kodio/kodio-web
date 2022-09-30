@@ -14,6 +14,11 @@ export interface Article extends ArbitraryTypedObject {
   body?: ArbitraryTypedObject[];
 }
 
+export interface DefaultMetadata {
+  description: string;
+  image: Image;
+}
+
 export interface ExternalLink {
   _type: 'externalLink';
   blank?: boolean;
@@ -37,11 +42,14 @@ export interface Header {
   image?: ImageObj;
 }
 
-export interface ImageObj {
-  _type: 'imageObj';
+export interface Image {
   asset?: {
     _ref?: string;
   };
+}
+
+export interface ImageObj extends Image {
+  _type: 'imageObj';
   alt?: string;
 }
 
@@ -52,6 +60,7 @@ export interface InternalLink {
 }
 
 export interface LandingPage {
+  metadata?: PageMetadata;
   header: Header;
   sections?: Section[];
 }
@@ -63,8 +72,14 @@ export interface MenuConfig {
 export interface Page {
   title: string;
   slug: Slug;
+  metadata?: PageMetadata;
   header: Header;
   sections?: Section[];
+}
+
+export interface PageMetadata {
+  description?: string;
+  image?: Image;
 }
 
 export interface Section {

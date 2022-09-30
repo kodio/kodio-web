@@ -21,6 +21,13 @@ export const page = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'metadata',
+      title: 'Page metadata',
+      description: 'Will override the default metadata for this page',
+      type: 'pageMetadata',
+      options: { collapsible: true, collapsed: true },
+    }),
+    defineField({
       name: 'header',
       title: 'Header',
       type: 'header',

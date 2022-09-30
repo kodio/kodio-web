@@ -1,7 +1,14 @@
 import imageUrlBuilder from '@sanity/image-url';
 import PicoSanity from 'picosanity';
 import groq from 'groq';
-import type { FooterConfig, ImageObj, LandingPage, MenuConfig, Page } from 'types/sanity';
+import type {
+  DefaultMetadata,
+  FooterConfig,
+  Image,
+  LandingPage,
+  MenuConfig,
+  Page,
+} from 'types/sanity';
 
 const sanityConfig = {
   projectId: '7veh4wq9',
@@ -13,7 +20,7 @@ const sanityConfig = {
 const imageBuilder = imageUrlBuilder(sanityConfig);
 const client = new PicoSanity(sanityConfig);
 
-export function urlFor(image: ImageObj) {
+export function urlFor<T extends Image>(image: T) {
   return imageBuilder.image(image);
 }
 
@@ -22,15 +29,19 @@ export function getLandingPage() {
 }
 
 export function getPages() {
-  return client.fetch<Page[] | null>(pageQuery);
+  return client.fetch<Page[]>(pageQuery);
 }
 
 export function getMenuConfig() {
-  return client.fetch<MenuConfig | null>(menuConfigQuery);
+  return client.fetch<MenuConfig>(menuConfigQuery);
 }
 
 export function getFooterConfig() {
-  return client.fetch<FooterConfig | null>(footerConfigQuery);
+  return client.fetch<FooterConfig>(footerConfigQuery);
+}
+
+export function getDefaultMetadata() {
+  return client.fetch<DefaultMetadata>(defaultMetadataQuery);
 }
 
 const sectionsQuery = groq`
@@ -65,6 +76,7 @@ const sectionsQuery = groq`
 
 const landingPageQuery = groq`
 *[_type == "landingPage"][0] {
+  metadata,
   header {
     ...,
     links[] {
@@ -82,6 +94,7 @@ const pageQuery = groq`
 *[_type == "page"] {
   title,
   slug,
+  metadata,
   header {
     ...,
     links[] {
@@ -117,5 +130,12 @@ const footerConfigQuery = groq`
       }
     }
   }
+}
+`;
+
+const defaultMetadataQuery = groq`
+*[_type == "defaultMetadata"][0]{
+  description,
+  image
 }
 `;

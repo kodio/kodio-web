@@ -2,13 +2,20 @@
 import '@fontsource/lora';
 import Footer from 'components/Footer.astro';
 import Header from 'components/Header.astro';
+import Metadata from 'components/Metadata.astro';
+import { getDefaultMetadata } from 'lib/sanity';
+import type { PageMetadata } from 'types/sanity';
 
 export interface Props {
   title?: string;
+  slug: string;
+  pageMetadata?: PageMetadata | undefined;
   headerColor: string;
 }
 
-const { title, headerColor } = Astro.props;
+const { title, slug, pageMetadata, headerColor } = Astro.props;
+
+const defaultMetadata = await getDefaultMetadata();
 ---
 
 <!DOCTYPE html>
@@ -17,8 +24,12 @@ const { title, headerColor } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/kodio-web/favicon.png" />
-    <title>{title ? `${title} | Kodio` : 'Kodio'}</title>
-    <meta name="description" content="Kodio sin hjemmeside" />
+    <Metadata
+      title={title}
+      slug={slug}
+      description={pageMetadata?.description ?? defaultMetadata.description}
+      image={pageMetadata?.image ?? defaultMetadata.image}
+    />
   </head>
   <body>
     <Header color={headerColor} />

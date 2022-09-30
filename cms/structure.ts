@@ -1,4 +1,4 @@
-import { FiCompass, FiHome, FiTool } from 'react-icons/fi';
+import { FiCompass, FiHome, FiShare2, FiTool } from 'react-icons/fi';
 import type { ConfigContext, StructureBuilder } from 'sanity/desk';
 
 export const structure = (S: StructureBuilder, context: ConfigContext) =>
@@ -20,6 +20,10 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
                 .title('Footer config')
                 .icon(FiCompass)
                 .child(S.document().schemaType('footerConfig').documentId('footerConfig')),
+              S.listItem()
+                .title('Metadata')
+                .icon(FiShare2)
+                .child(S.document().schemaType('defaultMetadata').documentId('defaultMetadata')),
             ])
         ),
       S.divider(),

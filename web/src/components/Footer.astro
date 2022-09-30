@@ -3,7 +3,7 @@ import Logo from 'components/Logo.astro';
 import SanityLink from 'components/sanity/SanityLink.astro';
 import { getFooterConfig } from 'lib/sanity';
 
-const footerConfig = await getFooterConfig();
+const { sections } = await getFooterConfig();
 ---
 
 <footer>
@@ -11,7 +11,7 @@ const footerConfig = await getFooterConfig();
     <Logo />
     <div class="footer-sections">
       {
-        footerConfig?.sections.map(({ heading, links }) => (
+        sections.map(({ heading, links }) => (
           <div>
             {heading && <div class="footer-section-heading">{heading}</div>}
             <ul>

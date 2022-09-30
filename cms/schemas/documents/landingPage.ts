@@ -8,6 +8,13 @@ export const landingPage = defineType({
   icon: FiHome,
   fields: [
     defineField({
+      name: 'metadata',
+      title: 'Page metadata',
+      description: 'Will override the default metadata for this page',
+      type: 'pageMetadata',
+      options: { collapsible: true, collapsed: true },
+    }),
+    defineField({
       name: 'header',
       title: 'Header',
       type: 'header',
