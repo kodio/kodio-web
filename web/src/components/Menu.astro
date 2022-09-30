@@ -90,17 +90,14 @@ const { links } = await getMenuConfig();
     font-size: 120%;
     font-weight: bold;
 
-    @media (min-width: $width-m) {
+    @media (min-width: $width-l) {
       display: flex;
-    }
-
-    li {
-      padding: 2rem;
+      gap: 4rem;
     }
   }
 
   .menu-button {
-    @media (min-width: $width-m) {
+    @media (min-width: $width-l) {
       display: none;
     }
   }

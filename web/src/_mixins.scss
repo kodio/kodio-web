@@ -16,6 +16,8 @@
 }
 
 @mixin section-inverted-corner($color) {
+  position: relative;
+
   &::before,
   &::after {
     content: '';
