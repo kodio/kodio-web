@@ -7,37 +7,71 @@ const footerConfig = await getFooterConfig();
 ---
 
 <footer>
-  <Logo />
-  <ul>
-    {
-      footerConfig?.links.map((link) => (
-        <li>
-          <SanityLink link={link} />
-        </li>
-      ))
-    }
-  </ul>
+  <div class="footer-content">
+    <Logo />
+    <div class="footer-sections">
+      {
+        footerConfig?.sections.map(({ heading, links }) => (
+          <div>
+            {heading && <div class="footer-section-heading">{heading}</div>}
+            <ul>
+              {links.map((link) => (
+                <li>
+                  <SanityLink link={link} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </footer>
 
 <style lang="scss">
   footer {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem calc(var(--content-padding) - 1rem);
+    padding: 2rem var(--content-padding);
     background-color: var(--kodio-dark);
     color: var(--white);
 
-    @include section-inverted-corner(var(--kodio-dark));
-
-    @media (min-width: $width-l) {
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
+    @media (min-width: $width-m) {
+      padding: 2rem 3rem 10rem;
     }
 
-    :global(.logo) {
-      padding: 1rem;
+    @include section-inverted-corner(var(--kodio-dark));
+
+    .footer-content {
+      max-width: calc(var(--content-max-width) + var(--content-padding) * 2);
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+
+      @media (min-width: $width-l) {
+        justify-content: space-between;
+        flex-direction: row;
+      }
+    }
+
+    .footer-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @media (min-width: $width-l) {
+        gap: 9rem;
+        flex-direction: row;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer-section-heading {
+        font-size: 200%;
+      }
     }
 
     ul {
@@ -46,14 +80,10 @@ const footerConfig = await getFooterConfig();
       justify-content: center;
       list-style: none;
       font-size: 120%;
-
-      @media (min-width: $width-l) {
-        flex-direction: row;
-      }
+      margin-top: 1rem;
+      gap: 1rem;
 
       li {
-        padding: 1rem;
-
         :global(a) {
           text-decoration: none;
         }

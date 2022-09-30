@@ -108,10 +108,13 @@ const menuConfigQuery = groq`
 
 const footerConfigQuery = groq`
 *[_type == 'footerConfig'][0] {
-  links[] {
+  sections[] {
     ...,
-    _type == "internalLink" => {
-      "slug": @.reference->slug
+    links[] {
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
     }
   }
 }

@@ -22,6 +22,11 @@ export interface ExternalLink {
 }
 
 export interface FooterConfig {
+  sections: FooterConfigSection[];
+}
+
+export interface FooterConfigSection {
+  heading?: string;
   links: (InternalLink | ExternalLink)[];
 }
 

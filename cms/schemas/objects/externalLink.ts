@@ -8,6 +8,12 @@ export const externalLink = defineType({
   icon: ExternalLinkIcon,
   fields: [
     defineField({
+      name: 'label',
+      title: 'Label',
+      type: 'string',
+      description: 'The URL will be used as label if left blank',
+    }),
+    defineField({
       name: 'href',
       type: 'url',
       title: 'URL',
@@ -15,12 +21,6 @@ export const externalLink = defineType({
         Rule.required().uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
         }),
-    }),
-    defineField({
-      name: 'label',
-      title: 'Label',
-      type: 'string',
-      description: 'The URL will be used as label if left blank',
     }),
     defineField({
       name: 'blank',

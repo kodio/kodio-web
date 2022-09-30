@@ -1,4 +1,4 @@
-import { footerConfig } from './documents/footerConfig';
+import { footerConfig, footerConfigSection } from './documents/footerConfig';
 import { landingPage } from './documents/landingPage';
 import { menuConfig } from './documents/menuConfig';
 import { page } from './documents/page';
@@ -15,6 +15,7 @@ import { section } from './objects/section';
 export const schemaTypes = [
   /* documents */
   footerConfig,
+  footerConfigSection,
   landingPage,
   menuConfig,
   page,

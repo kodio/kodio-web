@@ -4,10 +4,10 @@ import PageSections from 'components/sanity/PageSections.astro';
 import BaseLayout from 'layouts/BaseLayout.astro';
 import { getLandingPage } from 'lib/sanity';
 
-const landingPage = await getLandingPage();
+const { header, sections } = await getLandingPage();
 ---
 
-<BaseLayout headerColor={landingPage.header.color}>
-  <PageHeader header={landingPage.header} />
-  <PageSections sections={landingPage.sections} />
+<BaseLayout headerColor={header.color}>
+  <PageHeader header={header} />
+  <PageSections sections={sections} />
 </BaseLayout>
