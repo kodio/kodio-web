@@ -1,15 +1,15 @@
 ---
 export interface Props {
   id?: string;
-  className?: string;
+  class?: string;
   ariaLabel?: string;
   type?: 'button' | 'submit';
 }
 
-const { id, className, ariaLabel, type = 'button' } = Astro.props;
+const { id, ariaLabel, type = 'button' } = Astro.props;
 ---
 
-<button id={id} class:list={[className]} aria-label={ariaLabel} type={type}>
+<button id={id} class={Astro.props.class} aria-label={ariaLabel} type={type}>
   <slot />
 </button>
 

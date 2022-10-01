@@ -7,26 +7,24 @@ import ButtonLink from 'components/ButtonLink.astro';
 
 export type Props = PortableTextProps<Banner>;
 
-const { node, class: astroClass } = Astro.props;
+const { node } = Astro.props;
 
 const link = node.links?.[0];
 
-const linkColor =
-  !node.linkColor || node.linkColor === 'transparent' ? 'transparent' : `var(--${node.linkColor})`;
 const imgColumns = node.textPosition === 'left' ? '2 / 3' : '1 / 2';
 const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
 ---
 
-<div class:list={['banner', astroClass]}>
+<div class:list={['banner', Astro.props.class]}>
   {node.image && <Image image={node.image} />}
   <div>
     <h2>{node.heading}</h2>
     <BlockContent value={node.body} />
-    {link && <ButtonLink link={link} />}
+    {link && <ButtonLink link={link} color={node.linkColor} />}
   </div>
 </div>
 
-<style lang="scss" define:vars={{ linkColor, imgColumns, textColumns }}>
+<style lang="scss" define:vars={{ imgColumns, textColumns }}>
   .banner {
     display: grid;
     grid-auto-flow: column;
@@ -56,11 +54,6 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
     :global(h2),
     :global(p) {
       margin-bottom: 2rem;
-    }
-
-    :global(a) {
-      background-color: var(--linkColor);
-      width: fit-content;
     }
   }
 </style>

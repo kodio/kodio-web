@@ -5,9 +5,9 @@ import type { Article } from 'types/sanity';
 
 export type Props = PortableTextProps<Article>;
 
-const { node, class: astroClass } = Astro.props;
+const { node } = Astro.props;
 ---
 
-<div class={astroClass}>
+<div class={Astro.props.class}>
   <BlockContent value={node.body} />
 </div>

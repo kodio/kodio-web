@@ -1,10 +1,7 @@
 ---
-export interface Props {
-  className?: string;
-  href: string;
-}
+export type Props = Omit<astroHTML.JSX.AnchorHTMLAttributes, 'href'> & { href: string };
 
-const { className, href } = Astro.props;
+const { href, ...attrs } = Astro.props;
 ---
 
-<a class={className} href={`/kodio-web${href}`}><slot /></a>
+<a href={`/kodio-web${href}`} {...attrs}><slot /></a>

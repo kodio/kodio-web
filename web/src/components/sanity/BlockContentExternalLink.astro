@@ -4,11 +4,11 @@ import type { BlockContentExternalLink } from 'types/sanity';
 
 export type Props = PortableTextProps<Mark<BlockContentExternalLink | undefined>>;
 
-const { node, class: astroClass } = Astro.props;
+const { node } = Astro.props;
 
 const href = node.markDef?.href ?? '';
 const target = node.markDef?.blank ? '_blank' : undefined;
 const rel = node.markDef?.blank ? 'noreferrer' : undefined;
 ---
 
-<a class={astroClass} href={href} target={target} rel={rel}><slot /></a>
+<a class={Astro.props.class} href={href} target={target} rel={rel}><slot /></a>

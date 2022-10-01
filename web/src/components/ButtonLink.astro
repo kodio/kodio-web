@@ -4,18 +4,22 @@ import type { Link } from 'types/sanity';
 
 export interface Props {
   link: Link;
+  color?: string | undefined;
 }
 
-const { link } = Astro.props;
+const { link, color = 'transparent' } = Astro.props;
+
+const linkColor = color === 'transparent' ? 'transparent' : `var(--${color})`;
 ---
 
-<SanityLink className="button-link" link={link} />
+<div>
+  <SanityLink class="button-link" link={link} />
+</div>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ linkColor }}>
   .button-link {
     @include button(var(--linkColor));
     text-decoration: none;
-    justify-self: start;
     padding: 0.5rem 2rem;
     font-size: 150%;
     font-weight: bolder;

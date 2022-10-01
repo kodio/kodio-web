@@ -7,10 +7,10 @@ import type { Accordion as AccordionType } from 'types/sanity';
 
 export type Props = PortableTextProps<AccordionType>;
 
-const { node, class: astroClass } = Astro.props;
+const { node } = Astro.props;
 ---
 
-<Accordion className={astroClass ?? ''}>
+<Accordion class={Astro.props.class}>
   {
     node.accordionItems?.map((item) => (
       <AccordionItem title={item.title ?? ''}>

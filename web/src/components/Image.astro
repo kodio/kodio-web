@@ -4,10 +4,10 @@ import type { ImageObj } from 'types/sanity';
 
 export interface Props {
   image: ImageObj;
-  className?: string;
+  class?: string;
 }
 
-const { image, className } = Astro.props;
+const { image } = Astro.props;
 ---
 
-<img class={className} src={urlFor(image).url()} alt={image.alt ?? ''} loading="lazy" />
+<img class={Astro.props.class} src={urlFor(image).url()} alt={image.alt ?? ''} loading="lazy" />

@@ -5,9 +5,9 @@ import type { BlockContentInternalLink } from 'types/sanity';
 
 export type Props = PortableTextProps<Mark<BlockContentInternalLink | undefined>>;
 
-const { node, class: astroClass } = Astro.props;
+const { node } = Astro.props;
 
 const href = `/${node.markDef?.slug.current ?? ''}`;
 ---
 
-<Link className={astroClass ?? ''} href={href}><slot /></Link>
+<Link class={Astro.props.class} href={href}><slot /></Link>

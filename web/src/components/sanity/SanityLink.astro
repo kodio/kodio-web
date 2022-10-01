@@ -3,10 +3,10 @@ import type { Link } from 'types/sanity';
 
 export interface Props {
   link: Link;
-  className?: string;
+  class?: string;
 }
 
-const { link, className } = Astro.props;
+const { link } = Astro.props;
 
 const isInternalLink = link._type === 'internalLink';
 const href = isInternalLink ? `/kodio-web/${link.slug?.current}` : link.href;
@@ -15,4 +15,4 @@ const target = !isInternalLink && link.blank ? '_blank' : undefined;
 const rel = !isInternalLink && link.blank ? 'noopener' : undefined;
 ---
 
-<a class={className} href={href} target={target} rel={rel}>{label}</a>
+<a class={Astro.props.class} href={href} target={target} rel={rel}>{label}</a>

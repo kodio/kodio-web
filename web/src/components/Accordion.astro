@@ -1,12 +1,10 @@
 ---
 export interface Props {
-  className?: string | undefined;
+  class?: string | null | undefined;
 }
-
-const { className } = Astro.props;
 ---
 
-<ul class:list={['accordion', className]}>
+<ul class:list={['accordion', Astro.props.class]}>
   <slot />
 </ul>
 
