@@ -8,6 +8,7 @@
       "lib/*": ["src/lib/*"],
       "types/*": ["src/types/*"]
     },
+    "skipLibCheck": true,
     "types": ["astro/client"]
   }
 }
