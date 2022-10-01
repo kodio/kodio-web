@@ -1,0 +1,22 @@
+<a href="#main">Hopp til hovedinnhold</a>
+
+<style lang="scss">
+  a {
+    position: absolute !important;
+    background-color: var(--white);
+    padding: 0.5rem;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    &:focus,
+    &:focus-visible {
+      border: 2px solid var(--focus-color);
+      left: 0;
+      width: auto;
+      height: auto;
+    }
+  }
+</style>

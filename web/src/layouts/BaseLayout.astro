@@ -4,6 +4,7 @@ import '@fontsource/varela-round';
 import Footer from 'components/Footer.astro';
 import Header from 'components/Header.astro';
 import Metadata from 'components/Metadata.astro';
+import SkipLinks from 'components/SkipLinks.astro';
 import { getDefaultMetadata } from 'lib/sanity';
 import type { PageMetadata } from 'types/sanity';
 
@@ -33,8 +34,9 @@ const defaultMetadata = await getDefaultMetadata();
     />
   </head>
   <body>
+    <SkipLinks />
     <Header color={headerColor} />
-    <main>
+    <main id="main">
       <slot />
     </main>
     <Footer />
