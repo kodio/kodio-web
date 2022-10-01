@@ -1,5 +1,6 @@
 ---
 import '@fontsource/lora';
+import '@fontsource/varela-round';
 import Footer from 'components/Footer.astro';
 import Header from 'components/Header.astro';
 import Metadata from 'components/Metadata.astro';
@@ -53,13 +54,20 @@ const defaultMetadata = await getDefaultMetadata();
         --focus-color: var(--kodio-orange);
         --content-max-width: 1400px;
         --content-padding: 2rem;
+        --ff-lora: 'Lora', system-ui, sans-serif;
+        --ff-varela: 'Varela Round', system-ui, sans-serif;
       }
 
       body {
-        font-family: 'Lora', system-ui, sans-serif;
+        font-family: var(--ff-lora);
         font-size: 100%;
         color: var(--color-text);
         background-color: var(--color-bg);
+      }
+
+      :global(a),
+      :global(p) {
+        font-family: var(--ff-varela);
       }
     </style>
     <style is:global>

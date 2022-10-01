@@ -1,6 +1,6 @@
 ---
+import ButtonLink from 'components/ButtonLink.astro';
 import Image from 'components/Image.astro';
-import SanityLink from 'components/sanity/SanityLink.astro';
 import SectionLayout from 'layouts/SectionLayout.astro';
 import type { Header } from 'types/sanity';
 
@@ -17,7 +17,7 @@ const link = header.links?.[0];
   <div class="header-container">
     <div class="heading-wrapper">
       <h1>{header.heading}</h1>
-      {link && <SanityLink link={link} />}
+      {link && <ButtonLink link={link} color="pale-yellow" />}
     </div>
     {header.image && <Image image={header.image} />}
   </div>
@@ -39,15 +39,6 @@ const link = header.links?.[0];
 
       h1 {
         font-size: clamp(200%, calc(100vw / 20), 400%);
-      }
-
-      :global(a) {
-        @include button(var(--pale-yellow));
-        text-decoration: none;
-        justify-self: start;
-        padding: 0.5rem 2rem;
-        font-size: 150%;
-        font-weight: bolder;
       }
     }
 
