@@ -7,6 +7,7 @@ export default defineConfig({
   base: '/kodio-web',
   integrations: [sitemap()],
   vite: {
+    envDir: '..',
     css: {
       preprocessorOptions: {
         scss: {
