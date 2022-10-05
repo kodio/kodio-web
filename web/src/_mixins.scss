@@ -1,17 +1,43 @@
 @mixin button($color) {
+  --border-width: 2px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  background: $color;
-  padding: 4px;
-  border-radius: 5px;
-  border: 1px solid var(--black);
-  box-shadow: 4px 4px var(--black);
+  background-color: $color;
+  padding: calc(0.375rem - var(--border-width)) calc(2.25rem - var(--border-width));
+  border-radius: 4px;
+  border: var(--border-width) solid var(--black);
+  box-shadow: 3px 3px var(--black);
+  font-family: var(--ff-lora);
+  font-size: 120%;
+  line-height: 1.75rem;
+  font-weight: bolder;
+
+  @media (min-width: $width-m) {
+    font-size: 150%;
+    line-height: 2rem;
+    padding-top: calc(0.8125rem - var(--border-width));
+    padding-bottom: calc(0.8125rem - var(--border-width));
+  }
 
   &:active {
-    box-shadow: 2px 2px var(--black);
+    box-shadow: 1px 1px var(--black);
     translate: 2px 2px;
+  }
+}
+
+@mixin header($color, $backgroundColor) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 1.5rem;
+  background-color: $backgroundColor;
+  color: $color;
+
+  @media (min-width: $width-l) {
+    padding: 0 5rem;
   }
 }
 

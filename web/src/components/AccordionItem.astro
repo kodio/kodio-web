@@ -1,4 +1,6 @@
 ---
+import ArrowDownIcon from 'components/icons/ArrowDown.astro';
+
 export interface Props {
   title: string;
 }
@@ -15,23 +17,7 @@ const { title } = Astro.props;
       aria-controls="accordion-panel-1"
     >
       {title}
-      <svg
-        class="accordion-toggle-indicator"
-        aria-hidden="true"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <line x1="12" y1="5" x2="12" y2="19"></line>
-        <line x1="18" y1="13" x2="12" y2="19"></line>
-        <line x1="6" y1="13" x2="12" y2="19"></line>
-      </svg>
+      <ArrowDownIcon class="accordion-toggle-indicator" aria-hidden={true} />
     </button>
   </h3>
   <div
@@ -60,22 +46,40 @@ const { title } = Astro.props;
     &:not(:last-child) {
       margin-bottom: 1rem;
     }
+
+    h3 {
+      font-size: var(--fs-h4);
+
+      @media (min-width: $width-m) {
+        font-size: var(--fs-h2);
+      }
+    }
   }
 
   .accordion-header {
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
-    background: transparent;
+    align-items: center;
+    background-color: transparent;
     border: none;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     outline-offset: -2px;
+
+    @media (min-width: $width-m) {
+      padding: 1rem 1.5rem;
+    }
   }
 
   .accordion-toggle-indicator {
     flex-shrink: 0;
-    width: 24px;
     transition: rotate 0.3s;
+    width: 1.25rem;
+    height: 1.25rem;
+
+    @media (min-width: $width-m) {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
   }
 
   .accordion-panel {
@@ -86,7 +90,11 @@ const { title } = Astro.props;
   }
 
   .accordion-panel-inner {
-    padding: 2rem 1rem;
+    padding: 0.5rem 1.25rem 2rem;
+
+    @media (min-width: $width-m) {
+      padding: 0.5rem 1.5rem 2rem;
+    }
   }
 
   .is-open {

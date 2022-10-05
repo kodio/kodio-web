@@ -6,7 +6,6 @@ export default function AccordionIcon() {
       strokeWidth="2"
       viewBox="0 0 24 24"
       strokeLinecap="round"
-      strokeLinejoin="round"
       height="1em"
       width="1em"
     >

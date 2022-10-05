@@ -1,0 +1,19 @@
+---
+export type Props = astroHTML.JSX.SVGAttributes;
+
+const { width = '1rem', height = '1rem', ...rest } = Astro.props;
+---
+
+<svg
+  {...rest}
+  width={width}
+  height={height}
+  viewBox="0 0 16 16"
+  stroke-width="2"
+  stroke="currentColor"
+  fill="none"
+  stroke-linecap="round"
+>
+  <line x1="1" y1="1" x2="15" y2="15"></line>
+  <line x1="1" y1="15" x2="15" y2="1"></line>
+</svg>

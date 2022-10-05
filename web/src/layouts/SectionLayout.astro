@@ -6,7 +6,7 @@ export interface Props {
 const { color } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
-const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--black)';
+const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--color-text)';
 ---
 
 <section>
@@ -32,8 +32,8 @@ const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--black)';
       display: grid;
       gap: 3rem;
       margin: auto;
-      padding: var(--content-padding);
-      max-width: calc(var(--content-max-width) + var(--content-padding) * 2);
+      padding: 3.5rem var(--content-padding);
+      max-width: var(--content-max-width);
     }
   }
 </style>

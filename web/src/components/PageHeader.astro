@@ -25,25 +25,23 @@ const link = header.links?.[0];
 
 <style lang="scss">
   .header-container {
-    padding-top: 5rem;
+    padding: 4.5rem 0;
     display: grid;
-    gap: 2rem;
+    align-items: center;
+    gap: 5.5rem;
 
     @media (min-width: $width-l) {
       grid-template-columns: 4fr 3fr;
+      gap: 4.25rem;
     }
 
     .heading-wrapper {
       display: grid;
-      gap: 2rem;
+      gap: 1rem;
 
-      h1 {
-        font-size: clamp(200%, calc(100vw / 20), 400%);
+      @media (min-width: $width-l) {
+        gap: 2.5rem;
       }
-    }
-
-    .header-image {
-      margin: auto 0;
     }
   }
 </style>

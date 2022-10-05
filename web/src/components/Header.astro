@@ -10,7 +10,7 @@ export interface Props {
 const { color } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
-const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--kodio-dark)';
+const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--color-text)';
 ---
 
 <header>
@@ -22,13 +22,7 @@ const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--kodio-dark)';
 
 <style lang="scss" define:vars={{ backgroundColor, textColor }}>
   header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--header-height);
-    padding: 0 var(--content-padding);
-    background-color: var(--backgroundColor);
-    color: var(--textColor);
+    @include header(var(--textColor), var(--backgroundColor));
 
     .logo-link {
       text-decoration: none;

@@ -19,10 +19,6 @@ const linkColor = color === 'transparent' ? 'transparent' : `var(--${color})`;
 <style lang="scss" define:vars={{ linkColor }}>
   .button-link {
     @include button(var(--linkColor));
-    font-family: var(--ff-lora);
     text-decoration: none;
-    padding: 0.5rem 2rem;
-    font-size: 150%;
-    font-weight: bolder;
   }
 </style>

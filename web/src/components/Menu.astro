@@ -3,6 +3,8 @@ import Button from 'components/Button.astro';
 import FullScreenModal from 'components/FullScreenModal.astro';
 import Link from 'components/Link.astro';
 import Logo from 'components/Logo.astro';
+import CloseIcon from 'components/icons/Close.astro';
+import MenuIcon from 'components/icons/Menu.astro';
 import SanityLink from 'components/sanity/SanityLink.astro';
 import { getMenuConfig } from 'lib/sanity';
 
@@ -20,45 +22,16 @@ const { links } = await getMenuConfig();
     }
   </ul>
 </nav>
-<Button id="menu-open" class="menu-button" ariaLabel="Åpne meny">
-  <svg
-    aria-hidden="true"
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    stroke-width="1.5"
-    stroke="currentColor"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <line x1="4" y1="6" x2="20" y2="6"></line>
-    <line x1="4" y1="12" x2="20" y2="12"></line>
-    <line x1="4" y1="18" x2="20" y2="18"></line>
-  </svg>
+<Button id="menu-open" class="menu-open" aria-label="Åpne meny">
+  <MenuIcon aria-hidden={true} />
 </Button>
 <FullScreenModal id="menu" label="Meny" openButtonId="menu-open" closeButtonId="menu-close">
   <div class="menu-header">
     <Link href="/" class="logo-link">
       <Logo />
     </Link>
-    <Button id="menu-close" ariaLabel="Lukk meny">
-      <svg
-        aria-hidden="true"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
+    <Button id="menu-close" class="menu-close" aria-label="Lukk meny">
+      <CloseIcon aria-hidden={true} />
     </Button>
   </div>
   <ul class="modal-list">
@@ -73,6 +46,20 @@ const { links } = await getMenuConfig();
 </FullScreenModal>
 
 <style lang="scss">
+  .menu-open,
+  .menu-close {
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    padding: calc(0.5rem - 1px);
+    box-shadow: 2px 2px var(--black);
+
+    &:active {
+      box-shadow: 1px 1px var(--black);
+      translate: 1px 1px;
+    }
+  }
+
   .logo-link {
     text-decoration: none;
   }
@@ -87,26 +74,23 @@ const { links } = await getMenuConfig();
   nav > ul {
     display: none;
     list-style: none;
-    font-size: 120%;
+    font-size: 125%;
+    line-height: 1.2;
 
     @media (min-width: $width-l) {
       display: flex;
-      gap: 4rem;
+      gap: 3.75rem;
     }
   }
 
-  .menu-button {
+  .menu-open {
     @media (min-width: $width-l) {
       display: none;
     }
   }
 
   .menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--header-height);
-    padding: 0 2rem;
+    @include header(var(--color-text), transparent);
   }
 
   .modal-list {

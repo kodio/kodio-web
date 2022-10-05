@@ -42,34 +42,70 @@ const defaultMetadata = await getDefaultMetadata();
     <Footer />
     <style lang="scss">
       :root {
-        --black: #131d22;
-        --white: #fffffb;
-        --kodio-yellow: #f7e06a;
-        --kodio-dark: #112f3a;
-        --kodio-purple: #d3afe9;
-        --kodio-orange: #ef8354;
-        --yellow: #fcf0b8;
-        --pale-yellow: #fffae8;
-        --color-text: var(--black);
-        --color-bg: var(--kodio-dark);
-        --header-height: 144px;
-        --focus-color: var(--kodio-orange);
-        --content-max-width: 1400px;
-        --content-padding: 2rem;
+        --black: #000000;
+        --white: #fffdf5;
+        --green-900: #0f1f24;
+        --green-800: #112f3a;
+        --green-700: #0f1f24;
+        --orange-500: #c96336;
+        --orange-400: #ef8354;
+        --orange-300: #faa682;
+        --orange-200: #ffc7b0;
+        --purple-400: #b385d4;
+        --purple-300: #d3afe9;
+        --purple-200: #ebccff;
+        --purple-100: #f2deff;
+        --yellow-200: #f7e06a;
+        --yellow-100: #fff0b8;
+        --yellow-50: #fffae8;
+
+        --color-text: var(--green-800);
+        --color-focus: var(--orange-400);
+        --header-height: 5.25rem;
+        --content-max-width: calc(81rem + var(--content-padding) * 2);
+        --content-padding: 1.5rem;
         --ff-lora: 'Lora', system-ui, sans-serif;
         --ff-varela: 'Varela Round', system-ui, sans-serif;
+        --fs-h1: clamp(200%, 5vw, 300%);
+        --fs-h2: 200%;
+        --fs-h3: 150%;
+        --fs-h4: 125%;
+
+        @media (min-width: $width-l) {
+          --header-height: 7.5rem;
+        }
       }
 
       body {
         font-family: var(--ff-lora);
-        font-size: 100%;
         color: var(--color-text);
-        background-color: var(--color-bg);
+        background-color: var(--white);
+        line-height: 1.9;
       }
 
       :global(a),
       :global(p) {
         font-family: var(--ff-varela);
+      }
+
+      :global(h1) {
+        font-size: var(--fs-h1);
+        line-height: 1.4;
+      }
+
+      :global(h2) {
+        font-size: var(--fs-h2);
+        line-height: 1.4;
+      }
+
+      :global(h3) {
+        font-size: var(--fs-h3);
+        line-height: 1.4;
+      }
+
+      :global(h4) {
+        font-size: var(--fs-h4);
+        line-height: 1.4;
       }
     </style>
     <style is:global>
@@ -98,7 +134,7 @@ const defaultMetadata = await getDefaultMetadata();
         content: '';
         position: absolute;
         inset: -6px;
-        border: 2px solid var(--focus-color);
+        border: 2px solid var(--color-focus);
         border-radius: 5px;
       }
 
@@ -114,7 +150,6 @@ const defaultMetadata = await getDefaultMetadata();
       }
 
       body {
-        line-height: 1.5;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }

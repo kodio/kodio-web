@@ -1,20 +1,15 @@
 ---
-export interface Props {
-  id?: string;
-  class?: string;
-  ariaLabel?: string;
-  type?: 'button' | 'submit';
-}
+export type Props = astroHTML.JSX.ButtonHTMLAttributes;
 
-const { id, ariaLabel, type = 'button' } = Astro.props;
+const { type = 'button', ...rest } = Astro.props;
 ---
 
-<button id={id} class={Astro.props.class} aria-label={ariaLabel} type={type}>
+<button class:list={['button', rest.class]} {...rest} type={type}>
   <slot />
 </button>
 
 <style lang="scss">
-  button {
+  .button {
     @include button(transparent);
   }
 </style>

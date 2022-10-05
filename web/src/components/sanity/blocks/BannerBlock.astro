@@ -1,9 +1,9 @@
 ---
+import ButtonLink from 'components/ButtonLink.astro';
 import Image from 'components/Image.astro';
 import BlockContent from 'components/sanity/BlockContent.astro';
 import type { Props as PortableTextProps } from 'astro-portabletext/types';
 import type { Banner } from 'types/sanity';
-import ButtonLink from 'components/ButtonLink.astro';
 
 export type Props = PortableTextProps<Banner>;
 
@@ -16,44 +16,42 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
 ---
 
 <div class:list={['banner', Astro.props.class]}>
-  {node.image && <Image image={node.image} />}
   <div>
     <h2>{node.heading}</h2>
     <BlockContent value={node.body} />
     {link && <ButtonLink link={link} color={node.linkColor} />}
   </div>
+  {node.image && <Image image={node.image} />}
 </div>
 
 <style lang="scss" define:vars={{ imgColumns, textColumns }}>
   .banner {
     display: grid;
     grid-auto-flow: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 1rem;
 
     @media (min-width: $width-l) {
-      gap: 10rem;
+      gap: 19rem;
       grid-template-columns: 1fr 1fr;
     }
 
     > div {
-      grid-column: 1 /-1;
+      display: grid;
+      gap: 1rem;
+      grid-column: 1 / -1;
+
       @media (min-width: $width-l) {
-        margin: auto 0;
         grid-column: var(--textColumns);
       }
     }
 
     :global(img) {
-      border-radius: 10px;
-      grid-column: 1 /-1;
+      grid-column: 1 / -1;
+
       @media (min-width: $width-l) {
         grid-column: var(--imgColumns);
       }
-    }
-
-    :global(h2),
-    :global(p) {
-      margin-bottom: 2rem;
     }
   }
 </style>
