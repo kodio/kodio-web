@@ -12,11 +12,10 @@ const readline = require('readline');
 const { stdin: input, stdout: output } = process;
 const rl = readline.createInterface({ input, output });
 
-const exportFromDatasets = ['dev', 'production'];
-const importToDatasets = ['dev', 'production'];
+const exportFromDatasets = ['dev', 'prod'];
+const importToDatasets = ['dev', 'prod'];
 const cwd = process.cwd();
 const options = { cwd, stdio: 'inherit' };
-const tmpFileName = `sanity-dataset-cms-${new Date().toISOString()}.tar.gz`;
 
 function ask(question, defaultAnswer) {
   return new Promise((resolve) => {
@@ -31,10 +30,7 @@ function exit(message) {
 }
 
 (async () => {
-  const exportFrom = await ask(
-    'Which dataset should be exported from? (production) ',
-    'production'
-  );
+  const exportFrom = await ask('Which dataset should be exported from? (prod) ', 'prod');
   if (!exportFromDatasets.includes(exportFrom)) {
     exit(`Dataset "${exportFrom}" not valid. Must be one of: ${exportFromDatasets.join(', ')}`);
   }
@@ -47,6 +43,8 @@ function exit(message) {
   if (exportFrom === importTo) {
     exit('Cannot export and import to same dataset');
   }
+
+  const tmpFileName = `sanity-dataset-${exportFrom}-${new Date().toISOString()}.tar.gz`;
 
   const shouldCopy = await ask(
     `Copy Sanity dataset from ${exportFrom} to ${importTo}? (Y/n) `,
