@@ -19,7 +19,7 @@ export interface Banner extends ArbitraryTypedObject {
   image?: ImageObj;
   textPosition?: 'left' | 'right';
   links?: Link[];
-  linkColor?: string;
+  linkColor?: Color;
 }
 
 export interface BlockContentExternalLink {
@@ -30,6 +30,24 @@ export interface BlockContentExternalLink {
 export interface BlockContentInternalLink {
   slug: Slug;
 }
+
+export type Color =
+  | 'white'
+  | 'green-900'
+  | 'green-800'
+  | 'green-700'
+  | 'orange-500'
+  | 'orange-400'
+  | 'orange-300'
+  | 'orange-200'
+  | 'purple-400'
+  | 'purple-300'
+  | 'purple-200'
+  | 'purple-100'
+  | 'yellow-200'
+  | 'yellow-100'
+  | 'yellow-50'
+  | 'transparent';
 
 export interface DefaultMetadata {
   description: string;
@@ -53,7 +71,7 @@ export interface FooterConfigSection {
 }
 
 export interface Header {
-  color: string;
+  color: Color;
   heading: string;
   links?: Link[];
   image?: ImageObj;
@@ -103,7 +121,7 @@ export interface PageMetadata {
 
 export interface Section {
   _type: 'section';
-  color: string;
+  color: Color;
   content?: SectionContent[];
 }
 

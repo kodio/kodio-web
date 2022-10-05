@@ -6,13 +6,13 @@ import Header from 'components/Header.astro';
 import Metadata from 'components/Metadata.astro';
 import SkipLinks from 'components/SkipLinks.astro';
 import { getDefaultMetadata } from 'lib/sanity';
-import type { PageMetadata } from 'types/sanity';
+import type { Color, PageMetadata } from 'types/sanity';
 
 export interface Props {
   title?: string;
   slug: string;
   pageMetadata?: PageMetadata | undefined;
-  headerColor: string;
+  headerColor: Color;
 }
 
 const { title, slug, pageMetadata, headerColor } = Astro.props;

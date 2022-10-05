@@ -1,12 +1,15 @@
 ---
+import { isDarkColor } from 'utils/colors';
+import type { Color } from 'types/sanity';
+
 export interface Props {
-  color: string;
+  color: Color;
 }
 
 const { color } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
-const textColor = color === 'kodio-dark' ? 'var(--white)' : 'var(--color-text)';
+const textColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
 ---
 
 <section>

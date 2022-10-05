@@ -6,7 +6,8 @@
       "components/*": ["src/components/*"],
       "layouts/*": ["src/layouts/*"],
       "lib/*": ["src/lib/*"],
-      "types/*": ["src/types/*"]
+      "types/*": ["src/types/*"],
+      "utils/*": ["src/utils/*"]
     },
     "skipLibCheck": true,
     "types": ["astro/client"]
