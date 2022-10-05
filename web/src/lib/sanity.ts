@@ -12,7 +12,7 @@ import type {
 
 const sanityConfig = {
   projectId: 'bmm7n0e3',
-  dataset: import.meta.env.SANITY_DATASET || 'prod2',
+  dataset: import.meta.env.SANITY_DATASET || 'prod',
   useCdn: false,
   apiVersion: '2022-09-06',
 };
