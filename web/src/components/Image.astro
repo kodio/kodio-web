@@ -25,10 +25,7 @@ const srcset = widths
   .map((width) => `${urlFor(image).width(width).auto('format').url()} ${width}w`)
   .join(', ');
 
-const src = urlFor(image)
-  .width(widths[widths.length - 1] ?? 750)
-  .auto('format')
-  .url();
+const src = urlFor(image).auto('format').url();
 ---
 
 <img
