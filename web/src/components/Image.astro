@@ -5,9 +5,45 @@ import type { ImageObj } from 'types/sanity';
 export interface Props {
   image: ImageObj;
   class?: string;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  aspectRatio?: number | 'auto';
+  objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 }
 
-const { image } = Astro.props;
+const {
+  image,
+  widths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  sizes = '100vw',
+  loading = 'lazy',
+  aspectRatio = 1,
+  objectFit = 'contain',
+} = Astro.props;
+
+const srcset = widths
+  .map((width) => `${urlFor(image).width(width).auto('format').url()} ${width}w`)
+  .join(', ');
+
+const src = urlFor(image)
+  .width(widths[widths.length - 1] ?? 750)
+  .auto('format')
+  .url();
 ---
 
-<img class={Astro.props.class} src={urlFor(image).url()} alt={image.alt ?? ''} loading="lazy" />
+<img
+  alt={image.alt ?? ''}
+  class={Astro.props.class}
+  sizes={sizes}
+  srcset={srcset}
+  src={src}
+  loading={loading}
+/>
+
+<style lang="scss" define:vars={{ aspectRatio, objectFit }}>
+  img {
+    width: 100%;
+    object-fit: var(--objectFit);
+    aspect-ratio: var(--aspectRatio);
+  }
+</style>
