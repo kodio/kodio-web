@@ -1,5 +1,6 @@
 ---
 import { PortableText } from 'astro-portabletext';
+import OrderedList from 'components/OrderedList.astro';
 import UnorderedList from 'components/UnorderedList.astro';
 import BlockContentExternalLink from './BlockContentExternalLink.astro';
 import BlockContentInternalLink from './BlockContentInternalLink.astro';
@@ -17,7 +18,7 @@ const { value } = Astro.props;
     <PortableText
       value={value}
       components={{
-        list: { bullet: UnorderedList },
+        list: { bullet: UnorderedList, number: OrderedList },
         mark: {
           blockContentExternalLink: BlockContentExternalLink,
           blockContentInternalLink: BlockContentInternalLink,
