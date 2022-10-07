@@ -20,6 +20,7 @@ module.exports = {
     'jsx-a11y/no-redundant-roles': [
       'error',
       {
+        ol: ['list'],
         ul: ['list'],
       },
     ],
