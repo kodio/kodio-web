@@ -1,7 +1,7 @@
 ---
-import Logo from 'components/Logo.astro';
-import SanityLink from 'components/sanity/SanityLink.astro';
-import { getFooterConfig } from 'lib/sanity';
+import Logo from '@components/Logo.astro';
+import SanityLink from '@components/sanity/SanityLink.astro';
+import { getFooterConfig } from '@lib/sanity';
 
 const { sections } = await getFooterConfig();
 ---

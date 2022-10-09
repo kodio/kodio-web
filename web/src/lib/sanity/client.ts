@@ -1,14 +1,7 @@
 import imageUrlBuilder from '@sanity/image-url';
 import PicoSanity from 'picosanity';
 import groq from 'groq';
-import type {
-  DefaultMetadata,
-  FooterConfig,
-  Image,
-  LandingPage,
-  MenuConfig,
-  Page,
-} from 'types/sanity';
+import type { DefaultMetadata, FooterConfig, Image, LandingPage, MenuConfig, Page } from './types';
 
 const sanityConfig = {
   projectId: 'bmm7n0e3',

@@ -1,10 +1,10 @@
 ---
 import { PortableText } from 'astro-portabletext';
-import SectionLayout from 'layouts/SectionLayout.astro';
+import SectionLayout from '@layouts/SectionLayout.astro';
 import AccordionBlock from './blocks/AccordionBlock.astro';
 import ArticleBlock from './blocks/ArticleBlock.astro';
 import BannerBlock from './blocks/BannerBlock.astro';
-import type { Section } from 'types/sanity';
+import type { Section } from '@lib/sanity';
 
 export interface Props {
   sections?: Section[] | undefined;

@@ -1,4 +1,4 @@
-import type { Color } from 'types/sanity';
+import type { Color } from '@lib/sanity';
 
 const darkColors: Color[] = ['green-900', 'green-800', 'green-700'];
 
