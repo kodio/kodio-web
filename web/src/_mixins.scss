@@ -27,6 +27,23 @@
   }
 }
 
+@mixin link {
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: var(--orange-500);
+    height: 0.25em;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0.5em;
+  }
+}
+
 @mixin header($color, $backgroundColor) {
   display: flex;
   align-items: center;
