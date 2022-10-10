@@ -10,10 +10,10 @@ const { node } = Astro.props;
 const href = `/${node.markDef?.slug.current ?? ''}`;
 ---
 
-<Link class="internal-link" href={href}><slot /></Link>
+<Link class="link" href={href}><slot /></Link>
 
 <style lang="scss">
-  .internal-link {
+  .link {
     @include link;
   }
 </style>

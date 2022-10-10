@@ -28,20 +28,19 @@
 }
 
 @mixin link {
-  text-decoration: none;
-  position: relative;
+  --left-edge: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="4" viewBox="0 0 4 8" fill="none"><circle cx="4" cy="4" r="4" fill="%23c96336" /></svg>');
+  --right-edge: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="4" viewBox="0 0 4 8" fill="none"><circle cx="0" cy="4" r="4" fill="%23c96336" /></svg>');
 
-  &::after {
-    content: '';
-    position: absolute;
-    background-color: var(--orange-500);
-    height: 0.25em;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 0.5em;
-  }
+  text-decoration: none;
+  display: inline;
+  border-bottom: 0.4em solid transparent;
+  box-decoration-break: clone;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(var(--orange-500), var(--orange-500)), var(--left-edge),
+    var(--right-edge);
+  background-position-x: 0.125em, 0, 100%;
+  background-position-y: calc(100% + 0.25em);
+  background-size: calc(100% - 0.25em) 0.25em, auto 0.25em, auto 0.25em;
 }
 
 @mixin header($color, $backgroundColor) {

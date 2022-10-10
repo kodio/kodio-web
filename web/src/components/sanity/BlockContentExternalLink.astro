@@ -11,10 +11,10 @@ const target = node.markDef?.blank ? '_blank' : undefined;
 const rel = node.markDef?.blank ? 'noreferrer' : undefined;
 ---
 
-<a href={href} target={target} rel={rel}><slot /></a>
+<a class="link" href={href} target={target} rel={rel}><slot /></a>
 
 <style lang="scss">
-  a {
+  .link {
     @include link;
   }
 </style>
