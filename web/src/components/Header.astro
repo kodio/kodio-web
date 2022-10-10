@@ -16,7 +16,7 @@ const textColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
 ---
 
 <header>
-  <Link href="/" class="logo-link">
+  <Link href="/">
     <Logo />
   </Link>
   <Menu />
@@ -25,9 +25,5 @@ const textColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
 <style lang="scss" define:vars={{ backgroundColor, textColor }}>
   header {
     @include header(var(--textColor), var(--backgroundColor));
-
-    .logo-link {
-      text-decoration: none;
-    }
   }
 </style>
