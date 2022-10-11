@@ -36,7 +36,8 @@ npm install ...
 ### Bygg og preview
 
 Astro har funksjonalitet for å bygge og vise siden lokalt som om det skulle vært deployet.
-Dette kan gjøres ved å kjøre følgende kommandoer:
+
+Dette kan gjøres ved å kjøre:
 
 ```bash
 npm run build
@@ -49,7 +50,9 @@ Ved utvikling vil det være lurt å kjøre
 npm run dev
 ```
 
-for å få hot-reloading. Ved bruk av `build` og `preview` må disse kommandoene kjøres igjen for hver kodeendring for å se resultatet.
+for å få hot-reloading.
+
+Ved bruk av `build` og `preview` må disse kommandoene kjøres igjen for hver kodeendring for å se resultatet.
 
 ## CMS
 
