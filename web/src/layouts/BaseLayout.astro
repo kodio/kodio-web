@@ -32,6 +32,26 @@ const defaultMetadata = await getDefaultMetadata();
       description={pageMetadata?.description ?? defaultMetadata.description}
       image={pageMetadata?.image ?? defaultMetadata.image}
     />
+    <script>
+      // Prefetch internal pages on link hover
+      const max = 8;
+      const prefetchList = [];
+
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.tagName === 'A' && prefetchList.length < max) {
+          const href = e.target.getAttribute('href');
+
+          if (href.startsWith('/') && !prefetchList.includes(href)) {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.as = 'document';
+            link.href = href;
+            document.head.appendChild(link);
+            prefetchList.push(href);
+          }
+        }
+      });
+    </script>
   </head>
   <body>
     <SkipLinks />
