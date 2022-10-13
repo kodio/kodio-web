@@ -33,11 +33,19 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
     display: grid;
     grid-auto-flow: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+
+    @media (min-width: $width-m) {
+      gap: 5rem;
+      grid-template-columns: 1fr 1fr;
+    }
 
     @media (min-width: $width-l) {
+      gap: 10rem;
+    }
+
+    @media (min-width: $width-xl) {
       gap: 19rem;
-      grid-template-columns: 1fr 1fr;
     }
 
     > div {
@@ -45,7 +53,7 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
       gap: 1rem;
       grid-column: 1 / -1;
 
-      @media (min-width: $width-l) {
+      @media (min-width: $width-m) {
         grid-column: var(--textColumns);
       }
     }
@@ -53,8 +61,12 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
     .banner-image {
       grid-column: 1 / -1;
 
-      @media (min-width: $width-l) {
+      @media (min-width: $width-m) {
         grid-column: var(--imgColumns);
+      }
+
+      @media (max-width: $width-m) {
+        aspect-ratio: 1;
       }
     }
   }

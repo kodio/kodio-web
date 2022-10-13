@@ -8,7 +8,7 @@ export interface Props {
   widths?: number[];
   sizes?: string;
   loading?: 'lazy' | 'eager';
-  aspectRatio?: number | 'auto';
+  aspectRatio?: number | 'intrinsic';
   objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 }
 
@@ -17,15 +17,28 @@ const {
   widths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   sizes = '100vw',
   loading = 'lazy',
-  aspectRatio = 1,
+  aspectRatio: aspectRatioProp = 'intrinsic',
   objectFit = 'contain',
 } = Astro.props;
 
-const srcset = widths
-  .map((width) => `${urlFor(image).width(width).auto('format').url()} ${width}w`)
-  .join(', ');
+const urlBuilder = urlFor(image).auto('format').fit('clip');
 
-const src = urlFor(image).auto('format').url();
+const srcset = widths.map((width) => `${urlBuilder.width(width).url()} ${width}w`).join(', ');
+
+const src = urlBuilder.url();
+
+function getAspectRatioForImage(img: ImageObj) {
+  const ref = img.asset?._ref;
+  const dimensions = ref?.split('-')[2] ?? '';
+  const [width, height] = dimensions?.split('x').map((d) => parseInt(d, 10));
+
+  if (!width || !height) return 1;
+
+  return width / height;
+}
+
+const aspectRatio =
+  aspectRatioProp === 'intrinsic' ? getAspectRatioForImage(image) : aspectRatioProp;
 ---
 
 <img

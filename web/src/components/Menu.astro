@@ -66,14 +66,18 @@ const { links } = await getMenuConfig();
     font-size: 125%;
     line-height: 1.2;
 
-    @media (min-width: $width-l) {
+    @media (min-width: $width-m) {
       display: flex;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: $width-l) {
       gap: 3.75rem;
     }
   }
 
   .menu-open {
-    @media (min-width: $width-l) {
+    @media (min-width: $width-m) {
       display: none;
     }
   }

@@ -21,7 +21,12 @@ const link = header.links?.[0];
     </div>
     {
       header.image && (
-        <Image image={header.image} sizes="(min-width: 64rem) 40vw, 90vw" loading="eager" />
+        <Image
+          class="heading-image"
+          image={header.image}
+          sizes="(min-width: 64rem) 40vw, 90vw"
+          loading="eager"
+        />
       )
     }
   </div>
@@ -29,12 +34,12 @@ const link = header.links?.[0];
 
 <style lang="scss">
   .header-container {
-    padding: 4.5rem 0;
     display: grid;
     align-items: center;
     gap: 5.5rem;
 
-    @media (min-width: $width-l) {
+    @media (min-width: $width-m) {
+      padding-top: 4.5rem;
       grid-template-columns: 4fr 3fr;
       gap: 4.25rem;
     }
@@ -43,8 +48,14 @@ const link = header.links?.[0];
       display: grid;
       gap: 1rem;
 
-      @media (min-width: $width-l) {
+      @media (min-width: $width-m) {
         gap: 2.5rem;
+      }
+    }
+
+    .heading-image {
+      @media (max-width: $width-m) {
+        aspect-ratio: 1;
       }
     }
   }
