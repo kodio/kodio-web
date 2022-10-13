@@ -6,9 +6,9 @@ export const section = defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'label',
+      name: 'heading',
+      title: 'Heading',
       type: 'string',
-      description: 'Only used in sanity studio',
     }),
     defineField({
       name: 'color',
@@ -20,19 +20,25 @@ export const section = defineType({
       name: 'content',
       title: 'Content',
       type: 'array',
-      of: [{ type: 'accordion' }, { type: 'article' }, { type: 'banner' }],
+      of: [
+        { type: 'accordion' },
+        { type: 'article' },
+        { type: 'banner' },
+        { type: 'bannerLinkGroup' },
+      ],
       validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
-      label: 'label',
+      heading: 'heading',
       color: 'color',
+      content: 'content',
     },
-    prepare({ label, color }) {
+    prepare({ heading, color, content }) {
       return {
-        title: label,
-        subtitle: color,
+        title: heading,
+        subtitle: `Section -  color: ${color}, ${content?.length ?? 0} content block(s)`,
       };
     },
   },

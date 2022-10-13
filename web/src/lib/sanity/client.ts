@@ -68,6 +68,15 @@ const sectionsQuery = groq`
         _type == "internalLink" => {
           "slug": @.reference->slug
         }
+      },
+      bannerLinks[] {
+        ...,
+          links[] {
+          ...,
+          _type == "internalLink" => {
+            "slug": @.reference->slug
+          }
+        }
       }
     }
   }

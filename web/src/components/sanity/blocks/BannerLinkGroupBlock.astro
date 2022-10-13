@@ -1,0 +1,39 @@
+---
+import BannerLink from '@components/sanity/BannerLink.astro';
+import type { Props as PortableTextProps } from 'astro-portabletext/types';
+import type { BannerLinkGroup } from '@lib/sanity';
+
+export type Props = PortableTextProps<BannerLinkGroup>;
+
+const { node } = Astro.props;
+
+const isEven = node.bannerLinks?.length && node.bannerLinks?.length % 2 === 0;
+const paddingBottom = isEven ? 'min(20rem, 30vw)' : '0'; // Matches the translate value for even childs
+---
+
+<div>
+  {node.bannerLinks?.map((bannerLink) => <BannerLink {...bannerLink} />)}
+</div>
+
+<style lang="scss" define:vars={{ paddingBottom }}>
+  div {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    gap: 3rem;
+
+    @media (min-width: $width-m) {
+      grid-template-columns: 1fr 1fr;
+      padding-bottom: var(--paddingBottom);
+      gap: 5rem;
+
+      & > :global(*):nth-child(even) {
+        translate: 0 min(20rem, 30vw);
+      }
+    }
+
+    @media (min-width: $width-xl) {
+      gap: 8.5rem;
+    }
+  }
+</style>

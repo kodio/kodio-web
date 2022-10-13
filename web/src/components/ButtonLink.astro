@@ -13,7 +13,7 @@ const linkColor = color === 'transparent' ? 'transparent' : `var(--${color})`;
 ---
 
 <div>
-  <SanityLink class="button-link" link={link} />
+  <SanityLink class="button-link" link={link}>{link.label}</SanityLink>
 </div>
 
 <style lang="scss" define:vars={{ linkColor }}>

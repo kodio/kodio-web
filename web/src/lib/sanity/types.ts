@@ -22,6 +22,18 @@ export interface Banner extends ArbitraryTypedObject {
   linkColor?: Color;
 }
 
+export interface BannerLink {
+  title?: string;
+  preHeading1?: string;
+  preHeading2?: string;
+  image?: Image;
+  links?: Link[];
+}
+
+export interface BannerLinkGroup extends ArbitraryTypedObject {
+  bannerLinks?: BannerLink[];
+}
+
 export interface BlockContentExternalLink {
   href: string;
   blank: boolean;
@@ -121,11 +133,12 @@ export interface PageMetadata {
 
 export interface Section {
   _type: 'section';
+  heading?: string;
   color: Color;
   content?: SectionContent[];
 }
 
-type SectionContent = Accordion | Article | Banner;
+type SectionContent = Accordion | Article | Banner | BannerLinkGroup;
 
 export interface Slug {
   _type: 'slug';

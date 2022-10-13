@@ -6,6 +6,7 @@ import { page } from './documents/page';
 import { accordion, accordionItem } from './objects/accordion';
 import { article } from './objects/article';
 import { banner } from './objects/banner';
+import { bannerLink, bannerLinkGroup } from './objects/bannerLinkGroup';
 import { blockContent } from './objects/blockContent';
 import { color } from './objects/color';
 import { externalLink } from './objects/externalLink';
@@ -29,6 +30,8 @@ export const schemaTypes = [
   accordionItem,
   article,
   banner,
+  bannerLink,
+  bannerLinkGroup,
   blockContent,
   color,
   externalLink,

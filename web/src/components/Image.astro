@@ -1,9 +1,9 @@
 ---
 import { urlFor } from '@lib/sanity';
-import type { ImageObj } from '@lib/sanity';
+import type { Image, ImageObj } from '@lib/sanity';
 
 export interface Props {
-  image: ImageObj;
+  image: Image | ImageObj;
   class?: string;
   widths?: number[];
   sizes?: string;
@@ -21,13 +21,13 @@ const {
   objectFit = 'contain',
 } = Astro.props;
 
-const urlBuilder = urlFor(image).auto('format').fit('clip');
+const urlBuilder = urlFor(image).auto('format').fit('clip').quality(75);
 
 const srcset = widths.map((width) => `${urlBuilder.width(width).url()} ${width}w`).join(', ');
 
 const src = urlBuilder.url();
 
-function getAspectRatioForImage(img: ImageObj) {
+function getAspectRatioForImage(img: Image | ImageObj) {
   const ref = img.asset?._ref;
   const dimensions = ref?.split('-')[2] ?? '';
   const [width, height] = dimensions?.split('x').map((d) => parseInt(d, 10));
@@ -42,7 +42,7 @@ const aspectRatio =
 ---
 
 <img
-  alt={image.alt ?? ''}
+  alt={'alt' in image ? image.alt ?? '' : ''}
   class={Astro.props.class}
   sizes={sizes}
   srcset={srcset}

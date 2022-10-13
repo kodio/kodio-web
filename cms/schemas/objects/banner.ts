@@ -52,9 +52,16 @@ export const banner = defineType({
     }),
   ],
   preview: {
-    prepare() {
+    select: {
+      heading: 'heading',
+      image: 'image',
+      textPosition: 'textPosition',
+    },
+    prepare({ heading, image, textPosition }) {
       return {
-        title: 'Banner',
+        title: heading,
+        subtitle: `Banner - text position: ${textPosition ?? 'left'}`,
+        media: image,
       };
     },
   },

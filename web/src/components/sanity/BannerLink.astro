@@ -1,0 +1,76 @@
+---
+import Image from '@components/Image.astro';
+import SanityLink from '@components/sanity/SanityLink.astro';
+import type { BannerLink } from '@lib/sanity';
+
+export type Props = BannerLink;
+
+const { title, preHeading1, preHeading2, image, links } = Astro.props;
+
+const link = links?.[0];
+---
+
+{
+  link && (
+    <SanityLink link={link} class="banner-link">
+      {image && <Image image={image} aspectRatio={1} />}
+      <div>
+        <div>
+          <span class="pre-heading-1">{preHeading1}</span>
+          <span class="pre-heading-2">{preHeading2}</span>
+        </div>
+        <h3>{title}</h3>
+      </div>
+    </SanityLink>
+  )
+}
+
+<style lang="scss">
+  .banner-link {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    img {
+      border-radius: 0.5rem;
+      background-color: var(--yellow-50);
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: $width-m) {
+        gap: 1rem;
+      }
+
+      > div {
+        display: flex;
+        gap: 1.5rem;
+        line-height: 1.9;
+
+        @media (min-width: $width-m) {
+          font-size: 125%;
+          line-height: 1.5;
+        }
+
+        .pre-heading-1 {
+          color: var(--orange-400);
+        }
+
+        .pre-heading-2 {
+          color: var(--purple-200);
+        }
+      }
+    }
+
+    h3 {
+      font-family: var(--ff-lora);
+      font-size: var(--fs-h3);
+
+      @media (min-width: $width-m) {
+        font-size: var(--fs-h2);
+      }
+    }
+  }
+</style>
