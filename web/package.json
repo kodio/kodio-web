@@ -20,14 +20,14 @@
     "@fontsource/varela-round": "^4.5.9",
     "@sanity/image-url": "^1.0.1",
     "astro": "^1.4.7",
-    "astro-portabletext": "^0.5.0",
+    "astro-portabletext": "^0.6.1",
     "autoprefixer": "^10.4.12",
     "groq": "^2.33.2",
     "picosanity": "^4.0.0",
     "sass": "^1.55.0"
   },
   "devDependencies": {
-    "@types/node": "^18.8.4",
+    "@types/node": "^18.8.5",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",
