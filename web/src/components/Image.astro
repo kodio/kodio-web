@@ -5,7 +5,6 @@ import type { Image, ImageObj } from '@lib/sanity';
 export interface Props {
   image: Image | ImageObj;
   class?: string;
-  widths?: number[];
   sizes?: string;
   loading?: 'lazy' | 'eager';
   aspectRatio?: number | 'intrinsic';
@@ -14,12 +13,13 @@ export interface Props {
 
 const {
   image,
-  widths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   sizes = '100vw',
   loading = 'lazy',
   aspectRatio: aspectRatioProp = 'intrinsic',
   objectFit = 'contain',
 } = Astro.props;
+
+const widths = [16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920, 2048, 3840];
 
 const urlBuilder = urlFor(image).auto('format').fit('clip').quality(75);
 

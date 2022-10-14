@@ -13,7 +13,13 @@ const link = links?.[0];
 {
   link && (
     <SanityLink link={link} class="banner-link">
-      {image && <Image image={image} aspectRatio={1} />}
+      {image && (
+        <Image
+          image={image}
+          sizes="(min-width: 1740px) 524px, (min-width: 1280px) calc(7.27vw + 399px), (min-width: 1040px) calc(50vw - 120px), (min-width: 780px) calc(50vw - 64px), calc(100vw - 48px)"
+          aspectRatio={1}
+        />
+      )}
       <div>
         <div>
           <span class="pre-heading-1">{preHeading1}</span>
