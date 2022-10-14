@@ -54,6 +54,10 @@ for å få hot-reloading.
 
 Ved bruk av `build` og `preview` må disse kommandoene kjøres igjen for hver kodeendring for å se resultatet.
 
+### Bilder
+
+Bruker [https://github.com/ausi/respimagelint](https://github.com/ausi/respimagelint) for å regne ut `sizes`.
+
 ## CMS
 
 Koden for CMS-et ligger i `cms`. CMS-et er laget med [Sanity](https://www.sanity.io/). Merk det brukes v3 av Sanity som foreløpig er i alpha.
