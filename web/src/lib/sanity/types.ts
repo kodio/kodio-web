@@ -93,6 +93,18 @@ export interface Image {
   asset?: {
     _ref?: string;
   };
+  crop?: {
+    bottom: number;
+    left: number;
+    right: number;
+    top: number;
+  };
+  hotspot?: {
+    height: number;
+    width: number;
+    x: number;
+    y: number;
+  };
 }
 
 export interface ImageObj extends Image {

@@ -34,11 +34,24 @@ function getAspectRatioForImage(img: Image | ImageObj) {
 
   if (!width || !height) return 1;
 
+  const crop = img.crop;
+
+  if (crop) {
+    const croppedWidth = width * (1 - (crop.left + crop.right));
+    const croppedHeight = height * (1 - (crop.top + crop.bottom));
+
+    return croppedWidth / croppedHeight;
+  }
+
   return width / height;
 }
 
 const aspectRatio =
   aspectRatioProp === 'intrinsic' ? getAspectRatioForImage(image) : aspectRatioProp;
+
+const objectPosition = image.hotspot
+  ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
+  : undefined;
 ---
 
 <img
@@ -50,10 +63,11 @@ const aspectRatio =
   loading={loading}
 />
 
-<style lang="scss" define:vars={{ aspectRatio, objectFit }}>
+<style lang="scss" define:vars={{ aspectRatio, objectFit, objectPosition }}>
   img {
     width: 100%;
     object-fit: var(--objectFit);
+    object-position: var(--objectPosition);
     aspect-ratio: var(--aspectRatio);
   }
 </style>
