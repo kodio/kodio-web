@@ -5,9 +5,9 @@ import Menu from '@components/Menu.astro';
 import { isDarkColor } from '@utils/colors';
 import type { Color } from '@lib/sanity';
 
-export interface Props {
+export type Props = {
   color: Color;
-}
+};
 
 const { color } = Astro.props;
 

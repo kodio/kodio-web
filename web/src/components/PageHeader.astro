@@ -4,9 +4,9 @@ import Image from '@components/sanity/Image.astro';
 import SectionLayout from '@layouts/SectionLayout.astro';
 import type { Header } from '@lib/sanity';
 
-export interface Props {
+export type Props = {
   header: Header;
-}
+};
 
 const { header } = Astro.props;
 

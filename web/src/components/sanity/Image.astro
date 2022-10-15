@@ -2,14 +2,14 @@
 import { urlFor } from '@lib/sanity';
 import type { Image, ImageObj } from '@lib/sanity';
 
-export interface Props {
+export type Props = {
   image: Image | ImageObj;
   class?: string;
   sizes?: string;
   loading?: 'lazy' | 'eager';
   aspectRatio?: number | 'intrinsic';
   objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
-}
+};
 
 const {
   image,
@@ -61,6 +61,7 @@ const objectPosition = image.hotspot
   srcset={srcset}
   src={src}
   loading={loading}
+  decoding="async"
 />
 
 <style lang="scss" define:vars={{ aspectRatio, objectFit, objectPosition }}>

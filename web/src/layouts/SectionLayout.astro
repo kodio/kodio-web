@@ -2,10 +2,10 @@
 import { isDarkColor } from '@utils/colors';
 import type { Color } from '@lib/sanity';
 
-export interface Props {
+export type Props = {
   heading?: string | undefined;
   color: Color;
-}
+};
 
 const { heading, color } = Astro.props;
 

@@ -6,9 +6,9 @@ import BlockContentExternalLink from './BlockContentExternalLink.astro';
 import BlockContentInternalLink from './BlockContentInternalLink.astro';
 import type { ArbitraryTypedObject } from '@portabletext/types';
 
-export interface Props {
+export type Props = {
   value: ArbitraryTypedObject | ArbitraryTypedObject[] | undefined;
-}
+};
 
 const { value } = Astro.props;
 ---

@@ -7,9 +7,9 @@ import BannerBlock from './blocks/BannerBlock.astro';
 import BannerLinkGroupBlock from './blocks/BannerLinkGroupBlock.astro';
 import type { Section } from '@lib/sanity';
 
-export interface Props {
+export type Props = {
   sections?: Section[] | undefined;
-}
+};
 
 const { sections } = Astro.props;
 ---

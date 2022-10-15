@@ -1,7 +1,7 @@
 ---
-export interface Props {
+export type Props = {
   class?: string | null | undefined;
-}
+};
 ---
 
 <ul class:list={['accordion', Astro.props.class]}>

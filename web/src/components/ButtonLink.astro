@@ -2,10 +2,10 @@
 import SanityLink from '@components/sanity/SanityLink.astro';
 import type { Color, Link } from '@lib/sanity';
 
-export interface Props {
+export type Props = {
   link: Link;
   color?: Color | undefined;
-}
+};
 
 const { link, color = 'transparent' } = Astro.props;
 
