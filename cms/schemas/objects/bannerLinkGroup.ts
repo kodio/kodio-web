@@ -39,12 +39,12 @@ export const bannerLink = defineType({
     }),
     defineField({
       name: 'preHeading1',
-      title: 'Preheading 1',
+      title: 'Pre-heading 1',
       type: 'string',
     }),
     defineField({
       name: 'preHeading2',
-      title: 'Preheading 2',
+      title: 'Pre-heading 2',
       type: 'string',
     }),
     defineField({

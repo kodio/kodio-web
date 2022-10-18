@@ -85,8 +85,10 @@ export type FooterConfigSection = {
 export type Header = {
   color: Color;
   heading: string;
+  preHeading?: string;
   links?: Link[];
   image?: ImageObj;
+  preamble?: string;
 };
 
 export type Image = {

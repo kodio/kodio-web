@@ -10,6 +10,7 @@ export const page = defineType({
     defineField({
       name: 'title',
       title: 'Title',
+      description: 'Used as meta title (name in browser tab) and used in Sanity studio.',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),

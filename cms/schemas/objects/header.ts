@@ -18,6 +18,11 @@ export const header = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'preHeading',
+      title: 'Pre-heading',
+      type: 'string',
+    }),
+    defineField({
       name: 'links',
       title: 'Link',
       type: 'array',
@@ -28,6 +33,11 @@ export const header = defineType({
       name: 'image',
       title: 'Image',
       type: 'imageObj',
+    }),
+    defineField({
+      name: 'preamble',
+      title: 'Preamble',
+      type: 'string',
     }),
   ],
 });
