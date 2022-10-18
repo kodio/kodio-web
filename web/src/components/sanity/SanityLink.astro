@@ -14,6 +14,4 @@ const target = !isInternalLink && link.blank ? '_blank' : undefined;
 const rel = !isInternalLink && link.blank ? 'noopener' : undefined;
 ---
 
-<a class={Astro.props.class} href={href} target={target} rel={rel}>
-  <slot>{href}</slot>
-</a>
+<a class={Astro.props.class} href={href} target={target} rel={rel}><slot>{href}</slot></a>
