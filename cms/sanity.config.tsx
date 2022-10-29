@@ -31,19 +31,35 @@ export default createConfig([
   {
     name: 'prod',
     title: 'Prod',
-    logo: Logo,
     projectId: 'bmm7n0e3',
     dataset: 'prod',
     basePath: '/prod',
     plugins: [sharedConfig()],
+    studio: {
+      components: {
+        logo: () => (
+          <div>
+            <Logo /> <span>prod</span>
+          </div>
+        ),
+      },
+    },
   },
   {
     name: 'dev',
     title: 'Dev',
-    logo: Logo,
     projectId: 'bmm7n0e3',
     dataset: 'dev',
     basePath: '/dev',
     plugins: [sharedConfig()],
+    studio: {
+      components: {
+        logo: () => (
+          <div>
+            <Logo /> <span>dev</span>
+          </div>
+        ),
+      },
+    },
   },
 ]);

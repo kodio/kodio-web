@@ -8,25 +8,26 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc",
     "prettier:check": "prettier -l .",
-    "verify": "npm run lint && npm run prettier:check",
+    "verify": "npm run typecheck && npm run lint && npm run prettier:check",
     "sanity": "sanity",
     "copy-dataset": "node scripts/copy-dataset.js"
   },
   "dependencies": {
-    "@mdx-js/react": "^2.1.4",
-    "@sanity/vision": "^3.0.0-dev-preview.20",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.4.0",
-    "react-is": "^17.0.2",
-    "sanity": "3.0.0-dev-preview.20",
-    "sanity-plugin-media": "^2.0.0-v3-studio.0",
+    "@mdx-js/react": "^2.1.5",
+    "@sanity/vision": "dev-preview",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-is": "^18.2.0",
+    "sanity": "dev-preview",
+    "sanity-plugin-media": "^2.0.0-v3-studio.2",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.0",
-    "eslint": "^8.25.0",
+    "eslint": "^8.26.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   }

@@ -1,5 +1,6 @@
 import { FiCompass, FiHome, FiShare2, FiTool } from 'react-icons/fi';
-import type { ConfigContext, StructureBuilder } from 'sanity/desk';
+import type { ConfigContext } from 'sanity';
+import type { StructureBuilder } from 'sanity/desk';
 
 export const structure = (S: StructureBuilder, context: ConfigContext) =>
   S.list()
