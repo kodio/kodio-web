@@ -1,5 +1,7 @@
 ---
-export type Props = Omit<astroHTML.JSX.AnchorHTMLAttributes, 'href'> & { href: string };
+import type { HTMLAttributes } from 'astro/types';
+
+export type Props = Omit<HTMLAttributes<'a'>, 'href'> & { href: string };
 
 const { href, ...attrs } = Astro.props;
 ---

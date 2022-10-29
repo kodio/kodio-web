@@ -1,5 +1,7 @@
 ---
-export type Props = astroHTML.JSX.ButtonHTMLAttributes;
+import type { HTMLAttributes } from 'astro/types';
+
+export type Props = HTMLAttributes<'button'>;
 
 const { type = 'button', ...rest } = Astro.props;
 ---

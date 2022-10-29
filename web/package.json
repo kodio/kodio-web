@@ -19,9 +19,9 @@
     "@fontsource/lora": "^4.5.12",
     "@fontsource/varela-round": "^4.5.9",
     "@sanity/image-url": "^1.0.1",
-    "astro": "^1.5.3",
+    "astro": "^1.6.1",
     "astro-portabletext": "^0.6.1",
-    "autoprefixer": "^10.4.12",
+    "autoprefixer": "^10.4.13",
     "groq": "^2.33.2",
     "picosanity": "^4.0.0",
     "sass": "^1.55.0"
@@ -35,7 +35,7 @@
     "eslint-plugin-astro": "^0.20.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.6.0",
+    "prettier-plugin-astro": "^0.7.0",
     "typescript": "^4.8.4"
   }
 }
