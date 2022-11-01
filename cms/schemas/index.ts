@@ -9,6 +9,7 @@ import { banner } from './objects/banner';
 import { bannerLink, bannerLinkGroup } from './objects/bannerLinkGroup';
 import { blockContent } from './objects/blockContent';
 import { color } from './objects/color';
+import { employeeCard, employeeCards } from './objects/employeeCards';
 import { externalLink } from './objects/externalLink';
 import { header } from './objects/header';
 import { imageObj } from './objects/imageObj';
@@ -34,6 +35,8 @@ export const schemaTypes = [
   bannerLinkGroup,
   blockContent,
   color,
+  employeeCard,
+  employeeCards,
   externalLink,
   header,
   imageObj,

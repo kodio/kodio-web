@@ -1,0 +1,19 @@
+---
+import EmployeeCard from '@components/sanity/EmployeeCard.astro';
+import type { Props as PortableTextProps } from 'astro-portabletext/types';
+import type { EmployeeCards } from '@lib/sanity';
+
+export type Props = PortableTextProps<EmployeeCards>;
+
+const { node } = Astro.props;
+---
+
+<div>{node.cards?.map((card) => <EmployeeCard {...card} />)}</div>
+
+<style lang="scss">
+  div {
+    display: flex;
+    gap: 5rem;
+    flex-wrap: wrap;
+  }
+</style>

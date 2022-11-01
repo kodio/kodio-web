@@ -66,6 +66,19 @@ export type DefaultMetadata = {
   image: Image;
 };
 
+export type EmployeeCard = {
+  image: Image;
+  color?: Color;
+  fullName: string;
+  role?: string;
+  tel?: ExternalLink;
+  email?: ExternalLink;
+};
+
+export type EmployeeCards = ArbitraryTypedObject & {
+  cards?: EmployeeCard[];
+};
+
 export type ExternalLink = {
   _type: 'externalLink';
   blank?: boolean;
@@ -152,7 +165,7 @@ export type Section = {
   content?: SectionContent[];
 };
 
-type SectionContent = Accordion | Article | Banner | BannerLinkGroup;
+type SectionContent = Accordion | Article | Banner | BannerLinkGroup | EmployeeCards;
 
 export type Slug = {
   _type: 'slug';

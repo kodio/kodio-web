@@ -1,0 +1,55 @@
+---
+import Image from '@components/sanity/Image.astro';
+import SanityLink from '@components/sanity/SanityLink.astro';
+import type { EmployeeCard } from '@lib/sanity';
+
+export type Props = EmployeeCard;
+
+const { image, color, fullName, role, tel, email } = Astro.props;
+
+const backgroundColor = `var(--${color})`;
+---
+
+<div>
+  <div class="image-container">
+    <Image image={image} />
+  </div>
+  <div class="name">{fullName}</div>
+  <div class="role">{role}</div>
+  {tel && <SanityLink link={tel}>{tel.label}</SanityLink>}
+  {email && <SanityLink link={email}>{email.label}</SanityLink>}
+</div>
+
+<style lang="scss" define:vars={{ backgroundColor }}>
+  div {
+    line-height: 1.28;
+
+    .image-container {
+      background-color: var(--backgroundColor);
+      width: 19rem;
+      aspect-ratio: 1;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      > img {
+        max-height: 100%;
+      }
+    }
+
+    .name {
+      font-size: 150%;
+    }
+
+    .role {
+      margin-bottom: 1rem;
+      font-family: var(--ff-varela);
+    }
+
+    > :global(a) {
+      display: block;
+    }
+  }
+</style>
