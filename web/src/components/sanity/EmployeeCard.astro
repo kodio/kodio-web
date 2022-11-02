@@ -26,13 +26,16 @@ const backgroundColor = `var(--${color})`;
 
     .image-container {
       background-color: var(--backgroundColor);
-      width: 19rem;
       aspect-ratio: 1;
       border-radius: 0.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-bottom: 1rem;
+
+      @media (min-width: $width-s) {
+        width: 19rem;
+      }
 
       > img {
         max-height: 100%;

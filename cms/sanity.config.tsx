@@ -6,6 +6,8 @@ import Logo from './components/Logo';
 import { schemaTypes } from './schemas';
 import { structure } from './structure';
 
+export const projectId = 'bmm7n0e3';
+
 const sharedConfig = definePlugin({
   name: 'sharedConfig',
   plugins: [
@@ -31,7 +33,7 @@ export default defineConfig([
   {
     name: 'prod',
     title: 'Prod',
-    projectId: 'bmm7n0e3',
+    projectId,
     dataset: 'prod',
     basePath: '/prod',
     plugins: [sharedConfig()],
@@ -48,7 +50,7 @@ export default defineConfig([
   {
     name: 'dev',
     title: 'Dev',
-    projectId: 'bmm7n0e3',
+    projectId,
     dataset: 'dev',
     basePath: '/dev',
     plugins: [sharedConfig()],
