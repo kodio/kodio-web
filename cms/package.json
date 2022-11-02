@@ -5,6 +5,7 @@
   "description": "Sanity for website for Kodio",
   "scripts": {
     "start": "sanity start",
+    "dev": "sanity dev",
     "build": "sanity build",
     "deploy": "sanity deploy",
     "lint": "eslint . --max-warnings 0",
@@ -16,12 +17,12 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.1.5",
-    "@sanity/vision": "dev-preview",
+    "@sanity/vision": "3.0.0-rc.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-is": "^18.2.0",
-    "sanity": "dev-preview",
+    "sanity": "3.0.0-rc.0",
     "sanity-plugin-media": "^2.0.0-v3-studio.2",
     "styled-components": "^5.3.6"
   },

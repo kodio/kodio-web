@@ -1,12 +1,12 @@
 import { visionTool } from '@sanity/vision';
-import { createConfig, createPlugin } from 'sanity';
+import { defineConfig, definePlugin } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import Logo from './components/Logo';
 import { schemaTypes } from './schemas';
 import { structure } from './structure';
 
-const sharedConfig = createPlugin({
+const sharedConfig = definePlugin({
   name: 'sharedConfig',
   plugins: [
     deskTool({
@@ -27,7 +27,7 @@ const sharedConfig = createPlugin({
   },
 });
 
-export default createConfig([
+export default defineConfig([
   {
     name: 'prod',
     title: 'Prod',
