@@ -19,6 +19,9 @@ export const page = defineType({
       title: 'Slug',
       description: "A URL-friendly string that will appear in the page's URL.",
       type: 'slug',
+      options: {
+        source: 'title',
+      },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
