@@ -38,13 +38,14 @@ const defaultMetadata = await getDefaultMetadata();
     <script>
       // Prefetch internal pages on link hover
       const max = 8;
-      const prefetchList = [];
+      const prefetchList: string[] = [];
 
       document.addEventListener('mouseover', (e) => {
-        if (e.target.tagName === 'A' && prefetchList.length < max) {
-          const href = e.target.getAttribute('href');
+        const target = e.target as HTMLElement | null;
+        if (target?.tagName === 'A' && prefetchList.length < max) {
+          const href = target.getAttribute('href');
 
-          if (href.startsWith('/') && !prefetchList.includes(href)) {
+          if (href?.startsWith('/') && !prefetchList.includes(href)) {
             const link = document.createElement('link');
             link.rel = 'prefetch';
             link.as = 'document';
@@ -53,6 +54,17 @@ const defaultMetadata = await getDefaultMetadata();
             prefetchList.push(href);
           }
         }
+      });
+
+      // Enable outline only when tabbing
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          document.body.classList.add('tabbed');
+        }
+      });
+
+      document.addEventListener('mousedown', () => {
+        document.body.classList.remove('tabbed');
       });
     </script>
   </head>
@@ -233,15 +245,3 @@ const defaultMetadata = await getDefaultMetadata();
     </style>
   </body>
 </html>
-
-<script>
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-      document.body.classList.add('tabbed');
-    }
-  });
-
-  document.addEventListener('mousedown', () => {
-    document.body.classList.remove('tabbed');
-  });
-</script>
