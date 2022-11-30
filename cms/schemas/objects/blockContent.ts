@@ -7,8 +7,16 @@ export const blockContent = defineType({
   title: 'Block content',
   type: 'array',
   of: [
+    { type: 'imageObj' },
     {
       type: 'block',
+      styles: [
+        { title: 'Normal', value: 'normal' },
+        {
+          title: 'Sub-heading',
+          value: 'h3',
+        },
+      ],
       marks: {
         annotations: [
           {

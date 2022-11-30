@@ -6,16 +6,16 @@ export type Accordion = ArbitraryTypedObject & {
 
 export type AccordionItem = {
   title?: string;
-  body?: ArbitraryTypedObject[];
+  body?: BlockContent;
 };
 
 export type Article = ArbitraryTypedObject & {
-  body?: ArbitraryTypedObject[];
+  body?: BlockContent;
 };
 
 export type Banner = ArbitraryTypedObject & {
   heading?: string;
-  body?: ArbitraryTypedObject[];
+  body?: BlockContent;
   image?: ImageObj;
   textPosition?: 'left' | 'right';
   links?: Link[];
@@ -33,6 +33,8 @@ export type BannerLink = {
 export type BannerLinkGroup = ArbitraryTypedObject & {
   bannerLinks?: BannerLink[];
 };
+
+export type BlockContent = ArbitraryTypedObject[];
 
 export type BlockContentExternalLink = {
   href: string;
@@ -95,6 +97,15 @@ export type FooterConfigSection = {
   links: Link[];
 };
 
+export type Handbook = ArbitraryTypedObject & {
+  sections?: HandbookSection[];
+};
+
+export type HandbookSection = {
+  heading: string;
+  body: BlockContent;
+};
+
 export type Header = {
   color: Color;
   heading: string;
@@ -122,10 +133,10 @@ export type Image = {
   };
 };
 
-export type ImageObj = Image & {
-  _type: 'imageObj';
-  alt?: string;
-};
+export type ImageObj = ArbitraryTypedObject &
+  Image & {
+    alt?: string;
+  };
 
 export type InternalLink = {
   _type: 'internalLink';
@@ -165,7 +176,7 @@ export type Section = {
   content?: SectionContent[];
 };
 
-type SectionContent = Accordion | Article | Banner | BannerLinkGroup | EmployeeCards;
+type SectionContent = Accordion | Article | Banner | BannerLinkGroup | EmployeeCards | Handbook;
 
 export type Slug = {
   _type: 'slug';

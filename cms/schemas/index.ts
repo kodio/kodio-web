@@ -11,6 +11,7 @@ import { blockContent } from './objects/blockContent';
 import { color } from './objects/color';
 import { employeeCard, employeeCards } from './objects/employeeCards';
 import { externalLink } from './objects/externalLink';
+import { handbook, handbookSection } from './objects/handbook';
 import { header } from './objects/header';
 import { imageObj } from './objects/imageObj';
 import { internalLink } from './objects/internalLink';
@@ -38,6 +39,8 @@ export const schemaTypes = [
   employeeCard,
   employeeCards,
   externalLink,
+  handbook,
+  handbookSection,
   header,
   imageObj,
   internalLink,

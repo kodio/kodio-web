@@ -26,6 +26,7 @@ export const section = defineType({
         { type: 'banner' },
         { type: 'bannerLinkGroup' },
         { type: 'employeeCards' },
+        { type: 'handbook' },
       ],
       validation: (Rule) => Rule.required(),
     }),

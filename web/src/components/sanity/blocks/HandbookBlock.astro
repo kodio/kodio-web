@@ -1,0 +1,110 @@
+---
+import slugify from 'slugify';
+import BlockContent from '@components/sanity/BlockContent.astro';
+import type { Handbook } from '@lib/sanity';
+import type { Props as PortableTextProps } from 'astro-portabletext/types';
+
+export type Props = PortableTextProps<Handbook>;
+
+const { node } = Astro.props;
+const sections = node.sections;
+const slugs = sections?.map((s) => ({ title: s.heading, slug: slugify(s.heading) }));
+---
+
+<div class="handbook">
+  <div class="handbook-sections">
+    {
+      sections?.map((section, index) => (
+        <div id={slugs?.[index]?.slug}>
+          <h2>{section.heading}</h2>
+          <div class="handbook-section-content">
+            <BlockContent value={section.body} />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <ol role="list">
+    {
+      slugs?.map((slug) => (
+        <li>
+          <a href={`#${slug.slug}`}>{slug.title}</a>
+        </li>
+      ))
+    }
+  </ol>
+</div>
+
+<style lang="scss">
+  .handbook {
+    display: flex;
+    justify-content: space-between;
+
+    .handbook-sections {
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      counter-reset: handbook-section-number;
+
+      @media (min-width: $width-m) {
+        max-width: 30rem;
+      }
+
+      .handbook-section-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      h2 {
+        margin-bottom: 1rem;
+
+        &::before {
+          counter-increment: handbook-section-number;
+          content: counter(handbook-section-number) '.';
+          margin-right: 0.4em;
+        }
+      }
+    }
+
+    ol {
+      display: none;
+      position: sticky;
+      align-self: flex-start;
+      right: 0;
+      top: 0;
+      padding-top: 2rem;
+      padding-left: 2.5rem;
+      counter-reset: handbook-links-number;
+
+      @media (min-width: $width-m) {
+        display: block;
+      }
+
+      li {
+        position: relative;
+        font-size: 175%;
+        line-height: 1.4;
+        list-style: none;
+        font-weight: 600;
+
+        &::before {
+          counter-increment: handbook-links-number;
+          content: counter(handbook-links-number) '.';
+          position: absolute;
+          left: -2rem;
+        }
+
+        a {
+          font-family: var(--ff-lora);
+          text-decoration-line: underline;
+
+          &:hover {
+            color: var(--orange-500);
+          }
+        }
+      }
+    }
+  }
+</style>

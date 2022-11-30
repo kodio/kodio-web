@@ -1,0 +1,11 @@
+---
+import Image from '@components/sanity/Image.astro';
+import type { ImageObj } from '@lib/sanity';
+import type { Props as PortableTextProps } from 'astro-portabletext/types';
+
+export type Props = PortableTextProps<ImageObj>;
+
+const { node } = Astro.props;
+---
+
+<Image image={node} />

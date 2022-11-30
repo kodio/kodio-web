@@ -24,7 +24,8 @@
     "autoprefixer": "^10.4.13",
     "groq": "^2.33.2",
     "picosanity": "^4.0.0",
-    "sass": "^1.56.1"
+    "sass": "^1.56.1",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

@@ -3,6 +3,7 @@ import { PortableText } from 'astro-portabletext';
 import OrderedList from '@components/OrderedList.astro';
 import UnorderedList from '@components/UnorderedList.astro';
 import BlockContentExternalLink from './BlockContentExternalLink.astro';
+import BlockContentImage from './BlockContentImage.astro';
 import BlockContentInternalLink from './BlockContentInternalLink.astro';
 import type { ArbitraryTypedObject } from '@portabletext/types';
 
@@ -22,6 +23,9 @@ const { value } = Astro.props;
         mark: {
           blockContentExternalLink: BlockContentExternalLink,
           blockContentInternalLink: BlockContentInternalLink,
+        },
+        type: {
+          imageObj: BlockContentImage,
         },
       }}
     />
