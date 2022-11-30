@@ -8,4 +8,4 @@ export type Props = PortableTextProps<ImageObj>;
 const { node } = Astro.props;
 ---
 
-<Image image={node} />
+<Image image={node} sizes="(min-width: 780px) 480px, calc(100vw - 48px)" />
