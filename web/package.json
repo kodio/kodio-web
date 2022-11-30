@@ -19,7 +19,7 @@
     "@fontsource/lora": "^4.5.12",
     "@fontsource/varela-round": "^4.5.9",
     "@sanity/image-url": "^1.0.1",
-    "astro": "^1.6.10",
+    "astro": "^1.6.11",
     "astro-portabletext": "^0.7.0",
     "autoprefixer": "^10.4.13",
     "groq": "^2.33.2",
