@@ -33,6 +33,7 @@
 
   display: inline;
   border-bottom: 0.4em solid transparent;
+  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   background-repeat: no-repeat;
   background-image: linear-gradient(var(--orange-500), var(--orange-500)), var(--left-edge),

@@ -1,11 +1,12 @@
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
+import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://glitner.github.io',
   base: '/kodio-web',
-  integrations: [sitemap()],
+  integrations: [sitemap(), compress()],
   vite: {
     envDir: '..',
     css: {
