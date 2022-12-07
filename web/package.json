@@ -22,6 +22,7 @@
     "astro": "^1.6.12",
     "astro-compress": "^1.1.18",
     "astro-portabletext": "^0.7.0",
+    "astro-robots-txt": "^0.3.10",
     "groq": "^2.33.2",
     "picosanity": "^4.0.0",
     "sass": "^1.56.1",
