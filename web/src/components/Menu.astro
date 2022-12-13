@@ -52,13 +52,13 @@ const { links } = await getMenuConfig();
   .menu-close {
     color: var(--black);
     background-color: var(--white);
-    border: 1px solid var(--black);
-    padding: calc(0.5rem - 1px);
-    box-shadow: 2px 2px var(--black);
+    border: 0.0625rem solid var(--black);
+    padding: calc(0.5rem - 0.0625rem);
+    box-shadow: 0.125rem 0.125rem var(--black);
 
     &:active {
-      box-shadow: 1px 1px var(--black);
-      translate: 1px 1px;
+      box-shadow: 0.0625rem 0.0625rem var(--black);
+      translate: 0.0625rem 0.0625rem;
     }
   }
 

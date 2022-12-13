@@ -166,15 +166,15 @@ const defaultMetadata = await getDefaultMetadata();
       body.tabbed *:focus-visible {
         outline: none;
         position: relative;
-        border-radius: 4px;
+        border-radius: 0.25rem;
       }
 
       body.tabbed *:focus-visible::before {
         content: '';
         position: absolute;
-        inset: -6px;
-        border: 2px solid var(--color-focus);
-        border-radius: 5px;
+        inset: -0.375rem;
+        border: 0.125rem solid var(--color-focus);
+        border-radius: 0.3125rem;
       }
 
       html,
