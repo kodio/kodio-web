@@ -24,15 +24,6 @@ Koden for nettsiden ligger i `web`. Nettsiden er laget med [Astro](https://astro
 
 For styling brukes stort sett [Sass](https://sass-lang.com/).
 
-### Installere pakker
-
-For å legge til nye npm-pakker må man gjøre det i `web`-mappen.
-
-```bash
-cd web
-npm install ...
-```
-
 ### Bygg og preview
 
 Astro har funksjonalitet for å bygge og vise siden lokalt som om det skulle vært deployet.
@@ -54,13 +45,22 @@ for å få hot-reloading.
 
 Ved bruk av `build` og `preview` må disse kommandoene kjøres igjen for hver kodeendring for å se resultatet.
 
+### Installere pakker
+
+For å legge til nye npm-pakker må man gjøre det i `web`-mappen.
+
+```bash
+cd web
+npm install package-to-install
+```
+
 ### Bilder
 
 Bruker [https://github.com/ausi/respimagelint](https://github.com/ausi/respimagelint) for å regne ut `sizes`.
 
 ## CMS
 
-Koden for CMS-et ligger i `cms`. CMS-et er laget med [Sanity](https://www.sanity.io/). Merk det brukes v3 av Sanity som foreløpig er i alpha.
+Koden for CMS-et ligger i `cms`. CMS-et er laget med [Sanity](https://www.sanity.io/).
 
 CMS-et er hostet på [https://kodio.sanity.studio/](https://kodio.sanity.studio/)
 
