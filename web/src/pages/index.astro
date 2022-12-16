@@ -3,11 +3,105 @@ import PageHeader from '@components/PageHeader.astro';
 import PageSections from '@components/sanity/PageSections.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { getLandingPage } from '@lib/sanity';
+import SectionLayout from '@layouts/SectionLayout.astro';
 
 const { metadata, header, sections } = await getLandingPage();
 ---
 
 <BaseLayout slug="" pageMetadata={metadata} headerColor={header.color}>
   <PageHeader header={header} />
+  <SectionLayout color="white" heading="Parallax">
+    <div class="p-container">
+      <div class="p-a">
+        <div class="a parallax" data-speed="0.35"></div>
+      </div>
+      <div class="p-b">
+        <div class="b parallax" data-speed="0.25"></div>
+      </div>
+      <div class="p-c">
+        <div class="c parallax" data-speed="0.15"></div>
+      </div>
+    </div>
+  </SectionLayout>
   <PageSections sections={sections} />
 </BaseLayout>
+
+<style>
+  .parallax {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    transition: none;
+  }
+
+  .p-container {
+    position: relative;
+    height: 44rem;
+    overflow: hidden;
+  }
+
+  .p-a,
+  .p-b,
+  .p-c {
+    position: absolute;
+  }
+
+  .p-a {
+    top: 10px;
+    left: 368px;
+    width: 500px;
+    height: 368px;
+  }
+
+  .p-b {
+    top: 136px;
+    left: 0;
+    width: 374px;
+    height: 511px;
+  }
+
+  .p-c {
+    top: 136px;
+    right: 0;
+    width: 344px;
+    height: 494px;
+  }
+
+  .a {
+    background-color: red;
+  }
+  .b {
+    background-color: green;
+  }
+  .c {
+    background-color: blue;
+  }
+</style>
+
+<script>
+  const parallaxElements = document.querySelectorAll<HTMLDivElement>('.parallax');
+
+  function setTransform(element: HTMLDivElement) {
+    const translateY =
+      (window.scrollY -
+        parseInt(element.getAttribute('offset') ?? '0') +
+        parseInt(element.getAttribute('calc') ?? '0')) *
+      parseFloat(element.getAttribute('data-speed') ?? '0');
+
+    element.style.transform = `translateY(${translateY}px)`;
+  }
+
+  parallaxElements.forEach((element) => {
+    element.setAttribute('calc', `${(window.innerHeight - element.clientHeight) * 0.5}`);
+    element.setAttribute('offset', `${element.getBoundingClientRect().top + window.pageYOffset}`);
+    setTransform(element);
+  });
+
+  window.addEventListener('scroll', () => {
+    parallaxElements.forEach((element) => {
+      setTransform(element);
+    });
+  });
+</script>
