@@ -19,10 +19,10 @@
     "@fontsource/lora": "^4.5.12",
     "@fontsource/varela-round": "^4.5.9",
     "@sanity/image-url": "^1.0.1",
-    "astro": "^1.9.0",
-    "astro-compress": "^1.1.24",
+    "astro": "^1.9.1",
+    "astro-compress": "^1.1.25",
     "astro-portabletext": "^0.7.0",
-    "astro-robots-txt": "^0.3.10",
+    "astro-robots-txt": "^0.3.11",
     "groq": "^2.33.2",
     "picosanity": "^4.0.0",
     "sass": "^1.57.1",
@@ -30,14 +30,14 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.48.0",
-    "@typescript-eslint/parser": "^5.48.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-astro": "^0.21.1",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "prettier": "^2.8.1",
-    "prettier-plugin-astro": "^0.7.0",
+    "eslint-plugin-jsx-a11y": "^6.7.0",
+    "prettier": "^2.8.2",
+    "prettier-plugin-astro": "^0.7.2",
     "typescript": "^4.9.4"
   }
 }
