@@ -8,12 +8,14 @@ export type Props = PortableTextProps<Article>;
 const { node } = Astro.props;
 ---
 
-<div class={Astro.props.class}>
+<div class:list={['article', Astro.props.class]}>
   <BlockContent value={node.body} />
 </div>
 
-<style>
-  :global(h3) {
-    margin: 2rem 0 1rem 0;
+<style lang="scss">
+  .article {
+    > :global(h3) {
+      margin: 2rem 0 1rem 0;
+    }
   }
 </style>
