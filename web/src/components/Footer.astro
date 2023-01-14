@@ -19,7 +19,9 @@ const { sections } = await getFooterConfig();
             <ul>
               {links.map((link) => (
                 <li>
-                  <SanityLink link={link}>{link.label}</SanityLink>
+                  <SanityLink link={link} hoverUnderline>
+                    {link.label}
+                  </SanityLink>
                 </li>
               ))}
             </ul>

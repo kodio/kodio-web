@@ -4,12 +4,12 @@ import type { Color, Link } from '@lib/sanity';
 
 export type Props = {
   link: Link;
-  color?: Color | undefined;
+  color: Color;
 };
 
-const { link, color = 'transparent' } = Astro.props;
+const { link, color } = Astro.props;
 
-const linkColor = color === 'transparent' ? 'transparent' : `var(--${color})`;
+const linkColor = `var(--${color})`;
 ---
 
 <div>

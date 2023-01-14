@@ -60,8 +60,7 @@ export type Color =
   | 'purple-100'
   | 'yellow-200'
   | 'yellow-100'
-  | 'yellow-50'
-  | 'transparent';
+  | 'yellow-50';
 
 export type DefaultMetadata = {
   description: string;
@@ -70,7 +69,7 @@ export type DefaultMetadata = {
 
 export type EmployeeCard = {
   image: Image;
-  color?: Color;
+  color: Color;
   fullName: string;
   role?: string;
   tel?: ExternalLink;

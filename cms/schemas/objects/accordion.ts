@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 import AccordionIcon from '../../components/AccordionIcon';
 import AccordionItemIcon from '../../components/AccordionItemIcon';
 
@@ -8,13 +8,13 @@ export const accordion = defineType({
   type: 'object',
   icon: AccordionIcon,
   fields: [
-    defineField({
+    {
       name: 'accordionItems',
       title: 'Accordion items',
       type: 'array',
       of: [{ type: 'accordionItem' }],
       validation: (Rule) => Rule.required(),
-    }),
+    },
   ],
   preview: {
     select: {
@@ -36,18 +36,18 @@ export const accordionItem = defineType({
   type: 'object',
   icon: AccordionItemIcon,
   fields: [
-    defineField({
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
-    }),
+    },
   ],
   preview: {
     select: {

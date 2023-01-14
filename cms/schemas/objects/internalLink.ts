@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 import InternalLinkIcon from '../../components/InternalLinkIcon';
 
 export const internalLink = defineType({
@@ -7,18 +7,18 @@ export const internalLink = defineType({
   type: 'object',
   icon: InternalLinkIcon,
   fields: [
-    defineField({
+    {
       name: 'label',
       title: 'Label',
       type: 'string',
       validation: (Rule) => Rule.required().warning(),
-    }),
-    defineField({
+    },
+    {
       name: 'reference',
       title: 'Page',
       type: 'reference',
       to: [{ type: 'page' }],
-    }),
+    },
   ],
   preview: {
     select: {

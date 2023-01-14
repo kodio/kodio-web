@@ -21,7 +21,6 @@ export const color = defineType({
       { title: 'Yellow 200', value: 'yellow-200' },
       { title: 'Yellow 100', value: 'yellow-100' },
       { title: 'Yellow 50', value: 'yellow-50' },
-      { title: 'Transparent', value: 'transparent' },
     ],
   },
 });

@@ -18,7 +18,9 @@ const { links } = await getMenuConfig();
     {
       links.map((link) => (
         <li>
-          <SanityLink link={link}>{link.label}</SanityLink>
+          <SanityLink link={link} hoverUnderline>
+            {link.label}
+          </SanityLink>
         </li>
       ))
     }

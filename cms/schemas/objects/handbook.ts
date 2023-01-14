@@ -1,17 +1,17 @@
-import { defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 
 export const handbook = defineType({
   name: 'handbook',
   title: 'Handbook',
   type: 'object',
   fields: [
-    defineField({
+    {
       name: 'sections',
       title: 'Sections',
       type: 'array',
       of: [{ type: 'handbookSection' }],
       validation: (Rule) => Rule.required(),
-    }),
+    },
   ],
   preview: {
     select: {
@@ -31,17 +31,17 @@ export const handbookSection = defineType({
   title: 'Handbook section',
   type: 'object',
   fields: [
-    defineField({
+    {
       name: 'heading',
       title: 'Heading',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
-    }),
+    },
   ],
 });

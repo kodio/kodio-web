@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 
 export const imageObj = defineType({
   name: 'imageObj',
@@ -8,10 +8,10 @@ export const imageObj = defineType({
     hotspot: true,
   },
   fields: [
-    defineField({
+    {
       name: 'alt',
       title: 'Alt text',
       type: 'string',
-    }),
+    },
   ],
 });

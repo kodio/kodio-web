@@ -19,7 +19,7 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
   <div>
     <h2>{node.heading}</h2>
     <BlockContent value={node.body} />
-    {link && <ButtonLink link={link} color={node.linkColor} />}
+    {link && <ButtonLink link={link} color={node.linkColor ?? 'yellow-50'} />}
   </div>
   {
     node.image && (
