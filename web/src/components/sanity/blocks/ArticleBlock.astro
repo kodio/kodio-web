@@ -11,11 +11,3 @@ const { node } = Astro.props;
 <div class:list={['article', Astro.props.class]}>
   <BlockContent value={node.body} />
 </div>
-
-<style lang="scss">
-  .article {
-    > :global(h3) {
-      margin: 2rem 0 1rem 0;
-    }
-  }
-</style>

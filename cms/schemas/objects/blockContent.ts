@@ -13,6 +13,10 @@ export const blockContent = defineType({
       styles: [
         { title: 'Normal', value: 'normal' },
         {
+          title: 'Heading',
+          value: 'h2',
+        },
+        {
           title: 'Sub-heading',
           value: 'h3',
         },
