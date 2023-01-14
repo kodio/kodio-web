@@ -7,12 +7,12 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
+    "astro:check": "astro check",
     "typecheck": "tsc",
     "lint": "eslint --ext .js,.ts,.astro src --max-warnings 0",
     "prettier:check": "prettier -l .",
     "prettier:format": "prettier -w .",
-    "verify": "npm run check && npm run typecheck && npm run lint && npm run prettier:check"
+    "check": "npm run astro:check && npm run typecheck && npm run lint && npm run prettier:check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.0",

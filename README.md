@@ -91,7 +91,7 @@ Det brukes [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) og [T
 Dette kan kjøres lokalt med
 
 ```bash
-npm run verify
+npm run check
 ```
 
 ## Miljøvariabler

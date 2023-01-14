@@ -11,7 +11,7 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc",
     "prettier:check": "prettier -l .",
-    "verify": "npm run typecheck && npm run lint && npm run prettier:check",
+    "check": "npm run typecheck && npm run lint && npm run prettier:check",
     "sanity": "sanity",
     "copy-dataset": "node scripts/copy-dataset.js"
   },

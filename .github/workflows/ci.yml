@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  verify:
-    name: Verify
+  check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,5 +30,5 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Verify
-        run: npm run verify
+      - name: Check
+        run: npm run check

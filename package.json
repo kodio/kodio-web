@@ -15,7 +15,7 @@
     "preview": "npm run preview --prefix web",
     "cms": "npm run dev --prefix cms",
     "cms:deploy": "npm run deploy --prefix cms",
-    "verify": "npm run verify --prefix web && npm run verify --prefix cms",
+    "check": "npm run check --prefix web && npm run check --prefix cms",
     "postinstall": "npm ci --prefix web && npm ci --prefix cms"
   }
 }
