@@ -29,20 +29,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: npm
-          cache-dependency-path: web/package-lock.json
+          cache: pnpm
 
       - name: Install
-        run: npm ci --prefix web
+        run: pnpm install --frozen-lockfile
 
       - name: Check
-        run: npm run check --prefix web
+        run: pnpm check
 
       - name: Build
-        run: npm run build --prefix web
+        run: pnpm build
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1

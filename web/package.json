@@ -12,12 +12,14 @@
     "lint": "eslint --ext .js,.ts,.astro src --max-warnings 0",
     "prettier:check": "prettier -l .",
     "prettier:format": "prettier -w .",
-    "check": "npm run astro:check && npm run typecheck && npm run lint && npm run prettier:check"
+    "check": "pnpm astro:check && pnpm typecheck && pnpm lint && pnpm prettier:check",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@astrojs/sitemap": "^1.0.0",
     "@fontsource/lora": "^4.5.12",
     "@fontsource/varela-round": "^4.5.9",
+    "@portabletext/types": "^2.0.0",
     "@sanity/image-url": "^1.0.1",
     "astro": "^1.9.2",
     "astro-compress": "^1.1.27",
