@@ -28,7 +28,10 @@ export type Props = {
     accordionPanel.addEventListener(
       'transitionend',
       () => {
-        accordionPanel.style.height = 'auto';
+        // Check if class name is present to avoid double click bug
+        if (accordionItem.classList.contains('is-open')) {
+          accordionPanel.style.height = 'auto';
+        }
       },
       { once: true }
     );
@@ -46,6 +49,7 @@ export type Props = {
     accordionPanel.addEventListener(
       'transitionrun',
       () => {
+        // Timeout needed for Firefox
         setTimeout(() => {
           accordionPanel.style.height = '0';
         }, 0);
