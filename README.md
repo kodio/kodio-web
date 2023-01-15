@@ -4,18 +4,18 @@
 
 ## Komme i gang
 
-- Installer [Node.js](https://nodejs.org/en/download/)
+- Installer [Node.js](https://nodejs.org/en/download/) og [pnpm](https://pnpm.io/installation)
 
 - Installer pakker
 
 ```bash
-npm install
+pnpm install
 ```
 
 - Kjør lokalt
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Web
@@ -31,14 +31,14 @@ Astro har funksjonalitet for å bygge og vise siden lokalt som om det skulle væ
 Dette kan gjøres ved å kjøre:
 
 ```bash
-npm run build
-npm run preview
+pnpm build
+pnpm preview
 ```
 
 Ved utvikling vil det være lurt å kjøre
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 for å få hot-reloading.
@@ -51,7 +51,13 @@ For å legge til nye npm-pakker må man gjøre det i `web`-mappen.
 
 ```bash
 cd web
-npm install package-to-install
+pnpm add package-to-install
+```
+
+eller
+
+```bash
+pnpm add package-to-install -F ./web
 ```
 
 ### Bilder
@@ -71,7 +77,7 @@ CMS-et kan kjøres lokalt for å se endringer i schema uten å deploye.
 Merk at endringer gjort i data lokalt blir lagret i samme database som for deployet studio.
 
 ```bash
-npm run cms
+pnpm cms
 ```
 
 ### Deploy
@@ -79,7 +85,7 @@ npm run cms
 Dersom det er endringer i schemaet som skal deployes kjør:
 
 ```bash
-npm run cms:deploy
+pnpm cms:deploy
 ```
 
 Dette gjelder altså kun endringer i schema (oppsettet), data legges inn i studio enten lokalt eller på deployet side.
@@ -91,7 +97,7 @@ Det brukes [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) og [T
 Dette kan kjøres lokalt med
 
 ```bash
-npm run check
+pnpm check
 ```
 
 ## Miljøvariabler
