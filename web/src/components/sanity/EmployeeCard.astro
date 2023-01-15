@@ -12,7 +12,7 @@ const backgroundColor = `var(--${color})`;
 
 <div>
   <div class="image-container">
-    <Image image={image} />
+    <Image image={image} sizes="(min-width: 640px) 304px, calc(100vw - 48px)" />
   </div>
   <div class="name">{fullName}</div>
   <div class="role">{role}</div>
