@@ -15,6 +15,6 @@
     "preview": "pnpm -F ./web preview",
     "cms": "pnpm -F ./cms dev",
     "cms:deploy": "pnpm -F ./cms deploy",
-    "check": "pnpm -r check"
+    "check": "pnpm -F ./web check && pnpm -F ./cms check"
   }
 }
