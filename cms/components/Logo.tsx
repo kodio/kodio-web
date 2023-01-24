@@ -1,6 +1,7 @@
 import { Box } from '@sanity/ui';
+import type { LogoProps } from 'sanity';
 
-export default function Logo({ env }: { env: string }) {
+export default function Logo({ title }: LogoProps) {
   return (
     <Box padding={3}>
       <svg height="1em" viewBox="0 0 156 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +30,7 @@ export default function Logo({ env }: { env: string }) {
           fill="#FFFDF5"
         />
       </svg>{' '}
-      <span>{env}</span>
+      <span>{title}</span>
     </Box>
   );
 }

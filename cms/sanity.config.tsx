@@ -39,7 +39,7 @@ export default defineConfig([
     plugins: [sharedConfig()],
     studio: {
       components: {
-        logo: () => <Logo env="prod" />,
+        logo: Logo,
       },
     },
   },
@@ -52,7 +52,7 @@ export default defineConfig([
     plugins: [sharedConfig()],
     studio: {
       components: {
-        logo: () => <Logo env="dev" />,
+        logo: Logo,
       },
     },
   },
