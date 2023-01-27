@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "Monorepo for kodio web",
-  "author": "Kodio",
   "homepage": "https://kodio.no",
+  "author": {
+    "name": "Frederik Gørvell de Lichtenberg",
+    "email": "frederik@kodio.no",
+    "url": "https://github.com/frederikgdl"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Glitner/kodio-web"
