@@ -14,11 +14,11 @@
     "url": "https://github.com/Glitner/kodio-web"
   },
   "scripts": {
-    "dev": "pnpm -F ./web dev",
-    "build": "pnpm -F ./web build",
-    "preview": "pnpm -F ./web preview",
-    "cms": "pnpm -F ./cms dev",
-    "cms:deploy": "pnpm -F ./cms deploy",
-    "check": "pnpm -F ./web check && pnpm -F ./cms check"
+    "dev": "pnpm --filter ./web dev",
+    "build": "pnpm --filter ./web build",
+    "preview": "pnpm --filter ./web preview",
+    "cms": "pnpm --filter ./cms dev",
+    "cms:deploy": "pnpm --filter ./cms deploy",
+    "check": "pnpm --filter ./web check && pnpm --filter ./cms check"
   }
 }
