@@ -2,11 +2,11 @@
 import PageHeader from '@components/PageHeader.astro';
 import PageSections from '@components/sanity/PageSections.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { getPages } from '@lib/sanity';
+import { fetchPages } from '@lib/sanity';
 import type { Header, PageMetadata, Section } from '@lib/sanity';
 
 export async function getStaticPaths() {
-  const pages = await getPages();
+  const pages = await fetchPages();
 
   return (
     pages.map(({ title, slug, metadata, header, sections }) => ({

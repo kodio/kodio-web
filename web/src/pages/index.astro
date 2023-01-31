@@ -2,9 +2,9 @@
 import PageHeader from '@components/PageHeader.astro';
 import PageSections from '@components/sanity/PageSections.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import { getLandingPage } from '@lib/sanity';
+import { fetchLandingPage } from '@lib/sanity';
 
-const { metadata, header, sections } = await getLandingPage();
+const { metadata, header, sections } = await fetchLandingPage();
 ---
 
 <BaseLayout slug="" pageMetadata={metadata} headerColor={header.color}>

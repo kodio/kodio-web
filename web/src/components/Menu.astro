@@ -6,11 +6,11 @@ import Logo from '@components/Logo.astro';
 import CloseIcon from '@components/icons/Close.astro';
 import MenuIcon from '@components/icons/Menu.astro';
 import SanityLink from '@components/sanity/SanityLink.astro';
-import { getMenuConfig } from '@lib/sanity';
+import { fetchMenuConfig } from '@lib/sanity';
 
 export type Props = Record<string, never>;
 
-const { links } = await getMenuConfig();
+const { links } = await fetchMenuConfig();
 ---
 
 <nav>

@@ -1,11 +1,11 @@
 ---
 import Logo from '@components/Logo.astro';
 import SanityLink from '@components/sanity/SanityLink.astro';
-import { getFooterConfig } from '@lib/sanity';
+import { fetchFooterConfig } from '@lib/sanity';
 
 export type Props = Record<string, never>;
 
-const { sections } = await getFooterConfig();
+const { sections } = await fetchFooterConfig();
 ---
 
 <footer>
