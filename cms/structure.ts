@@ -51,7 +51,7 @@ const pageViews = (S: StructureBuilder) => [
       defaultSize: 'mobile',
       reload: {
         button: true,
-        revision: true,
+        revision: 300,
       },
     })
     .title('Preview'),
