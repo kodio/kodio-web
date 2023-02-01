@@ -21,7 +21,7 @@
     "@fontsource/varela-round": "^4.5.9",
     "@portabletext/types": "^2.0.2",
     "@sanity/image-url": "^1.0.2",
-    "astro": "^2.0.4",
+    "astro": "^2.0.5",
     "astro-compress": "^1.1.28",
     "astro-portabletext": "^0.7.0",
     "astro-robots-txt": "^0.3.11",
