@@ -1,6 +1,6 @@
 # Kodio web
 
-[![Build and deploy](https://github.com/Glitner/kodio-web/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/Glitner/kodio-web/actions/workflows/deploy.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7308bfd7-c83b-4d0a-bf41-42b8de13ac48/deploy-status)](https://app.netlify.com/sites/kodio/deploys)
 
 ## Komme i gang
 
@@ -23,27 +23,6 @@ pnpm dev
 Koden for nettsiden ligger i `web`. Nettsiden er laget med [Astro](https://astro.build/).
 
 For styling brukes stort sett [Sass](https://sass-lang.com/).
-
-### Bygg og preview
-
-Astro har funksjonalitet for å bygge og vise siden lokalt som om det skulle vært deployet.
-
-Dette kan gjøres ved å kjøre:
-
-```bash
-pnpm build
-pnpm preview
-```
-
-Ved utvikling vil det være lurt å kjøre
-
-```bash
-pnpm dev
-```
-
-for å få hot-reloading.
-
-Ved bruk av `build` og `preview` må disse kommandoene kjøres igjen for hver kodeendring for å se resultatet.
 
 ### Installere pakker
 
