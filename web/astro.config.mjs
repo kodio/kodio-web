@@ -6,8 +6,7 @@ import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://glitner.github.io',
-  base: '/kodio-web',
+  site: 'https://kodio.netlify.app/',
   output: 'server',
   adapter: netlify(),
   integrations: [

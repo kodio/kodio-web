@@ -10,7 +10,7 @@ export type Props = {
 const { link, hoverUnderline } = Astro.props;
 
 const isInternalLink = link._type === 'internalLink';
-const href = isInternalLink ? `/kodio-web/${link.slug?.current}` : link.href;
+const href = isInternalLink ? `/${link.slug?.current}` : link.href;
 const target = !isInternalLink && link.blank ? '_blank' : undefined;
 const rel = !isInternalLink && link.blank ? 'noopener' : undefined;
 ---
