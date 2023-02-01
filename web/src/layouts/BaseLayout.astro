@@ -9,7 +9,7 @@ import { fetchDefaultMetadata } from '@lib/sanity';
 import type { Color, PageMetadata } from '@lib/sanity';
 
 export type Props = {
-  title?: string;
+  title?: string | undefined;
   slug: string;
   pageMetadata?: PageMetadata | undefined;
   headerColor: Color;

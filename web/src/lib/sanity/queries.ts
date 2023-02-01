@@ -1,12 +1,17 @@
-import { client } from './client';
+import { client, previewClient } from './client';
 import {
   defaultMetadataQuery,
   footerConfigQuery,
   landingPageQuery,
   menuConfigQuery,
   pagesQuery,
+  previewPageQuery,
 } from './groq';
 import type { DefaultMetadata, FooterConfig, LandingPage, MenuConfig, Page } from './types';
+
+export function fetchPreviewPage(id: string) {
+  return previewClient.fetch<LandingPage | Page | null>(previewPageQuery, { id });
+}
 
 export function fetchLandingPage() {
   return client.fetch<LandingPage>(landingPageQuery);

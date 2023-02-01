@@ -10,6 +10,10 @@ const sanityConfig = {
 };
 
 export const client = new PicoSanity(sanityConfig);
+export const previewClient = new PicoSanity({
+  ...sanityConfig,
+  token: import.meta.env.SANITY_PREVIEW_TOKEN ?? '',
+});
 
 const imageBuilder = imageUrlBuilder(sanityConfig);
 
