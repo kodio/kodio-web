@@ -4,7 +4,7 @@ import { deskTool } from 'sanity/desk';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import Logo from './components/Logo';
 import { schemaTypes } from './schemas';
-import { structure } from './structure';
+import { structure, defaultDocumentNode } from './structure';
 
 export const projectId = 'bmm7n0e3';
 
@@ -13,6 +13,7 @@ const sharedConfig = definePlugin({
   plugins: [
     deskTool({
       structure,
+      defaultDocumentNode,
     }),
     visionTool(),
     media(),
