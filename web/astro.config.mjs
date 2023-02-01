@@ -1,5 +1,5 @@
+import netlify from '@astrojs/netlify/functions';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
@@ -9,7 +9,7 @@ export default defineConfig({
   site: 'https://glitner.github.io',
   base: '/kodio-web',
   output: 'server',
-  adapter: vercel(),
+  adapter: netlify(),
   integrations: [
     sitemap(),
     robotsTxt(),
