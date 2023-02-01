@@ -39,6 +39,14 @@ export const header = defineType({
       name: 'preamble',
       title: 'Preamble',
       type: 'string',
+      validation: (Rule) =>
+        Rule.custom<string>((preamble, context) => {
+          if (preamble && (context.parent as any)?.image) {
+            return 'Cannot have both preamble and image';
+          }
+
+          return true;
+        }),
     },
   ],
 });
