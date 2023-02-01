@@ -42,6 +42,7 @@ importers:
       '@astrojs/sitemap': ^1.0.1
       '@fontsource/lora': ^4.5.13
       '@fontsource/varela-round': ^4.5.9
+      '@netlify/functions': ^1.4.0
       '@portabletext/types': ^2.0.2
       '@sanity/image-url': ^1.0.2
       '@types/node': ^18.11.18
@@ -67,6 +68,7 @@ importers:
       '@astrojs/sitemap': 1.0.1
       '@fontsource/lora': 4.5.13
       '@fontsource/varela-round': 4.5.9
+      '@netlify/functions': 1.4.0
       '@portabletext/types': 2.0.2
       '@sanity/image-url': 1.0.2
       astro: 2.0.5_f5vcjb3akvjdur4ffzogu2hewu
@@ -2124,6 +2126,13 @@ packages:
       '@motionone/types': 10.15.1
       hey-listen: 1.0.8
       tslib: 2.4.1
+    dev: false
+
+  /@netlify/functions/1.4.0:
+    resolution: {integrity: sha512-gy7ULTIRroc2/jyFVGx1djCmmBMVisIwrvkqggq5B6iDcInRSy2Tpkm+V5C63hKJVkNRskKWtLQKm9ecCaQTjA==}
+    engines: {node: '>=8.3.0'}
+    dependencies:
+      is-promise: 4.0.0
     dev: false
 
   /@nicolo-ribaudo/eslint-scope-5-internals/5.1.1-v1:
@@ -6136,6 +6145,10 @@ packages:
 
   /is-potential-custom-element-name/1.0.1:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
+    dev: false
+
+  /is-promise/4.0.0:
+    resolution: {integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==}
     dev: false
 
   /is-regex/1.1.4:
