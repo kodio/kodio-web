@@ -16,8 +16,8 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
+    "@astrojs/netlify": "^2.1.0",
     "@astrojs/sitemap": "^1.0.1",
-    "@astrojs/vercel": "^3.0.0",
     "@fontsource/lora": "^4.5.13",
     "@fontsource/varela-round": "^4.5.9",
     "@portabletext/types": "^2.0.2",
