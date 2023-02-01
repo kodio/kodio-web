@@ -25,9 +25,9 @@
     "astro-compress": "^1.1.28",
     "astro-portabletext": "^0.7.0",
     "astro-robots-txt": "^0.3.11",
-    "groq": "^3.2.5",
+    "groq": "^3.2.6",
     "picosanity": "^4.0.0",
-    "sass": "^1.57.1",
+    "sass": "^1.58.0",
     "slugify": "^1.6.5"
   },
   "devDependencies": {
