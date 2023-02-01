@@ -1,5 +1,5 @@
-import sitemap from '@astrojs/sitemap';
 import netlify from '@astrojs/netlify/functions';
+import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
