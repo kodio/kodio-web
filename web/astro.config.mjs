@@ -1,4 +1,5 @@
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel/serverless';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
@@ -7,7 +8,15 @@ import robotsTxt from 'astro-robots-txt';
 export default defineConfig({
   site: 'https://glitner.github.io',
   base: '/kodio-web',
-  integrations: [sitemap(), robotsTxt(), compress({ logger: 1 })],
+  output: 'server',
+  adapter: vercel(),
+  integrations: [
+    sitemap(),
+    robotsTxt(),
+    compress({
+      logger: 1,
+    }),
+  ],
   vite: {
     envDir: '..',
     css: {
