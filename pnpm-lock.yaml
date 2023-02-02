@@ -54,7 +54,7 @@ importers:
       '@typescript-eslint/parser': ^5.50.0
       astro: ^2.0.5
       astro-compress: ^1.1.29
-      astro-portabletext: ^0.7.0
+      astro-portabletext: ^0.8.0
       astro-robots-txt: ^0.3.11
       eslint: ^8.33.0
       eslint-config-prettier: ^8.6.0
@@ -77,7 +77,7 @@ importers:
       '@sanity/image-url': 1.0.2
       astro: 2.0.5_f5vcjb3akvjdur4ffzogu2hewu
       astro-compress: 1.1.29
-      astro-portabletext: 0.7.0
+      astro-portabletext: 0.8.0
       astro-robots-txt: 0.3.11
       groq: 3.2.6
       picosanity: 4.0.0
@@ -2192,6 +2192,13 @@ packages:
       '@portabletext/types': 1.0.3
     dev: false
 
+  /@portabletext/toolkit/2.0.1:
+    resolution: {integrity: sha512-vr2SeDFUFV+VmRIyYsHBMimZLiiN0S7qIridt/YLJs3Wm1dI4jsfUam82AQwheSMjvWdBiBZ+Wsjq5HZBG4htw==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dependencies:
+      '@portabletext/types': 2.0.2
+    dev: false
+
   /@portabletext/types/1.0.3:
     resolution: {integrity: sha512-SDDsdury2SaTI2D5Ea6o+Y39SSZMYHRMWJHxkxYl3yzFP0n/0EknOhoXcoaV+bxGr2dTTqZi2TOEj+uWYuavSw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -3424,10 +3431,10 @@ packages:
       - supports-color
     dev: true
 
-  /astro-portabletext/0.7.0:
-    resolution: {integrity: sha512-3VlLVISa/lbt90KeOSFb5r5x5IkS5YDHoq1x569vOGTyAaXT0K15pYbvMH44Ny6yizVr0iIrbWDFA7lZs70sIw==}
+  /astro-portabletext/0.8.0:
+    resolution: {integrity: sha512-2zA5TJ70Uhd4XfLlcTgxFMe202mEyB4V5R81KsjrP0nqBBHZLk1MaWxHPNq8Bz9KrF/u0mNYp+HFMQ/L/TDW7A==}
     dependencies:
-      '@portabletext/toolkit': 1.0.6
+      '@portabletext/toolkit': 2.0.1
       '@portabletext/types': 2.0.2
     dev: false
 

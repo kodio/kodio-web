@@ -25,7 +25,7 @@
     "@sanity/image-url": "^1.0.2",
     "astro": "^2.0.5",
     "astro-compress": "^1.1.29",
-    "astro-portabletext": "^0.7.0",
+    "astro-portabletext": "^0.8.0",
     "astro-robots-txt": "^0.3.11",
     "groq": "^3.2.6",
     "picosanity": "^4.0.0",
