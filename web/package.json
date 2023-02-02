@@ -16,7 +16,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.1.0",
+    "@astrojs/netlify": "^2.1.1",
     "@astrojs/sitemap": "^1.0.1",
     "@fontsource/lora": "^4.5.13",
     "@fontsource/varela-round": "^4.5.9",
@@ -24,7 +24,7 @@
     "@portabletext/types": "^2.0.2",
     "@sanity/image-url": "^1.0.2",
     "astro": "^2.0.5",
-    "astro-compress": "^1.1.28",
+    "astro-compress": "^1.1.29",
     "astro-portabletext": "^0.7.0",
     "astro-robots-txt": "^0.3.11",
     "groq": "^3.2.6",
