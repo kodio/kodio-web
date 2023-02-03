@@ -7,11 +7,23 @@ import BannerBlock from './blocks/BannerBlock.astro';
 import BannerLinkGroupBlock from './blocks/BannerLinkGroupBlock.astro';
 import EmployeeCardsBlock from './blocks/EmployeeCardsBlock.astro';
 import HandbookBlock from './blocks/HandbookBlock.astro';
-import type { Section } from '@lib/sanity';
+import type { CommonBlockReference, Section, SectionContent } from '@lib/sanity';
 
 export type Props = {
   sections?: Section[] | undefined;
 };
+
+function isCommonBlockReference(
+  content: SectionContent | CommonBlockReference
+): content is CommonBlockReference {
+  return content._type === 'reference';
+}
+
+function getSectionContent(section?: Section) {
+  return (
+    section?.content?.flatMap((s) => (isCommonBlockReference(s) ? s.commonBlock ?? [] : s)) ?? []
+  );
+}
 
 const { sections } = Astro.props;
 ---
@@ -20,7 +32,7 @@ const { sections } = Astro.props;
   sections?.map((section) => (
     <SectionLayout color={section.color} heading={section.heading}>
       <PortableText
-        value={section.content ?? []}
+        value={getSectionContent(section)}
         components={{
           type: {
             accordion: AccordionBlock,

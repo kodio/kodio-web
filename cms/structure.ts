@@ -1,4 +1,4 @@
-import { FiCompass, FiHome, FiShare2, FiTool } from 'react-icons/fi';
+import { FiCompass, FiHome, FiSettings, FiShare2 } from 'react-icons/fi';
 import type { ConfigContext } from 'sanity';
 import type { StructureBuilder } from 'sanity/desk';
 import Iframe from 'sanity-plugin-iframe-pane';
@@ -9,7 +9,7 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
     .items([
       S.listItem()
         .title('Config')
-        .icon(FiTool)
+        .icon(FiSettings)
         .child(
           S.list()
             .title('Config')
@@ -40,6 +40,8 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
             .views(pageViews(S))
         ),
       S.documentTypeListItem('page').title('Pages'),
+      S.divider(),
+      S.documentTypeListItem('commonBlock').title('Common Blocks'),
     ]);
 
 const pageViews = (S: StructureBuilder) => [

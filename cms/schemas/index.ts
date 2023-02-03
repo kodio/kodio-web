@@ -1,3 +1,4 @@
+import { commonBlock } from './documents/commonBlock';
 import { defaultMetadata } from './documents/defaultMetadata';
 import { footerConfig, footerConfigSection } from './documents/footerConfig';
 import { landingPage } from './documents/landingPage';
@@ -20,6 +21,7 @@ import { section } from './objects/section';
 
 export const schemaTypes = [
   /* documents */
+  commonBlock,
   defaultMetadata,
   footerConfig,
   footerConfigSection,

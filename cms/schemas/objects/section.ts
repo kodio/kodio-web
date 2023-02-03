@@ -1,9 +1,11 @@
+import { RxSection } from 'react-icons/rx';
 import { defineType } from 'sanity';
 
 export const section = defineType({
   name: 'section',
   title: 'Section',
   type: 'object',
+  icon: RxSection,
   fields: [
     {
       name: 'heading',
@@ -48,6 +50,7 @@ export const section = defineType({
         { type: 'bannerLinkGroup' },
         { type: 'employeeCards' },
         { type: 'handbook' },
+        { type: 'reference', to: [{ type: 'commonBlock' }] },
       ],
       validation: (Rule) => Rule.required(),
     },
@@ -62,6 +65,7 @@ export const section = defineType({
       return {
         title: heading,
         subtitle: `Section -  color: ${color}, ${content?.length ?? 0} content block(s)`,
+        media: RxSection,
       };
     },
   },

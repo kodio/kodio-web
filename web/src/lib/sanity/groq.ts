@@ -8,38 +8,47 @@ function internalLinkFragment(name = 'internalLink') {
     `;
 }
 
+const contentFragment = groq`
+  ...,
+  body[] {
+    ...,
+    markDefs[] {
+      ...,
+      ${internalLinkFragment('blockContentInternalLink')}
+    }
+  },
+  accordionItems[] {
+    ...,
+    body[] {
+      ...,
+      markDefs[] {
+        ...,
+        ${internalLinkFragment('blockContentInternalLink')}
+      }
+    }
+  },
+  links[] {
+    ...,
+    ${internalLinkFragment()}
+  },
+  bannerLinks[] {
+    ...,
+      links[] {
+      ...,
+      ${internalLinkFragment()}
+    }
+  },
+`;
+
 const sectionsFragment = groq`
   sections[] {
     ...,
     content[] {
-      ...,
-      body[] {
-        ...,
-        markDefs[] {
-          ...,
-          ${internalLinkFragment('blockContentInternalLink')}
-        }
-      },
-      accordionItems[] {
-        ...,
-        body[] {
-          ...,
-          markDefs[] {
-            ...,
-            ${internalLinkFragment('blockContentInternalLink')}
-          }
-        }
-      },
-      links[] {
-        ...,
-        ${internalLinkFragment()}
-      },
-      bannerLinks[] {
-        ...,
-          links[] {
-          ...,
-          ${internalLinkFragment()}
-        }
+      ${contentFragment}
+      _type == "reference" => {
+        "commonBlock": @->block[]{
+          ${contentFragment}
+        },
       }
     }
   },

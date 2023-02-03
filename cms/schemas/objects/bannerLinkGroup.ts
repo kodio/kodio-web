@@ -1,9 +1,11 @@
+import { HiOutlineRectangleGroup } from 'react-icons/hi2';
 import { defineType } from 'sanity';
 
 export const bannerLinkGroup = defineType({
   name: 'bannerLinkGroup',
   title: 'Banner link group',
   type: 'object',
+  icon: HiOutlineRectangleGroup,
   fields: [
     {
       name: 'bannerLinks',
@@ -21,6 +23,7 @@ export const bannerLinkGroup = defineType({
       return {
         title: 'Banner link group',
         subtitle: `${bannerLinks?.length ?? 0} link(s)`,
+        media: HiOutlineRectangleGroup,
       };
     },
   },

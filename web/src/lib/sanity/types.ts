@@ -172,10 +172,21 @@ export type Section = {
   _type: 'section';
   heading?: string;
   color: Color;
-  content?: SectionContent[];
+  content?: (SectionContent | CommonBlockReference)[];
 };
 
-type SectionContent = Accordion | Article | Banner | BannerLinkGroup | EmployeeCards | Handbook;
+export type CommonBlockReference = ArbitraryTypedObject & {
+  _type: 'reference';
+  commonBlock?: SectionContent[];
+};
+
+export type SectionContent =
+  | Accordion
+  | Article
+  | Banner
+  | BannerLinkGroup
+  | EmployeeCards
+  | Handbook;
 
 export type Slug = {
   _type: 'slug';

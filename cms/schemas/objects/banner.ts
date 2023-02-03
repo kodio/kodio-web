@@ -1,9 +1,11 @@
+import { RxIdCard } from 'react-icons/rx';
 import { defineType } from 'sanity';
 
 export const banner = defineType({
   name: 'banner',
   title: 'Banner',
   type: 'object',
+  icon: RxIdCard,
   fields: [
     {
       name: 'heading',
