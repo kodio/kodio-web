@@ -50,6 +50,7 @@ export const section = defineType({
         { type: 'bannerLinkGroup' },
         { type: 'employeeCards' },
         { type: 'handbook' },
+        { type: 'imageBlock' },
         { type: 'reference', to: [{ type: 'commonBlock' }] },
       ],
       validation: (Rule) => Rule.required(),

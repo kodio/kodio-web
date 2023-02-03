@@ -132,6 +132,10 @@ export type Image = {
   };
 };
 
+export type ImageBlock = ArbitraryTypedObject & {
+  image?: ImageObj;
+};
+
 export type ImageObj = ArbitraryTypedObject &
   Image & {
     alt?: string;
@@ -186,7 +190,8 @@ export type SectionContent =
   | Banner
   | BannerLinkGroup
   | EmployeeCards
-  | Handbook;
+  | Handbook
+  | ImageBlock;
 
 export type Slug = {
   _type: 'slug';

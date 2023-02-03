@@ -14,6 +14,7 @@ import { employeeCard, employeeCards } from './objects/employeeCards';
 import { externalLink } from './objects/externalLink';
 import { handbook, handbookSection } from './objects/handbook';
 import { header } from './objects/header';
+import { imageBlock } from './objects/imageBlock';
 import { imageObj } from './objects/imageObj';
 import { internalLink } from './objects/internalLink';
 import { pageMetadata } from './objects/pageMetadata';
@@ -44,6 +45,7 @@ export const schemaTypes = [
   handbook,
   handbookSection,
   header,
+  imageBlock,
   imageObj,
   internalLink,
   pageMetadata,
