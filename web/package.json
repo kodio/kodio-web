@@ -23,7 +23,7 @@
     "@netlify/functions": "^1.4.0",
     "@portabletext/types": "^2.0.2",
     "@sanity/image-url": "^1.0.2",
-    "astro": "^2.0.5",
+    "astro": "^2.0.6",
     "astro-compress": "^1.1.29",
     "astro-portabletext": "^0.8.0",
     "astro-robots-txt": "^0.3.11",

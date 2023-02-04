@@ -8,7 +8,7 @@ importers:
   cms:
     specifiers:
       '@sanity/eslint-config-studio': ^2.0.1
-      '@sanity/ui': ^1.2.1
+      '@sanity/ui': ^1.2.2
       '@sanity/vision': ^3.2.6
       '@types/react': ^18.0.27
       eslint: ^8.33.0
@@ -19,11 +19,11 @@ importers:
       react-is: ^18.2.0
       sanity: ^3.2.6
       sanity-plugin-iframe-pane: ^2.1.1
-      sanity-plugin-media: ^2.0.4
+      sanity-plugin-media: ^2.0.5
       styled-components: ^5.3.6
       typescript: ^4.9.5
     dependencies:
-      '@sanity/ui': 1.2.1_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@sanity/vision': 3.2.6_23mhwjhnzfjwvdn7ol54k26zom
       '@types/react': 18.0.27
       react: 18.2.0
@@ -32,7 +32,7 @@ importers:
       react-is: 18.2.0
       sanity: 3.2.6_uzkadyugscbibgo6xwbyewzpjq
       sanity-plugin-iframe-pane: 2.1.1_hfs3wd77liajulqli2qbldk5tq
-      sanity-plugin-media: 2.0.4_p7mn2tnqd4vu6wsp7dsk2i4qju
+      sanity-plugin-media: 2.0.5_p7mn2tnqd4vu6wsp7dsk2i4qju
       styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
     devDependencies:
       '@sanity/eslint-config-studio': 2.0.1_4vsywjlpuriuw3tl5oq6zy5a64
@@ -52,7 +52,7 @@ importers:
       '@types/node': ^18.11.18
       '@typescript-eslint/eslint-plugin': ^5.50.0
       '@typescript-eslint/parser': ^5.50.0
-      astro: ^2.0.5
+      astro: ^2.0.6
       astro-compress: ^1.1.29
       astro-portabletext: ^0.8.0
       astro-robots-txt: ^0.3.11
@@ -68,14 +68,14 @@ importers:
       slugify: ^1.6.5
       typescript: ^4.9.5
     dependencies:
-      '@astrojs/netlify': 2.1.1_astro@2.0.5
+      '@astrojs/netlify': 2.1.1_astro@2.0.6
       '@astrojs/sitemap': 1.0.1
       '@fontsource/lora': 4.5.13
       '@fontsource/varela-round': 4.5.9
       '@netlify/functions': 1.4.0
       '@portabletext/types': 2.0.2
       '@sanity/image-url': 1.0.2
-      astro: 2.0.5_f5vcjb3akvjdur4ffzogu2hewu
+      astro: 2.0.6_f5vcjb3akvjdur4ffzogu2hewu
       astro-compress: 1.1.29
       astro-portabletext: 0.8.0
       astro-robots-txt: 0.3.11
@@ -129,13 +129,13 @@ packages:
       vscode-uri: 3.0.7
     dev: false
 
-  /@astrojs/markdown-remark/2.0.1_astro@2.0.5:
+  /@astrojs/markdown-remark/2.0.1_astro@2.0.6:
     resolution: {integrity: sha512-xQF1rXGJN18m+zZucwRRtmNehuhPMMhZhi6HWKrtpEAKnHSPk8lqf1GXgKH7/Sypglu8ivdECZ+EGs6kOYVasQ==}
     peerDependencies:
       astro: ^2.0.2
     dependencies:
       '@astrojs/prism': 2.0.0
-      astro: 2.0.5_f5vcjb3akvjdur4ffzogu2hewu
+      astro: 2.0.6_f5vcjb3akvjdur4ffzogu2hewu
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.1
       rehype-raw: 6.1.1
@@ -152,14 +152,14 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/netlify/2.1.1_astro@2.0.5:
+  /@astrojs/netlify/2.1.1_astro@2.0.6:
     resolution: {integrity: sha512-YjUmR2CWXWmtDWXDh+TXmLaSx9NYn3WkWvwj3pEyLTGF/DGmTXtcGHwWmkhoBy69XODz5MXq27nAwPr9EqqC1A==}
     peerDependencies:
       astro: ^2.0.5
     dependencies:
       '@astrojs/webapi': 2.0.0
       '@netlify/functions': 1.4.0
-      astro: 2.0.5_f5vcjb3akvjdur4ffzogu2hewu
+      astro: 2.0.6_f5vcjb3akvjdur4ffzogu2hewu
       esbuild: 0.15.18
     dev: false
 
@@ -2524,8 +2524,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/ui/1.2.1_23mhwjhnzfjwvdn7ol54k26zom:
-    resolution: {integrity: sha512-wlM6sYAFHKAZYdd0OcB1SaoEq+lVUhvMUxPM6BZ/JInjKlBvG+ZDJnuuAURDzUsfEQsG722uJTw7VE23zaSCjw==}
+  /@sanity/ui/1.2.2_23mhwjhnzfjwvdn7ol54k26zom:
+    resolution: {integrity: sha512-u4l9ZskEAwHw7QJXdYFbtR4tgiiUezAkTS5uQZRVINvRWalXQFqJnD4xIbCf0HdPol356aGtgW0aaSNvAHO+rg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: ^18
@@ -2595,7 +2595,7 @@ packages:
       '@rexxars/react-split-pane': 0.1.93_biqbaboplfbrettd7655fr4n2y
       '@sanity/color': 2.2.2
       '@sanity/icons': 2.2.2_react@18.2.0
-      '@sanity/ui': 1.2.1_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@uiw/react-codemirror': 4.19.6_pcbegg3kgob43pbchw6ytohx4u
       hashlru: 2.3.0
       is-hotkey: 0.1.8
@@ -3446,14 +3446,14 @@ packages:
       zod: 3.20.2
     dev: false
 
-  /astro/2.0.5_f5vcjb3akvjdur4ffzogu2hewu:
-    resolution: {integrity: sha512-ZuTbCOZLOnVOQ/np+82H3apL4TQ9jRUtIMfnAAUr4BG8NthwoY718avm5lfiI25bDqs7QA012Zh6l1h3RpJwtw==}
+  /astro/2.0.6_f5vcjb3akvjdur4ffzogu2hewu:
+    resolution: {integrity: sha512-aI8Ijy2EpMyP5SpjmDJpEUdNL6CUAxnja6IeaBC1BokD/mNAnijtmMnTyWVI3UeEZ727wYLISQMyqCfEUq8VNA==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': 1.0.1
       '@astrojs/language-server': 0.28.3
-      '@astrojs/markdown-remark': 2.0.1_astro@2.0.5
+      '@astrojs/markdown-remark': 2.0.1_astro@2.0.6
       '@astrojs/telemetry': 2.0.0
       '@astrojs/webapi': 2.0.0
       '@babel/core': 7.20.12
@@ -8429,7 +8429,7 @@ packages:
     dependencies:
       '@sanity/icons': 2.2.2_react@18.2.0
       '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
-      '@sanity/ui': 1.2.1_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       react: 18.2.0
       sanity: 3.2.6_uzkadyugscbibgo6xwbyewzpjq
       usehooks-ts: 2.9.1_biqbaboplfbrettd7655fr4n2y
@@ -8439,8 +8439,8 @@ packages:
       - styled-components
     dev: false
 
-  /sanity-plugin-media/2.0.4_p7mn2tnqd4vu6wsp7dsk2i4qju:
-    resolution: {integrity: sha512-cLJOa1LZKHWCCJJdjf3j/STiiNj6WtYNQCwF52FTV1zI/PQBhVClRsBBEw5FJM6ru9c+MHlv09PPh+HRpGxQVw==}
+  /sanity-plugin-media/2.0.5_p7mn2tnqd4vu6wsp7dsk2i4qju:
+    resolution: {integrity: sha512-v1SyBezXoiLh2g3olX08cjFpytRF3NkCxCOkFzHz3RVbQQwpYSeazKmGq52XONi/Ci6DpyKmgLWRJCyT/xZc1g==}
     engines: {node: '>=14'}
     peerDependencies:
       '@sanity/color': ^2.1.20
@@ -8453,7 +8453,7 @@ packages:
       '@hookform/resolvers': 2.0.0-beta.3_react-hook-form@6.15.8
       '@reduxjs/toolkit': 1.9.1_7ozmmenbreubqajvpxb2pmuuau
       '@sanity/incompatible-plugin': 1.0.4_biqbaboplfbrettd7655fr4n2y
-      '@sanity/ui': 1.2.1_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@tanem/react-nprogress': 5.0.24_biqbaboplfbrettd7655fr4n2y
       copy-to-clipboard: 3.3.3
       date-fns: 2.29.3
@@ -8518,7 +8518,7 @@ packages:
       '@sanity/portable-text-editor': 3.2.6_cqtqtcaqdwtl72brpteczjdiui
       '@sanity/schema': 3.2.6
       '@sanity/types': 3.2.6
-      '@sanity/ui': 1.2.1_23mhwjhnzfjwvdn7ol54k26zom
+      '@sanity/ui': 1.2.2_23mhwjhnzfjwvdn7ol54k26zom
       '@sanity/util': 3.2.6
       '@sanity/uuid': 3.0.1
       '@sanity/validation': 3.2.6_@sanity+client@4.0.1
