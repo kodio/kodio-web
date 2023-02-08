@@ -68,7 +68,8 @@ export type DefaultMetadata = {
 };
 
 export type EmployeeCard = {
-  image: Image;
+  illustration?: Image;
+  image?: Image;
   color: Color;
   fullName: string;
   role?: string;

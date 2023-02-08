@@ -35,10 +35,18 @@ export const employeeCard = defineType({
   type: 'object',
   fields: [
     {
+      name: 'illustration',
+      title: 'Illustration',
+      type: 'image',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
-      validation: (Rule) => Rule.required(),
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'color',

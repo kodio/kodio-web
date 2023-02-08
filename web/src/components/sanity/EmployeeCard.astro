@@ -5,14 +5,32 @@ import type { EmployeeCard } from '@lib/sanity';
 
 export type Props = EmployeeCard;
 
-const { image, color, fullName, role, tel, email } = Astro.props;
+const { illustration, image, color, fullName, role, tel, email } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
 ---
 
 <div>
   <div class="image-container">
-    <Image image={image} sizes="(min-width: 640px) 304px, calc(100vw - 48px)" />
+    {
+      illustration && (
+        <Image
+          class="employee-illustration"
+          image={illustration}
+          sizes="(min-width: 640px) 304px, calc(100vw - 48px)"
+        />
+      )
+    }
+    {
+      image && (
+        <Image
+          class="employee-image hidden"
+          image={image}
+          objectFit="cover"
+          sizes="(min-width: 640px) 304px, calc(100vw - 48px)"
+        />
+      )
+    }
   </div>
   <div class="name">{fullName}</div>
   <div class="role">{role}</div>
@@ -20,14 +38,38 @@ const backgroundColor = `var(--${color})`;
   {email && <SanityLink link={email}>{email.label}</SanityLink>}
 </div>
 
+<script>
+  const imageContainers = [...document.querySelectorAll<HTMLDivElement>('.image-container')];
+
+  imageContainers.forEach((imageContainer) => {
+    const illustration = imageContainer.querySelector('.employee-illustration');
+    const image = imageContainer.querySelector('.employee-image');
+
+    imageContainer.addEventListener('mouseenter', () => {
+      illustration?.classList.toggle('hidden');
+      image?.classList.toggle('hidden');
+    });
+
+    imageContainer.addEventListener('mouseleave', () => {
+      illustration?.classList.toggle('hidden');
+      image?.classList.toggle('hidden');
+    });
+  });
+</script>
+
 <style lang="scss" define:vars={{ backgroundColor }}>
   div {
     line-height: 1.28;
+
+    .hidden {
+      display: none;
+    }
 
     .image-container {
       background-color: var(--backgroundColor);
       aspect-ratio: 1;
       border-radius: 0.5rem;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
