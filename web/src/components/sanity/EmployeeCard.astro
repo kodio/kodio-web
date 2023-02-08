@@ -46,11 +46,13 @@ const backgroundColor = `var(--${color})`;
     const image = imageContainer.querySelector('.employee-image');
 
     imageContainer.addEventListener('mouseenter', () => {
+      if (!image) return;
       illustration?.classList.toggle('hidden');
       image?.classList.toggle('hidden');
     });
 
     imageContainer.addEventListener('mouseleave', () => {
+      if (!image) return;
       illustration?.classList.toggle('hidden');
       image?.classList.toggle('hidden');
     });
