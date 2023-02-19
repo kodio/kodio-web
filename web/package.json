@@ -29,11 +29,11 @@
     "astro-robots-txt": "^0.4.0",
     "groq": "^3.4.0",
     "picosanity": "^4.0.0",
-    "sass": "^1.58.2",
+    "sass": "^1.58.3",
     "slugify": "^1.6.5"
   },
   "devDependencies": {
-    "@types/node": "^18.13.0",
+    "@types/node": "^18.14.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "eslint": "^8.34.0",
