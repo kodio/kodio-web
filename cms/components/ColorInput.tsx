@@ -36,7 +36,7 @@ export default function ColorInput(props: StringInputProps) {
   );
 
   return (
-    <Flex gap={3}>
+    <Flex gap={3} wrap="wrap">
       {schemaType.options?.list?.map((option) => (
         <Tooltip
           key={option.value}
@@ -55,8 +55,8 @@ export default function ColorInput(props: StringInputProps) {
             style={{
               cursor: 'pointer',
               backgroundColor: COLOR_MAP[option.value],
-              width: 50,
-              height: 50,
+              width: 40,
+              height: 40,
               borderRadius: 9999,
               border: `1px solid black`,
               outline: `${value === option.value ? '3px solid orange' : 'none'}`,
