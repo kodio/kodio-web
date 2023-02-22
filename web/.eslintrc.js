@@ -2,7 +2,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'plugin:@typescript-eslint/recommended',
-    'plugin:jsx-a11y/recommended',
+    'plugin:astro/jsx-a11y-strict',
     'plugin:astro/recommended',
     'prettier',
   ],
@@ -17,7 +17,12 @@ module.exports = {
     },
   ],
   rules: {
-    'jsx-a11y/no-redundant-roles': [
+    'astro/no-set-html-directive': 'error',
+    'astro/no-set-text-directive': 'error',
+    'astro/prefer-class-list-directive': 'error',
+    'astro/prefer-object-class-list': 'error',
+    'astro/prefer-split-class-list': 'error',
+    'astro/jsx-a11y/no-redundant-roles': [
       'error',
       {
         ol: ['list'],

@@ -56,7 +56,7 @@ const objectPosition = image.hotspot
 
 <img
   alt={'alt' in image ? image.alt ?? '' : ''}
-  class={Astro.props.class}
+  class:list={[Astro.props.class]}
   sizes={sizes}
   srcset={srcset}
   src={src}
