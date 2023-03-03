@@ -51,6 +51,7 @@ const pageViews = (S: StructureBuilder) => [
     .options({
       url: (doc: { _id: string }) => `https://kodio.no/preview?id=${doc._id}`,
       defaultSize: 'mobile',
+      loader: true,
       reload: {
         button: true,
         revision: 300,
