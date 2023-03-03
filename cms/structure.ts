@@ -49,7 +49,7 @@ const pageViews = (S: StructureBuilder) => [
   S.view
     .component(Iframe)
     .options({
-      url: (doc: { _id: string }) => `https://kodio.netlify.app/preview?id=${doc._id}`,
+      url: (doc: { _id: string }) => `https://kodio.no/preview?id=${doc._id}`,
       defaultSize: 'mobile',
       reload: {
         button: true,

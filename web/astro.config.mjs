@@ -5,7 +5,7 @@ import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 
 export default defineConfig({
-  site: 'https://kodio.netlify.app/',
+  site: 'https://kodio.no/',
   output: 'server',
   adapter: netlify(),
   integrations: [
