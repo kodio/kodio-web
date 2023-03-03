@@ -12,8 +12,15 @@ const { node } = Astro.props;
 
 <style lang="scss">
   div {
-    display: flex;
+    display: grid;
     gap: 5rem;
-    flex-wrap: wrap;
+
+    @media (min-width: $width-s) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $width-l) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>

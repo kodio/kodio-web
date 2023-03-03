@@ -17,7 +17,7 @@ const backgroundColor = `var(--${color})`;
         <Image
           class="employee-illustration"
           image={illustration}
-          sizes="(min-width: 640px) 304px, calc(100vw - 48px)"
+          sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
         />
       )
     }
@@ -27,7 +27,7 @@ const backgroundColor = `var(--${color})`;
           class="employee-image hidden"
           image={image}
           objectFit="cover"
-          sizes="(min-width: 640px) 304px, calc(100vw - 48px)"
+          sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
         />
       )
     }
@@ -76,10 +76,6 @@ const backgroundColor = `var(--${color})`;
       justify-content: center;
       align-items: center;
       margin-bottom: 1rem;
-
-      @media (min-width: $width-s) {
-        width: 19rem;
-      }
 
       > img {
         max-height: 100%;
