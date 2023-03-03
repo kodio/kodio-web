@@ -8,10 +8,10 @@ export type Props = PortableTextProps<EmployeeCards>;
 const { node } = Astro.props;
 ---
 
-<div>{node.cards?.map((card) => <EmployeeCard {...card} />)}</div>
+<div class="employee-cards">{node.cards?.map((card) => <EmployeeCard {...card} />)}</div>
 
 <style lang="scss">
-  div {
+  .employee-cards {
     display: grid;
     gap: 5rem;
 
