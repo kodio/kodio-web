@@ -8,14 +8,14 @@ export type Props = PortableTextProps<EmployeeCards>;
 const { node } = Astro.props;
 ---
 
-<div class="employee-cards">{node.cards?.map((card) => <EmployeeCard {...card} />)}</div>
+<div>{node.cards?.map((card) => <EmployeeCard {...card} />)}</div>
 
 <style lang="scss">
-  .employee-cards {
+  div {
     display: grid;
     gap: 5rem;
 
-    @media (min-width: $width-s) {
+    @media (min-width: $width-s) and (max-width: $width-l) {
       grid-template-columns: repeat(2, 1fr);
     }
 
