@@ -5,6 +5,7 @@ import type { Image, ImageObj } from '@lib/sanity';
 export type Props = {
   image: Image | ImageObj;
   class?: string;
+  'class:list'?: astroHTML.JSX.ImgHTMLAttributes['class:list'];
   sizes?: string;
   loading?: 'lazy' | 'eager';
   aspectRatio?: number | 'intrinsic';
@@ -56,7 +57,7 @@ const objectPosition = image.hotspot
 
 <img
   alt={'alt' in image ? image.alt ?? '' : ''}
-  class:list={[Astro.props.class]}
+  class:list={[Astro.props.class, Astro.props['class:list']]}
   sizes={sizes}
   srcset={srcset}
   src={src}
