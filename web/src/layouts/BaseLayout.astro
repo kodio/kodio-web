@@ -35,38 +35,6 @@ const defaultMetadata = await fetchDefaultMetadata();
       description={pageMetadata?.description ?? defaultMetadata.description}
       image={pageMetadata?.image ?? defaultMetadata.image}
     />
-    <script>
-      // Prefetch internal pages on link hover
-      const max = 8;
-      const prefetchList: string[] = [];
-
-      document.addEventListener('mouseover', (e) => {
-        const target = e.target as HTMLElement | null;
-        if (target?.tagName === 'A' && prefetchList.length < max) {
-          const href = target.getAttribute('href');
-
-          if (href?.startsWith('/') && !prefetchList.includes(href)) {
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.as = 'document';
-            link.href = href;
-            document.head.appendChild(link);
-            prefetchList.push(href);
-          }
-        }
-      });
-
-      // Enable outline only when tabbing
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Tab') {
-          document.body.classList.add('tabbed');
-        }
-      });
-
-      document.addEventListener('mousedown', () => {
-        document.body.classList.remove('tabbed');
-      });
-    </script>
   </head>
   <body>
     <SkipLinks />
@@ -247,5 +215,17 @@ const defaultMetadata = await fetchDefaultMetadata();
         }
       }
     </style>
+    <script>
+      // Enable outline only when tabbing
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          document.body.classList.add('tabbed');
+        }
+      });
+
+      document.addEventListener('mousedown', () => {
+        document.body.classList.remove('tabbed');
+      });
+    </script>
   </body>
 </html>

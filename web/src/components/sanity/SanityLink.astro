@@ -12,7 +12,7 @@ const { link, hoverUnderline } = Astro.props;
 const isInternalLink = link._type === 'internalLink';
 const href = isInternalLink ? `/${link.slug?.current}` : link.href;
 const target = !isInternalLink && link.blank ? '_blank' : undefined;
-const rel = !isInternalLink && link.blank ? 'noopener' : undefined;
+const rel = !isInternalLink && link.blank ? 'noopener' : 'prefetch';
 ---
 
 <a
