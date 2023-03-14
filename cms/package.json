@@ -26,11 +26,11 @@
     "sanity": "^3.6.0",
     "sanity-plugin-iframe-pane": "^2.2.0",
     "sanity-plugin-media": "^2.0.5",
-    "styled-components": "^5.3.8"
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "prettier": "^2.8.4",
     "typescript": "^4.9.5"
   }
