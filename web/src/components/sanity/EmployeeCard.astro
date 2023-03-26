@@ -8,7 +8,7 @@ export type Props = EmployeeCard;
 const { illustration, image, color, fullName, role, tel, email } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
-const changeableImageClass = image ? 'changeable' : '';
+const changeableImageClass = image && illustration ? 'changeable' : '';
 ---
 
 <div class="employee-card">
@@ -43,12 +43,12 @@ const changeableImageClass = image ? 'changeable' : '';
   .employee-card {
     line-height: 1.28;
 
-    .employee-illustration {
+    .employee-illustration.changeable {
       opacity: 1;
       transition: opacity 0.2s linear;
     }
 
-    .employee-image {
+    .employee-image.changeable {
       opacity: 0;
       transition: opacity 0.2s linear;
     }

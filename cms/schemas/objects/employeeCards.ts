@@ -38,7 +38,9 @@ export const employeeCard = defineType({
       name: 'illustration',
       title: 'Illustration',
       type: 'image',
-      validation: (Rule) => Rule.required(),
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'image',
@@ -95,4 +97,17 @@ export const employeeCard = defineType({
       type: 'externalLink',
     },
   ],
+  preview: {
+    select: {
+      illustration: 'illustration',
+      image: 'image',
+      fullName: 'fullName',
+    },
+    prepare({ illustration, image, fullName }) {
+      return {
+        title: fullName,
+        media: image || illustration,
+      };
+    },
+  },
 });
