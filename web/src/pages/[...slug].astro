@@ -1,5 +1,5 @@
 ---
-import type { InferGetStaticPropsType } from 'astro';
+import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
 import PageHeader from '@components/PageHeader.astro';
 import PageSections from '@components/sanity/PageSections.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
@@ -7,20 +7,22 @@ import { fetchPages } from '@lib/sanity';
 
 export const prerender = true;
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const pages = await fetchPages();
 
   return (
     pages.map(({ title, slug, metadata, header, sections }) => ({
       params: { slug: slug.current },
-      props: { title, slug: slug.current, metadata, header, sections },
+      props: { title, metadata, header, sections },
     })) || []
   );
-}
+}) satisfies GetStaticPaths;
 
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { title, slug, metadata, header, sections } = Astro.props;
+const { slug } = Astro.params as Params;
+const { title, metadata, header, sections } = Astro.props;
 ---
 
 <BaseLayout title={title} slug={slug} pageMetadata={metadata} headerColor={header.color}>
