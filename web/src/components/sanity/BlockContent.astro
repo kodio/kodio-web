@@ -46,14 +46,17 @@ const { value } = Astro.props;
       margin-bottom: 1.5rem;
     }
 
+    > :global(*:has(+ h2)) {
+      margin-bottom: 3rem;
+    }
+
     > :global(*:has(+ h3)) {
       margin-bottom: 2rem;
     }
 
     > :global(img) {
       max-width: 30rem;
-      margin-right: auto;
-      margin-left: auto;
+      margin: 3rem auto 4rem;
     }
 
     > :global(:last-child) {
