@@ -1,6 +1,8 @@
 ---
 import { PortableText } from 'astro-portabletext';
-import SectionLayout from '@layouts/SectionLayout.astro';
+
+import SectionLayout from '@/layouts/SectionLayout.astro';
+import type { CommonBlockReference, Section, SectionContent } from '@/lib/sanity';
 import AccordionBlock from './blocks/AccordionBlock.astro';
 import ArticleBlock from './blocks/ArticleBlock.astro';
 import BannerBlock from './blocks/BannerBlock.astro';
@@ -8,7 +10,6 @@ import BannerLinkGroupBlock from './blocks/BannerLinkGroupBlock.astro';
 import EmployeeCardsBlock from './blocks/EmployeeCardsBlock.astro';
 import HandbookBlock from './blocks/HandbookBlock.astro';
 import ImageBlock from './blocks/ImageBlock.astro';
-import type { CommonBlockReference, Section, SectionContent } from '@lib/sanity';
 
 export type Props = {
   sections?: Section[] | undefined;

@@ -1,7 +1,8 @@
 ---
-import Link from '@components/Link.astro';
 import type { Mark, Props as PortableTextProps } from 'astro-portabletext/types';
-import type { BlockContentInternalLink } from '@lib/sanity';
+
+import Link from '@/components/Link.astro';
+import type { BlockContentInternalLink } from '@/lib/sanity';
 
 export type Props = PortableTextProps<Mark<BlockContentInternalLink | undefined>>;
 

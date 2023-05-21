@@ -1,9 +1,10 @@
 ---
-import ButtonLink from '@components/ButtonLink.astro';
-import BlockContent from '@components/sanity/BlockContent.astro';
-import Image from '@components/sanity/Image.astro';
 import type { Props as PortableTextProps } from 'astro-portabletext/types';
-import type { Banner } from '@lib/sanity';
+
+import ButtonLink from '@/components/ButtonLink.astro';
+import BlockContent from '@/components/sanity/BlockContent.astro';
+import Image from '@/components/sanity/Image.astro';
+import type { Banner } from '@/lib/sanity';
 
 export type Props = PortableTextProps<Banner>;
 

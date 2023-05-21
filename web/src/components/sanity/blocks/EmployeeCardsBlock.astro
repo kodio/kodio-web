@@ -1,7 +1,8 @@
 ---
-import EmployeeCard from '@components/sanity/EmployeeCard.astro';
 import type { Props as PortableTextProps } from 'astro-portabletext/types';
-import type { EmployeeCards } from '@lib/sanity';
+
+import EmployeeCard from '@/components/sanity/EmployeeCard.astro';
+import type { EmployeeCards } from '@/lib/sanity';
 
 export type Props = PortableTextProps<EmployeeCards>;
 

@@ -1,8 +1,9 @@
 ---
-import slugify from 'slugify';
-import BlockContent from '@components/sanity/BlockContent.astro';
-import type { Handbook } from '@lib/sanity';
 import type { Props as PortableTextProps } from 'astro-portabletext/types';
+import slugify from 'slugify';
+
+import BlockContent from '@/components/sanity/BlockContent.astro';
+import type { Handbook } from '@/lib/sanity';
 
 export type Props = PortableTextProps<Handbook>;
 

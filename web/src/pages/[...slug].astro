@@ -1,9 +1,10 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType, InferGetStaticPropsType } from 'astro';
-import PageHeader from '@components/PageHeader.astro';
-import PageSections from '@components/sanity/PageSections.astro';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { fetchPages } from '@lib/sanity';
+
+import PageHeader from '@/components/PageHeader.astro';
+import PageSections from '@/components/sanity/PageSections.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchPages } from '@/lib/sanity';
 
 export const prerender = true;
 

@@ -1,8 +1,8 @@
 ---
-import PageHeader from '@components/PageHeader.astro';
-import PageSections from '@components/sanity/PageSections.astro';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import { fetchPreviewPage } from '@lib/sanity';
+import PageHeader from '@/components/PageHeader.astro';
+import PageSections from '@/components/sanity/PageSections.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchPreviewPage } from '@/lib/sanity';
 
 const id = Astro.url.searchParams.get('id') ?? '';
 const previewData = await fetchPreviewPage(id);
