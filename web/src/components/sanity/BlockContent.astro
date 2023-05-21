@@ -5,10 +5,11 @@ import UnorderedList from '@components/UnorderedList.astro';
 import BlockContentExternalLink from './BlockContentExternalLink.astro';
 import BlockContentImage from './BlockContentImage.astro';
 import BlockContentInternalLink from './BlockContentInternalLink.astro';
-import type { ArbitraryTypedObject } from '@portabletext/types';
 
-export type Props = {
-  value: ArbitraryTypedObject | ArbitraryTypedObject[] | undefined;
+type PortableTextProps = Parameters<typeof PortableText>[0];
+
+export type Props = Omit<PortableTextProps, 'value'> & {
+  value: PortableTextProps['value'] | undefined;
 };
 
 const { value } = Astro.props;

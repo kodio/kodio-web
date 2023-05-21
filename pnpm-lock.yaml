@@ -86,8 +86,8 @@ importers:
         specifier: ^1.1.44
         version: 1.1.44
       astro-portabletext:
-        specifier: ^0.8.0
-        version: 0.8.0
+        specifier: ^0.9.0
+        version: 0.9.0
       astro-robots-txt:
         specifier: ^0.5.0
         version: 0.5.0
@@ -3870,8 +3870,8 @@ packages:
       - supports-color
     dev: true
 
-  /astro-portabletext@0.8.0:
-    resolution: {integrity: sha512-2zA5TJ70Uhd4XfLlcTgxFMe202mEyB4V5R81KsjrP0nqBBHZLk1MaWxHPNq8Bz9KrF/u0mNYp+HFMQ/L/TDW7A==}
+  /astro-portabletext@0.9.0:
+    resolution: {integrity: sha512-1sHr5n70NKag5zEAyiSDAqkbwjYmwl+ysCE4qKHGW+rU4hpgRyqSPbkN1YE6WbpNxh+mdlVZe2Wy7ELccN1SXA==}
     dependencies:
       '@portabletext/toolkit': 2.0.1
       '@portabletext/types': 2.0.2
