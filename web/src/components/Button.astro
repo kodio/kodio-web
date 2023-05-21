@@ -6,12 +6,10 @@ export type Props = HTMLAttributes<'button'>;
 const { type = 'button', ...rest } = Astro.props;
 ---
 
-<button class:list={['button', rest.class]} {...rest} type={type}>
-  <slot />
-</button>
+<button type={type} {...rest}><slot /></button>
 
 <style lang="scss">
-  .button {
+  button {
     @include button(transparent);
   }
 </style>

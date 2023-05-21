@@ -9,7 +9,7 @@ export type Props = {
 const { id, label, openButtonId, closeButtonId } = Astro.props;
 ---
 
-<div id={id} class="fullscreen-modal" role="dialog" aria-label={label}>
+<div id={id} role="dialog" aria-label={label}>
   <slot />
 </div>
 
@@ -78,7 +78,7 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
     overflow: hidden;
   }
 
-  .fullscreen-modal {
+  div {
     position: fixed;
     top: 0;
     bottom: 0;

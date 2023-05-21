@@ -8,16 +8,16 @@ export type Props = PortableTextProps<ImageBlock>;
 const { node } = Astro.props;
 ---
 
-<div class:list={['image-block', Astro.props.class]}>
-  {
-    node.image && (
+{
+  node.image && (
+    <div>
       <Image image={node.image} sizes="(min-width: 980px) 880px, calc(95.15vw - 33px)" />
-    )
-  }
-</div>
+    </div>
+  )
+}
 
 <style lang="scss">
-  .image-block {
+  div {
     max-width: 55rem;
     padding: 2rem 0;
     margin: auto;

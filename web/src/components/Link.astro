@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types';
 
 export type Props = Omit<HTMLAttributes<'a'>, 'href'> & { href: string };
 
-const { href, ...attrs } = Astro.props;
+const { href, ...rest } = Astro.props;
 ---
 
-<a href={href} rel="prefetch" {...attrs}><slot /></a>
+<a href={href} rel="prefetch" {...rest}><slot /></a>

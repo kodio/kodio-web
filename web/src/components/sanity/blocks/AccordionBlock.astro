@@ -10,7 +10,7 @@ export type Props = PortableTextProps<AccordionType>;
 const { node } = Astro.props;
 ---
 
-<Accordion class:list={[Astro.props.class]}>
+<Accordion>
   {
     node.accordionItems?.map((item) => (
       <AccordionItem title={item.title ?? ''}>

@@ -17,6 +17,7 @@ export default defineConfig({
       logger: 1,
     }),
   ],
+  scopedStyleStrategy: 'class',
   vite: {
     envDir: '..',
     css: {

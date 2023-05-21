@@ -8,16 +8,16 @@ import BlockContentInternalLink from './BlockContentInternalLink.astro';
 
 type PortableTextProps = Parameters<typeof PortableText>[0];
 
-export type Props = Omit<PortableTextProps, 'value'> & {
+export type Props = {
   value: PortableTextProps['value'] | undefined;
 };
 
 const { value } = Astro.props;
 ---
 
-<div class:list={['block-content', Astro.props.class]}>
-  {
-    value && (
+{
+  value && (
+    <div>
       <PortableText
         value={value}
         components={{
@@ -31,12 +31,12 @@ const { value } = Astro.props;
           },
         }}
       />
-    )
-  }
-</div>
+    </div>
+  )
+}
 
 <style lang="scss">
-  .block-content {
+  div {
     max-width: 65ch;
 
     > :global(*) {

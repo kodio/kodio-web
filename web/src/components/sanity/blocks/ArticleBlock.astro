@@ -8,6 +8,4 @@ export type Props = PortableTextProps<Article>;
 const { node } = Astro.props;
 ---
 
-<div class:list={['article', Astro.props.class]}>
-  <BlockContent value={node.body} />
-</div>
+<BlockContent value={node.body} />

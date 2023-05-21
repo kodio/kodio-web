@@ -1,10 +1,4 @@
----
-export type Props = {
-  class?: string | null | undefined;
-};
----
-
-<ul class:list={['accordion', Astro.props.class]}>
+<ul>
   <slot />
 </ul>
 
@@ -80,7 +74,7 @@ export type Props = {
 </script>
 
 <style lang="scss">
-  .accordion {
+  ul {
     margin-bottom: 2rem;
     list-style: none;
   }
