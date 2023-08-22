@@ -75,8 +75,8 @@ importers:
         specifier: ^5.0.8
         version: 5.0.8
       '@netlify/functions':
-        specifier: ^1.6.0
-        version: 1.6.0
+        specifier: ^2.0.1
+        version: 2.0.1
       '@portabletext/types':
         specifier: ^2.0.5
         version: 2.0.5
@@ -85,7 +85,7 @@ importers:
         version: 1.0.2
       astro:
         specifier: ^2.10.12
-        version: 2.10.12(@types/node@20.5.2)(sass@1.66.1)(sharp@0.32.5)
+        version: 2.10.12(@types/node@20.5.3)(sass@1.66.1)(sharp@0.32.5)
       astro-compress:
         specifier: ^2.0.14
         version: 2.0.14
@@ -112,8 +112,8 @@ importers:
         version: 1.6.6
     devDependencies:
       '@types/node':
-        specifier: ^20.5.2
-        version: 20.5.2
+        specifier: ^20.5.3
+        version: 20.5.3
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.61.0
         version: 5.61.0(@typescript-eslint/parser@5.61.0)(eslint@8.47.0)(typescript@5.1.6)
@@ -197,7 +197,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.10.12(@types/node@20.5.2)(sass@1.66.1)(sharp@0.32.5)
+      astro: 2.10.12(@types/node@20.5.3)(sass@1.66.1)(sharp@0.32.5)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.1
       rehype-raw: 6.1.1
@@ -222,7 +222,7 @@ packages:
       '@astrojs/underscore-redirects': 0.2.0
       '@astrojs/webapi': 2.2.0
       '@netlify/functions': 1.6.0
-      astro: 2.10.12(@types/node@20.5.2)(sass@1.66.1)(sharp@0.32.5)
+      astro: 2.10.12(@types/node@20.5.3)(sass@1.66.1)(sharp@0.32.5)
       esbuild: 0.15.18
     dev: false
 
@@ -2538,6 +2538,27 @@ packages:
       is-promise: 4.0.0
     dev: false
 
+  /@netlify/functions@2.0.1:
+    resolution: {integrity: sha512-YrgCmz078II0LKknXKj5NbtGBuzek1JC+ZYi4xHcLhZD+HIGlerlmkhnVydWVPoA7fdd2IeSUd9CFFL7bY+y5Q==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      '@netlify/serverless-functions-api': 1.7.1
+      is-promise: 4.0.0
+    dev: false
+
+  /@netlify/node-cookies@0.1.0:
+    resolution: {integrity: sha512-OAs1xG+FfLX0LoRASpqzVntVV/RpYkgpI0VrUnw2u0Q1qiZUzcPffxRK8HF3gc4GjuhG5ahOEMJ9bswBiZPq0g==}
+    engines: {node: ^14.16.0 || >=16.0.0}
+    dev: false
+
+  /@netlify/serverless-functions-api@1.7.1:
+    resolution: {integrity: sha512-vF9g62n+BFfBXtWtmVBJ5debyMERVDtuLlMlKDPYBp6QjEuJnaggxczLlRofZ2mtsBXs7mAlna6gIcBswFLJJQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@netlify/node-cookies': 0.1.0
+      urlpattern-polyfill: 8.0.2
+    dev: false
+
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
     dependencies:
@@ -3140,12 +3161,8 @@ packages:
     resolution: {integrity: sha512-Mgq7eCtoTjT89FqNoTzzXg2XvCi5VMhRV6+I2aYanc6kQCBImeNaAYRs/DyoVqk1YEUJK5gN9VO7HRIdz4Wo3Q==}
     dev: false
 
-  /@types/node@20.5.2:
-    resolution: {integrity: sha512-5j/lXt7unfPOUlrKC34HIaedONleyLtwkKggiD/0uuMfT8gg2EOpg0dz4lCD15Ga7muC+1WzJZAjIB9simWd6Q==}
-
   /@types/node@20.5.3:
     resolution: {integrity: sha512-ITI7rbWczR8a/S6qjAW7DMqxqFMjjTo61qZVWJ1ubPvbIQsL5D/TvwjYEalM8Kthpe3hTzOGrF2TGbAu2uyqeA==}
-    dev: false
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3205,7 +3222,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 20.5.2
+      '@types/node': 20.5.3
     dev: false
 
   /@types/scheduler@0.16.2:
@@ -3594,7 +3611,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.10)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.10)
       react-refresh: 0.14.0
-      vite: 4.4.9(@types/node@20.5.2)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.3)(sass@1.66.1)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3842,7 +3859,7 @@ packages:
       zod: 3.21.4
     dev: false
 
-  /astro@2.10.12(@types/node@20.5.2)(sass@1.66.1)(sharp@0.32.5):
+  /astro@2.10.12(@types/node@20.5.3)(sass@1.66.1)(sharp@0.32.5):
     resolution: {integrity: sha512-JbD+hLCbXhpDofuzWQxojmjXwoqD0bR2BGqIByZ7B5Cj6dKQXHIr1HsrDdWcmjM+O4NXKV2TCfeXv1ZTtjqX3Q==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -3906,7 +3923,7 @@ packages:
       typescript: 5.1.6
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.4.9(@types/node@20.5.2)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.3)(sass@1.66.1)
       vitefu: 0.2.4(vite@4.4.9)
       which-pm: 2.0.0
       yargs-parser: 21.1.1
@@ -8920,7 +8937,7 @@ packages:
       use-device-pixel-ratio: 1.1.2(react@18.2.0)
       use-hot-module-reload: 1.0.2(react@18.2.0)
       use-sync-external-store: 1.2.0(react@18.2.0)
-      vite: 4.4.9(@types/node@20.5.2)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.3)(sass@1.66.1)
       yargs: 17.6.2
     transitivePeerDependencies:
       - '@types/node'
@@ -9835,6 +9852,10 @@ packages:
       requires-port: 1.0.0
     dev: false
 
+  /urlpattern-polyfill@8.0.2:
+    resolution: {integrity: sha512-Qp95D4TPJl1kC9SKigDcqgyM2VDVO4RiJc2d4qe5GrYm+zbIQCWWKAFaJNQ4BhdFeDGwBmAxqJBwWSJDb9T3BQ==}
+    dev: false
+
   /use-callback-ref@1.3.0(@types/react@18.2.20)(react@18.2.0):
     resolution: {integrity: sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==}
     engines: {node: '>=10'}
@@ -9970,7 +9991,7 @@ packages:
       vfile-message: 3.1.3
     dev: false
 
-  /vite@4.4.9(@types/node@20.5.2)(sass@1.66.1):
+  /vite@4.4.9(@types/node@20.5.3)(sass@1.66.1):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -9998,7 +10019,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.5.2
+      '@types/node': 20.5.3
       esbuild: 0.18.11
       postcss: 8.4.28
       rollup: 3.28.1
@@ -10015,7 +10036,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.9(@types/node@20.5.2)(sass@1.66.1)
+      vite: 4.4.9(@types/node@20.5.3)(sass@1.66.1)
     dev: false
 
   /vscode-css-languageservice@6.2.1:
