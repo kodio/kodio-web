@@ -1,11 +1,13 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  root: true,
   extends: [
-    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/strict',
+    'plugin:@typescript-eslint/stylistic',
     'plugin:astro/jsx-a11y-strict',
     'plugin:astro/recommended',
     'prettier',
   ],
+  parser: '@typescript-eslint/parser',
   overrides: [
     {
       files: ['*.astro'],
@@ -17,6 +19,7 @@ module.exports = {
     },
   ],
   rules: {
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     'astro/no-set-html-directive': 'error',
     'astro/no-set-text-directive': 'error',
     'astro/prefer-class-list-directive': 'error',
