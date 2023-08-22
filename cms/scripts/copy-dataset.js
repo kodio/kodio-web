@@ -48,7 +48,7 @@ function exit(message) {
 
   const shouldCopy = await ask(
     `Copy Sanity dataset from ${exportFrom} to ${importTo}? (Y/n) `,
-    'y'
+    'y',
   );
   if (['y', 'Y', 'yes', 'YES'].includes(shouldCopy)) {
     spawnSync('pnpm', ['sanity', '--', 'login'], options);
@@ -56,7 +56,7 @@ function exit(message) {
     spawnSync(
       'pnpm',
       ['sanity', '--', 'dataset', 'import', tmpFileName, importTo, '--replace'],
-      options
+      options,
     );
     unlinkSync(`${cwd}/${tmpFileName}`);
   }

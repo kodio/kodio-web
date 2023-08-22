@@ -16,7 +16,7 @@ export type Props = {
 };
 
 function isCommonBlockReference(
-  content: SectionContent | CommonBlockReference
+  content: SectionContent | CommonBlockReference,
 ): content is CommonBlockReference {
   return content._type === 'reference';
 }

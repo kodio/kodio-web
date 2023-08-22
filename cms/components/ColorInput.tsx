@@ -32,7 +32,7 @@ export default function ColorInput(props: StringInputProps) {
     (nextColor: string) => {
       onChange(set(nextColor));
     },
-    [onChange]
+    [onChange],
   );
 
   return (

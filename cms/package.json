@@ -11,6 +11,7 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc",
     "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
     "check": "pnpm typecheck && pnpm lint && pnpm prettier:check",
     "sanity": "sanity",
     "copy-dataset": "node scripts/copy-dataset.js"
@@ -18,7 +19,7 @@
   "dependencies": {
     "@sanity/ui": "^1.7.9",
     "@sanity/vision": "^3.15.1",
-    "@types/react": "^18.2.20",
+    "@types/react": "^18.2.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
@@ -31,7 +32,7 @@
   "devDependencies": {
     "@sanity/eslint-config-studio": "^3.0.0",
     "eslint": "^8.47.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.2",
     "typescript": "^5.1.6"
   }
 }

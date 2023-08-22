@@ -26,7 +26,7 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
                 .title('Metadata')
                 .icon(FiShare2)
                 .child(S.document().schemaType('defaultMetadata').documentId('defaultMetadata')),
-            ])
+            ]),
         ),
       S.divider(),
       S.listItem()
@@ -37,7 +37,7 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
             .title('Landing page')
             .schemaType('landingPage')
             .documentId('landingPage')
-            .views(pageViews(S))
+            .views(pageViews(S)),
         ),
       S.documentTypeListItem('page').title('Pages'),
       S.divider(),
@@ -62,7 +62,7 @@ const pageViews = (S: StructureBuilder) => [
 
 export const defaultDocumentNode = (
   S: StructureBuilder,
-  { schemaType }: { schemaType: string }
+  { schemaType }: { schemaType: string },
 ) => {
   if (['page'].includes(schemaType)) {
     return S.document().views(pageViews(S));

@@ -87,7 +87,9 @@ const { title } = Astro.props;
     visibility: hidden;
     overflow: hidden;
     height: 0;
-    transition: height 0.3s ease-in-out, visibility 0s 0.3s;
+    transition:
+      height 0.3s ease-in-out,
+      visibility 0s 0.3s;
   }
 
   .accordion-panel-inner {
@@ -107,7 +109,9 @@ const { title } = Astro.props;
 
     .accordion-panel {
       visibility: visible;
-      transition: height 0.3s ease-in-out, visibility 0s 0s;
+      transition:
+        height 0.3s ease-in-out,
+        visibility 0s 0s;
     }
   }
 </style>
