@@ -19,7 +19,7 @@
     "@astrojs/netlify": "^2.6.0",
     "@astrojs/prefetch": "^0.3.0",
     "@astrojs/sitemap": "^2.0.2",
-    "@fontsource/lora": "^5.0.8",
+    "@fontsource-variable/lora": "^5.0.9",
     "@fontsource/varela-round": "^5.0.8",
     "@netlify/functions": "^2.0.1",
     "@portabletext/types": "^2.0.5",

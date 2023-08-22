@@ -68,9 +68,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^2.0.2
         version: 2.0.2
-      '@fontsource/lora':
-        specifier: ^5.0.8
-        version: 5.0.8
+      '@fontsource-variable/lora':
+        specifier: ^5.0.9
+        version: 5.0.9
       '@fontsource/varela-round':
         specifier: ^5.0.8
         version: 5.0.8
@@ -2421,8 +2421,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@fontsource/lora@5.0.8:
-    resolution: {integrity: sha512-lJBsGmaOCr5INZwxz29TVTrIuZPTYcd3lkwnpoTclb86KsYpyU7chDVUQvf3CW/+hdX3fi1z7GvUz/kJIDyiZA==}
+  /@fontsource-variable/lora@5.0.9:
+    resolution: {integrity: sha512-AeTqrMIay4QXkLeGs0JDgc2RBnR6Hgkj3OLZjkAusauMmz03Z7SAz8FsuT2vfpUpjkrLeU52AFwF21EeBn3+7g==}
     dev: false
 
   /@fontsource/varela-round@5.0.8:
