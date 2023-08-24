@@ -2,17 +2,17 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7308bfd7-c83b-4d0a-bf41-42b8de13ac48/deploy-status)](https://app.netlify.com/sites/kodio/deploys)
 
-## Komme i gang
+## Getting started
 
-- Installer [Node.js](https://nodejs.org/en/download/) og [pnpm](https://pnpm.io/installation)
+- Install [Node.js](https://nodejs.org/en/download/) and [pnpm](https://pnpm.io/installation)
 
-- Installer pakker
+- Install dependencies
 
 ```bash
 pnpm install
 ```
 
-- Kjør lokalt
+- Run locally
 
 ```bash
 pnpm dev
@@ -20,40 +20,40 @@ pnpm dev
 
 ## Web
 
-Koden for nettsiden ligger i `web`. Nettsiden er laget med [Astro](https://astro.build/).
+The code for the website is in the `web` folder. The website is made using [Astro](https://astro.build/).
 
-For styling brukes stort sett [Sass](https://sass-lang.com/).
+[Sass](https://sass-lang.com/) is used for styling.
 
-### Installere pakker
+### Install new dependencies
 
-For å legge til nye npm-pakker må man gjøre det i `web`-mappen.
+Install new dependencies by doing it in the `web` folder.
 
 ```bash
 cd web
 pnpm add package-to-install
 ```
 
-eller
+or
 
 ```bash
 pnpm add package-to-install -F ./web
 ```
 
-### Bilder
+### Images
 
-Bruker [https://github.com/ausi/respimagelint](https://github.com/ausi/respimagelint) for å regne ut `sizes`.
+Uses [https://github.com/ausi/respimagelint](https://github.com/ausi/respimagelint) to calculate `sizes` for images.
 
 ## CMS
 
-Koden for CMS-et ligger i `cms`. CMS-et er laget med [Sanity](https://www.sanity.io/).
+The code for the CMS is in the `cms` folder. The CMS is made using [Sanity](https://www.sanity.io/).
 
-CMS-et er hostet på [https://kodio.sanity.studio/](https://kodio.sanity.studio/)
+The CMS is hosted at [https://kodio.sanity.studio/](https://kodio.sanity.studio/)
 
-### Kjør CMS lokalt
+### Running the CMS locally
 
-CMS-et kan kjøres lokalt for å se endringer i schema uten å deploye.
+The CMS can be run locally to see changes in the schema without deploying.
 
-Merk at endringer gjort i data lokalt blir lagret i samme database som for deployet studio.
+Note that the changes done in data locally will be save to the save database as for the deployed studio.
 
 ```bash
 pnpm cms
@@ -61,26 +61,26 @@ pnpm cms
 
 ### Deploy
 
-Dersom det er endringer i schemaet som skal deployes kjør:
+If there are changes in the schema that should be deployed run:
 
 ```bash
 pnpm cms:deploy
 ```
 
-Dette gjelder altså kun endringer i schema (oppsettet), data legges inn i studio enten lokalt eller på deployet side.
+This only applies to changes in the schema, changes in data does not require deployment to reach the database.
 
-## CI/CD
+## Code standard
 
-Det brukes [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) og [TypeScript](https://www.typescriptlang.org/) for å verifisere kodestandarden. Ved pull-request til repo vil disse bli kjørt.
+[ESLint](https://eslint.org/), [Prettier](https://prettier.io/) and [TypeScript](https://www.typescriptlang.org/) is used to verify the code and to format. These will be run on pull-request to the repository.
 
-Dette kan kjøres lokalt med
+This can be run locally with
 
 ```bash
 pnpm check
 ```
 
-## Miljøvariabler
+## Environment variables
 
-Miljøvariabler (environment variables) kan endres ved å lage en `.env` fil i topp-mappen.
+Environment variables kan be specified by creating a `.env` file in the root folder.
 
-Se filen `.env.example` for miljøvariabler som er i bruk og kan endres.
+See the example file `.env.example` for available environment variables.
