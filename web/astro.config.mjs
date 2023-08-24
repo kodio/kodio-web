@@ -18,9 +18,6 @@ export default defineConfig({
     }),
   ],
   scopedStyleStrategy: 'class',
-  experimental: {
-    viewTransitions: true,
-  },
   vite: {
     envDir: '..',
     css: {
