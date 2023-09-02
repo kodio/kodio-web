@@ -9,4 +9,14 @@ export type Props = PortableTextProps<Article>;
 const { node } = Astro.props;
 ---
 
-<BlockContent value={node.body} />
+<div class="article">
+  <BlockContent value={node.body} />
+</div>
+
+<style>
+  .article {
+    &:has(+ *) {
+      margin-bottom: 2rem;
+    }
+  }
+</style>
