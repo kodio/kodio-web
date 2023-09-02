@@ -7,7 +7,7 @@ export type Props = {
   hoverUnderline?: boolean;
 };
 
-const { link, hoverUnderline } = Astro.props;
+const { link, class: className, hoverUnderline } = Astro.props;
 
 const isInternalLink = link._type === 'internalLink';
 const href = isInternalLink ? `/${link.slug?.current}` : link.href;
@@ -15,12 +15,7 @@ const target = !isInternalLink && link.blank ? '_blank' : undefined;
 const rel = !isInternalLink && link.blank ? 'noopener' : 'prefetch-intent';
 ---
 
-<a
-  class:list={[Astro.props.class, { underline: hoverUnderline }]}
-  href={href}
-  target={target}
-  rel={rel}
->
+<a class:list={[className, { underline: hoverUnderline }]} href={href} target={target} rel={rel}>
   <slot>{href}</slot>
 </a>
 
