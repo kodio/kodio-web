@@ -1,18 +1,37 @@
 ---
-import Image from '@components/sanity/Image.astro';
-import SanityLink from '@components/sanity/SanityLink.astro';
-import type { EmployeeCard } from '@lib/sanity';
+import Image from '@/components/sanity/Image.astro';
+import SanityLink from '@/components/sanity/SanityLink.astro';
+import type { EmployeeCard } from '@/lib/sanity';
 
 export type Props = EmployeeCard;
 
-const { image, color, fullName, role, tel, email } = Astro.props;
+const { illustration, image, color, fullName, role, tel, email } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
+const changeableImageClass = image && illustration ? 'changeable' : '';
 ---
 
-<div>
+<div class="employee-card">
   <div class="image-container">
-    <Image image={image} />
+    {
+      illustration && (
+        <Image
+          class:list={['employee-illustration', changeableImageClass]}
+          image={illustration}
+          sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
+        />
+      )
+    }
+    {
+      image && (
+        <Image
+          class:list={['employee-image', changeableImageClass]}
+          image={image}
+          objectFit="cover"
+          sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
+        />
+      )
+    }
   </div>
   <div class="name">{fullName}</div>
   <div class="role">{role}</div>
@@ -21,24 +40,44 @@ const backgroundColor = `var(--${color})`;
 </div>
 
 <style lang="scss" define:vars={{ backgroundColor }}>
-  div {
+  .employee-card {
     line-height: 1.28;
+
+    .employee-illustration.changeable {
+      opacity: 1;
+      transition: opacity 0.2s linear;
+    }
+
+    .employee-image.changeable {
+      opacity: 0;
+      transition: opacity 0.2s linear;
+    }
+
+    &:hover {
+      .employee-illustration.changeable {
+        opacity: 0;
+      }
+
+      .employee-image.changeable {
+        opacity: 1;
+      }
+    }
 
     .image-container {
       background-color: var(--backgroundColor);
       aspect-ratio: 1;
       border-radius: 0.5rem;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-bottom: 1rem;
-
-      @media (min-width: $width-s) {
-        width: 19rem;
-      }
+      position: relative;
 
       > img {
-        max-height: 100%;
+        position: absolute;
+        inset: 0;
+        border-radius: 0.5rem; // needed for safari
       }
     }
 

@@ -1,3 +1,4 @@
+import { commonBlock } from './documents/commonBlock';
 import { defaultMetadata } from './documents/defaultMetadata';
 import { footerConfig, footerConfigSection } from './documents/footerConfig';
 import { landingPage } from './documents/landingPage';
@@ -13,6 +14,7 @@ import { employeeCard, employeeCards } from './objects/employeeCards';
 import { externalLink } from './objects/externalLink';
 import { handbook, handbookSection } from './objects/handbook';
 import { header } from './objects/header';
+import { imageBlock } from './objects/imageBlock';
 import { imageObj } from './objects/imageObj';
 import { internalLink } from './objects/internalLink';
 import { pageMetadata } from './objects/pageMetadata';
@@ -20,6 +22,7 @@ import { section } from './objects/section';
 
 export const schemaTypes = [
   /* documents */
+  commonBlock,
   defaultMetadata,
   footerConfig,
   footerConfigSection,
@@ -42,6 +45,7 @@ export const schemaTypes = [
   handbook,
   handbookSection,
   header,
+  imageBlock,
   imageObj,
   internalLink,
   pageMetadata,

@@ -60,8 +60,7 @@ export type Color =
   | 'purple-100'
   | 'yellow-200'
   | 'yellow-100'
-  | 'yellow-50'
-  | 'transparent';
+  | 'yellow-50';
 
 export type DefaultMetadata = {
   description: string;
@@ -69,8 +68,9 @@ export type DefaultMetadata = {
 };
 
 export type EmployeeCard = {
-  image: Image;
-  color?: Color;
+  illustration?: Image;
+  image?: Image;
+  color: Color;
   fullName: string;
   role?: string;
   tel?: ExternalLink;
@@ -133,6 +133,10 @@ export type Image = {
   };
 };
 
+export type ImageBlock = ArbitraryTypedObject & {
+  image?: ImageObj;
+};
+
 export type ImageObj = ArbitraryTypedObject &
   Image & {
     alt?: string;
@@ -173,10 +177,22 @@ export type Section = {
   _type: 'section';
   heading?: string;
   color: Color;
-  content?: SectionContent[];
+  content?: (SectionContent | CommonBlockReference)[];
 };
 
-type SectionContent = Accordion | Article | Banner | BannerLinkGroup | EmployeeCards | Handbook;
+export type CommonBlockReference = ArbitraryTypedObject & {
+  _type: 'reference';
+  commonBlock?: SectionContent[];
+};
+
+export type SectionContent =
+  | Accordion
+  | Article
+  | Banner
+  | BannerLinkGroup
+  | EmployeeCards
+  | Handbook
+  | ImageBlock;
 
 export type Slug = {
   _type: 'slug';

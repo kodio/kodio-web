@@ -1,6 +1,6 @@
 ---
-import { isDarkColor } from '@utils/colors';
-import type { Color } from '@lib/sanity';
+import type { Color } from '@/lib/sanity';
+import { isDarkColor } from '@/utils/colors';
 
 export type Props = {
   heading?: string | undefined;
@@ -45,17 +45,17 @@ const textColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
 
       @media (min-width: $width-l) {
         font-size: var(--fs-h1);
-        margin-bottom: 8.3rem;
+        margin-bottom: 5rem;
       }
     }
 
     > div {
       margin: auto;
-      padding: 3.75rem var(--content-padding);
+      padding: 4rem var(--content-padding);
       max-width: var(--content-max-width);
 
       @media (min-width: $width-l) {
-        padding: 3.75rem 5rem;
+        padding: 4rem 5rem;
       }
     }
   }

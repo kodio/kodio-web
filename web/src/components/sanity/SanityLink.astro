@@ -1,17 +1,26 @@
 ---
-import type { Link } from '@lib/sanity';
+import type { Link } from '@/lib/sanity';
 
 export type Props = {
   link: Link;
   class?: string;
+  hoverUnderline?: boolean;
 };
 
-const { link } = Astro.props;
+const { link, class: className, hoverUnderline } = Astro.props;
 
 const isInternalLink = link._type === 'internalLink';
-const href = isInternalLink ? `/kodio-web/${link.slug?.current}` : link.href;
+const href = isInternalLink ? `/${link.slug?.current}` : link.href;
 const target = !isInternalLink && link.blank ? '_blank' : undefined;
-const rel = !isInternalLink && link.blank ? 'noopener' : undefined;
+const rel = !isInternalLink && link.blank ? 'noopener' : 'prefetch-intent';
 ---
 
-<a class={Astro.props.class} href={href} target={target} rel={rel}><slot>{href}</slot></a>
+<a class:list={[className, { underline: hoverUnderline }]} href={href} target={target} rel={rel}>
+  <slot>{href}</slot>
+</a>
+
+<style lang="scss">
+  a.underline:hover {
+    @include link;
+  }
+</style>

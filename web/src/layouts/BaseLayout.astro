@@ -1,15 +1,15 @@
 ---
-import '@fontsource/lora';
+import '@fontsource-variable/lora';
 import '@fontsource/varela-round';
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
-import Metadata from '@components/Metadata.astro';
-import SkipLinks from '@components/SkipLinks.astro';
-import { getDefaultMetadata } from '@lib/sanity';
-import type { Color, PageMetadata } from '@lib/sanity';
+import { ViewTransitions } from 'astro:transitions';
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import Metadata from '@/components/Metadata.astro';
+import SkipLinks from '@/components/SkipLinks.astro';
+import { fetchDefaultMetadata, type Color, type PageMetadata } from '@/lib/sanity';
 
 export type Props = {
-  title?: string;
+  title?: string | undefined;
   slug: string;
   pageMetadata?: PageMetadata | undefined;
   headerColor: Color;
@@ -17,56 +17,25 @@ export type Props = {
 
 const { title, slug, pageMetadata, headerColor } = Astro.props;
 
-const defaultMetadata = await getDefaultMetadata();
+const defaultMetadata = await fetchDefaultMetadata();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/kodio-web/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/kodio-web/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/kodio-web/favicon-16x16.png" />
-    <link rel="manifest" href="/kodio-web/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <Metadata
       title={title}
       slug={slug}
       description={pageMetadata?.description ?? defaultMetadata.description}
       image={pageMetadata?.image ?? defaultMetadata.image}
     />
-    <script>
-      // Prefetch internal pages on link hover
-      const max = 8;
-      const prefetchList: string[] = [];
-
-      document.addEventListener('mouseover', (e) => {
-        const target = e.target as HTMLElement | null;
-        if (target?.tagName === 'A' && prefetchList.length < max) {
-          const href = target.getAttribute('href');
-
-          if (href?.startsWith('/') && !prefetchList.includes(href)) {
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.as = 'document';
-            link.href = href;
-            document.head.appendChild(link);
-            prefetchList.push(href);
-          }
-        }
-      });
-
-      // Enable outline only when tabbing
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Tab') {
-          document.body.classList.add('tabbed');
-        }
-      });
-
-      document.addEventListener('mousedown', () => {
-        document.body.classList.remove('tabbed');
-      });
-    </script>
+    <ViewTransitions />
   </head>
   <body>
     <SkipLinks />
@@ -99,7 +68,7 @@ const defaultMetadata = await getDefaultMetadata();
         --header-height: 5.25rem;
         --content-max-width: calc(81rem + var(--content-padding) * 2);
         --content-padding: 1.5rem;
-        --ff-lora: 'Lora', system-ui, sans-serif;
+        --ff-lora: 'Lora Variable', system-ui, sans-serif;
         --ff-varela: 'Varela Round', system-ui, sans-serif;
         --fs-h1: 300%;
         --fs-h2: 200%;
@@ -247,5 +216,17 @@ const defaultMetadata = await getDefaultMetadata();
         }
       }
     </style>
+    <script>
+      // Enable outline only when tabbing
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+          document.body.classList.add('tabbed');
+        }
+      });
+
+      document.addEventListener('mousedown', () => {
+        document.body.classList.remove('tabbed');
+      });
+    </script>
   </body>
 </html>

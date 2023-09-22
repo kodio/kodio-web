@@ -1,11 +1,11 @@
 ---
-import Logo from '@components/Logo.astro';
-import SanityLink from '@components/sanity/SanityLink.astro';
-import { getFooterConfig } from '@lib/sanity';
+import Logo from '@/components/Logo.astro';
+import SanityLink from '@/components/sanity/SanityLink.astro';
+import { fetchFooterConfig } from '@/lib/sanity';
 
 export type Props = Record<string, never>;
 
-const { sections } = await getFooterConfig();
+const { sections } = await fetchFooterConfig();
 ---
 
 <footer>
@@ -19,7 +19,9 @@ const { sections } = await getFooterConfig();
             <ul>
               {links.map((link) => (
                 <li>
-                  <SanityLink link={link}>{link.label}</SanityLink>
+                  <SanityLink link={link} hoverUnderline>
+                    {link.label}
+                  </SanityLink>
                 </li>
               ))}
             </ul>

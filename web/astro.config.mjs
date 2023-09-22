@@ -1,13 +1,23 @@
+import netlify from '@astrojs/netlify/functions';
+import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://glitner.github.io',
-  base: '/kodio-web',
-  integrations: [sitemap(), robotsTxt(), compress({ logger: 1 })],
+  site: 'https://kodio.no/',
+  output: 'server',
+  adapter: netlify(),
+  integrations: [
+    sitemap(),
+    robotsTxt(),
+    prefetch(),
+    compress({
+      logger: 1,
+    }),
+  ],
+  scopedStyleStrategy: 'class',
   vite: {
     envDir: '..',
     css: {

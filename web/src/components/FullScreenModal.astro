@@ -9,7 +9,7 @@ export type Props = {
 const { id, label, openButtonId, closeButtonId } = Astro.props;
 ---
 
-<div id={id} class="fullscreen-modal" role="dialog" aria-label={label}>
+<div id={id} role="dialog" aria-label={label}>
   <slot />
 </div>
 
@@ -23,7 +23,7 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
     function getKeyboardFocusableElements(element) {
       return [
         ...element.querySelectorAll(
-          'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+          'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
         ),
       ].filter((el) => !el.hasAttribute('disabled'));
     }
@@ -78,7 +78,7 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
     overflow: hidden;
   }
 
-  .fullscreen-modal {
+  div {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -87,7 +87,9 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
     background-color: var(--white);
     z-index: 1;
     visibility: hidden;
-    transition: visibility 0s ease-in-out 0.3s, translate 0.3s ease-in-out;
+    transition:
+      visibility 0s ease-in-out 0.3s,
+      translate 0.3s ease-in-out;
 
     &.show {
       transition-delay: 0s;

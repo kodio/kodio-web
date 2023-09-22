@@ -1,14 +1,16 @@
 ---
 import { PortableText } from 'astro-portabletext';
-import OrderedList from '@components/OrderedList.astro';
-import UnorderedList from '@components/UnorderedList.astro';
+
+import OrderedList from '@/components/OrderedList.astro';
+import UnorderedList from '@/components/UnorderedList.astro';
 import BlockContentExternalLink from './BlockContentExternalLink.astro';
 import BlockContentImage from './BlockContentImage.astro';
 import BlockContentInternalLink from './BlockContentInternalLink.astro';
-import type { ArbitraryTypedObject } from '@portabletext/types';
+
+type PortableTextProps = Parameters<typeof PortableText>[0];
 
 export type Props = {
-  value: ArbitraryTypedObject | ArbitraryTypedObject[] | undefined;
+  value: PortableTextProps['value'] | undefined;
 };
 
 const { value } = Astro.props;
@@ -16,18 +18,51 @@ const { value } = Astro.props;
 
 {
   value && (
-    <PortableText
-      value={value}
-      components={{
-        list: { bullet: UnorderedList, number: OrderedList },
-        mark: {
-          blockContentExternalLink: BlockContentExternalLink,
-          blockContentInternalLink: BlockContentInternalLink,
-        },
-        type: {
-          imageObj: BlockContentImage,
-        },
-      }}
-    />
+    <div>
+      <PortableText
+        value={value}
+        components={{
+          list: { bullet: UnorderedList, number: OrderedList },
+          mark: {
+            blockContentExternalLink: BlockContentExternalLink,
+            blockContentInternalLink: BlockContentInternalLink,
+          },
+          type: {
+            imageObj: BlockContentImage,
+          },
+        }}
+      />
+    </div>
   )
 }
+
+<style lang="scss">
+  div {
+    max-width: 65ch;
+
+    > :global(*) {
+      margin-bottom: 1rem;
+    }
+
+    > :global(h2) {
+      margin-bottom: 1.5rem;
+    }
+
+    > :global(*:has(+ h2)) {
+      margin-bottom: 3rem;
+    }
+
+    > :global(*:has(+ h3)) {
+      margin-bottom: 2rem;
+    }
+
+    > :global(img) {
+      max-width: 30rem;
+      margin: 3rem auto 4rem;
+    }
+
+    > :global(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+</style>

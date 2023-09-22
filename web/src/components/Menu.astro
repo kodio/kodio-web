@@ -1,16 +1,16 @@
 ---
-import Button from '@components/Button.astro';
-import FullScreenModal from '@components/FullScreenModal.astro';
-import Link from '@components/Link.astro';
-import Logo from '@components/Logo.astro';
-import CloseIcon from '@components/icons/Close.astro';
-import MenuIcon from '@components/icons/Menu.astro';
-import SanityLink from '@components/sanity/SanityLink.astro';
-import { getMenuConfig } from '@lib/sanity';
+import Button from '@/components/Button.astro';
+import FullScreenModal from '@/components/FullScreenModal.astro';
+import Link from '@/components/Link.astro';
+import Logo from '@/components/Logo.astro';
+import CloseIcon from '@/components/icons/Close.astro';
+import MenuIcon from '@/components/icons/Menu.astro';
+import SanityLink from '@/components/sanity/SanityLink.astro';
+import { fetchMenuConfig } from '@/lib/sanity';
 
 export type Props = Record<string, never>;
 
-const { links } = await getMenuConfig();
+const { links } = await fetchMenuConfig();
 ---
 
 <nav>
@@ -18,7 +18,9 @@ const { links } = await getMenuConfig();
     {
       links.map((link) => (
         <li>
-          <SanityLink link={link}>{link.label}</SanityLink>
+          <SanityLink link={link} hoverUnderline>
+            {link.label}
+          </SanityLink>
         </li>
       ))
     }
@@ -89,6 +91,7 @@ const { links } = await getMenuConfig();
   }
 
   .modal-list {
+    color: var(--color-text);
     padding: 6.5rem 1.5rem 0;
     list-style: none;
     counter-reset: list-number;

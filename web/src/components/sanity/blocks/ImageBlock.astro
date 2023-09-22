@@ -1,0 +1,26 @@
+---
+import type { Props as PortableTextProps } from 'astro-portabletext/types';
+
+import Image from '@/components/sanity/Image.astro';
+import type { ImageBlock } from '@/lib/sanity';
+
+export type Props = PortableTextProps<ImageBlock>;
+
+const { node } = Astro.props;
+---
+
+{
+  node.image && (
+    <div>
+      <Image image={node.image} sizes="(min-width: 980px) 880px, calc(95.15vw - 33px)" />
+    </div>
+  )
+}
+
+<style lang="scss">
+  div {
+    max-width: 55rem;
+    padding: 2rem 0;
+    margin: auto;
+  }
+</style>

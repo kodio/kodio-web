@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 import ExternalLinkIcon from '../../components/ExternalLinkIcon';
 
 export const externalLink = defineType({
@@ -7,13 +7,13 @@ export const externalLink = defineType({
   type: 'object',
   icon: ExternalLinkIcon,
   fields: [
-    defineField({
+    {
       name: 'label',
       title: 'Label',
       type: 'string',
       description: 'The URL will be used as label if left blank',
-    }),
-    defineField({
+    },
+    {
       name: 'href',
       type: 'url',
       title: 'URL',
@@ -21,13 +21,13 @@ export const externalLink = defineType({
         Rule.required().uri({
           scheme: ['http', 'https', 'mailto', 'tel'],
         }),
-    }),
-    defineField({
+    },
+    {
       name: 'blank',
       type: 'boolean',
       title: 'Open in new tab',
       initialValue: true,
-    }),
+    },
   ],
   preview: {
     select: {

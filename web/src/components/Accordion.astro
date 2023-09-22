@@ -1,10 +1,4 @@
----
-export type Props = {
-  class?: string | null | undefined;
-};
----
-
-<ul class:list={['accordion', Astro.props.class]}>
+<ul>
   <slot />
 </ul>
 
@@ -28,9 +22,12 @@ export type Props = {
     accordionPanel.addEventListener(
       'transitionend',
       () => {
-        accordionPanel.style.height = 'auto';
+        // Check if class name is present to avoid double click bug
+        if (accordionItem.classList.contains('is-open')) {
+          accordionPanel.style.height = 'auto';
+        }
       },
-      { once: true }
+      { once: true },
     );
   }
 
@@ -46,11 +43,12 @@ export type Props = {
     accordionPanel.addEventListener(
       'transitionrun',
       () => {
+        // Timeout needed for Firefox
         setTimeout(() => {
           accordionPanel.style.height = '0';
         }, 0);
       },
-      { once: true }
+      { once: true },
     );
   }
 
@@ -76,7 +74,7 @@ export type Props = {
 </script>
 
 <style lang="scss">
-  .accordion {
+  ul {
     margin-bottom: 2rem;
     list-style: none;
   }

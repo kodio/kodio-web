@@ -1,0 +1,25 @@
+---
+import PageHeader from '@/components/PageHeader.astro';
+import PageSections from '@/components/sanity/PageSections.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchPreviewPage } from '@/lib/sanity';
+
+const id = Astro.url.searchParams.get('id') ?? '';
+const previewData = await fetchPreviewPage(id);
+
+if (!previewData) {
+  return new Response(null, {
+    status: 404,
+    statusText: 'Not found',
+  });
+}
+
+const title = 'title' in previewData ? previewData.title : undefined;
+const slug = 'slug' in previewData ? previewData.slug?.current ?? '' : '';
+const { metadata, header, sections } = previewData;
+---
+
+<BaseLayout title={title} slug={slug} pageMetadata={metadata} headerColor={header.color}>
+  <PageHeader header={header} />
+  <PageSections sections={sections} />
+</BaseLayout>

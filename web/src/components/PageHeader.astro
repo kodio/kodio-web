@@ -1,8 +1,8 @@
 ---
-import ButtonLink from '@components/ButtonLink.astro';
-import Image from '@components/sanity/Image.astro';
-import SectionLayout from '@layouts/SectionLayout.astro';
-import type { Header } from '@lib/sanity';
+import ButtonLink from '@/components/ButtonLink.astro';
+import Image from '@/components/sanity/Image.astro';
+import SectionLayout from '@/layouts/SectionLayout.astro';
+import type { Header } from '@/lib/sanity';
 
 export type Props = {
   header: Header;
@@ -27,7 +27,7 @@ const link = header.links?.[0];
         <Image
           class="heading-image"
           image={header.image}
-          sizes="(min-width: 1420px) 478px, (min-width: 1040px) calc(36.11vw - 28px), (min-width: 780px) calc(42.5vw - 47px), calc(100vw - 48px)"
+          sizes="(min-width: 1420px) 372px, (min-width: 1040px) calc(28.06vw - 21px), (min-width: 780px) calc(33.33vw - 39px), calc(100vw - 48px)"
           loading="eager"
         />
       )

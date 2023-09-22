@@ -1,5 +1,5 @@
 import { FiCompass } from 'react-icons/fi';
-import { defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 
 export const footerConfig = defineType({
   name: 'footerConfig',
@@ -7,12 +7,12 @@ export const footerConfig = defineType({
   type: 'document',
   icon: FiCompass,
   fields: [
-    defineField({
+    {
       name: 'sections',
       title: 'Sections',
       type: 'array',
       of: [{ type: 'footerConfigSection' }],
-    }),
+    },
   ],
   preview: {
     prepare() {
@@ -28,18 +28,18 @@ export const footerConfigSection = defineType({
   title: 'Footer config section',
   type: 'object',
   fields: [
-    defineField({
+    {
       name: 'heading',
       title: 'Heading',
       type: 'string',
-    }),
-    defineField({
+    },
+    {
       name: 'links',
       title: 'Links',
       type: 'array',
       of: [{ type: 'internalLink' }, { type: 'externalLink' }],
       validation: (Rule) => Rule.required(),
-    }),
+    },
   ],
   preview: {
     select: {

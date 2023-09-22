@@ -3,6 +3,5 @@
     "astro-build.astro-vscode",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode"
-  ],
-  "unwantedRecommendations": []
+  ]
 }

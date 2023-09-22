@@ -12,23 +12,23 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  verify:
-    name: Verify
+  check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: npm
-          cache-dependency-path: |
-            package-lock.json
-            web/package-lock.json
-            cms/package-lock.json
+          node-version: 18
+          cache: pnpm
 
       - name: Install
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
-      - name: Verify
-        run: npm run verify
+      - name: Check
+        run: pnpm check

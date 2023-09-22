@@ -10,25 +10,29 @@
     "deploy": "sanity deploy",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc",
-    "prettier:check": "prettier -l .",
-    "verify": "npm run typecheck && npm run lint && npm run prettier:check",
+    "prettier:check": "prettier --check .",
+    "prettier:format": "prettier --write .",
+    "check": "pnpm typecheck && pnpm lint && pnpm prettier:check",
     "sanity": "sanity",
     "copy-dataset": "node scripts/copy-dataset.js"
   },
   "dependencies": {
-    "@sanity/vision": "3.0.6",
+    "@sanity/ui": "^1.8.2",
+    "@sanity/vision": "^3.16.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
+    "react-icons": "^4.11.0",
     "react-is": "^18.2.0",
-    "sanity": "3.0.6",
-    "sanity-plugin-media": "^2.0.2",
-    "styled-components": "^5.3.6"
+    "sanity": "^3.16.7",
+    "sanity-plugin-iframe-pane": "^2.5.7",
+    "sanity-plugin-media": "^2.2.2",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^2.0.1",
-    "eslint": "^8.29.0",
-    "prettier": "^2.8.1",
-    "typescript": "^4.9.4"
+    "@sanity/eslint-config-studio": "^3.0.1",
+    "@types/react": "^18.2.21",
+    "eslint": "^8.49.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   }
 }

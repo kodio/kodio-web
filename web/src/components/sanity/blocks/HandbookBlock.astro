@@ -1,8 +1,9 @@
 ---
-import slugify from 'slugify';
-import BlockContent from '@components/sanity/BlockContent.astro';
-import type { Handbook } from '@lib/sanity';
 import type { Props as PortableTextProps } from 'astro-portabletext/types';
+import slugify from 'slugify';
+
+import BlockContent from '@/components/sanity/BlockContent.astro';
+import type { Handbook } from '@/lib/sanity';
 
 export type Props = PortableTextProps<Handbook>;
 
@@ -17,9 +18,7 @@ const slugs = sections?.map((s) => ({ title: s.heading, slug: slugify(s.heading)
       sections?.map((section, index) => (
         <div id={slugs?.[index]?.slug}>
           <h2>{section.heading}</h2>
-          <div class="handbook-section-content">
-            <BlockContent value={section.body} />
-          </div>
+          <BlockContent value={section.body} />
         </div>
       ))
     }
@@ -39,6 +38,7 @@ const slugs = sections?.map((s) => ({ title: s.heading, slug: slugify(s.heading)
   .handbook {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
 
     .handbook-sections {
       padding-top: 2rem;
@@ -47,18 +47,8 @@ const slugs = sections?.map((s) => ({ title: s.heading, slug: slugify(s.heading)
       gap: 2.5rem;
       counter-reset: handbook-section-number;
 
-      @media (min-width: $width-m) {
-        max-width: 30rem;
-      }
-
-      .handbook-section-content {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-      }
-
       h2 {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
 
         &::before {
           counter-increment: handbook-section-number;

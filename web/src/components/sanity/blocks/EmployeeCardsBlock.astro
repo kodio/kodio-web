@@ -1,7 +1,8 @@
 ---
-import EmployeeCard from '@components/sanity/EmployeeCard.astro';
 import type { Props as PortableTextProps } from 'astro-portabletext/types';
-import type { EmployeeCards } from '@lib/sanity';
+
+import EmployeeCard from '@/components/sanity/EmployeeCard.astro';
+import type { EmployeeCards } from '@/lib/sanity';
 
 export type Props = PortableTextProps<EmployeeCards>;
 
@@ -12,8 +13,15 @@ const { node } = Astro.props;
 
 <style lang="scss">
   div {
-    display: flex;
+    display: grid;
     gap: 5rem;
-    flex-wrap: wrap;
+
+    @media (min-width: $width-s) and (max-width: $width-l) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $width-l) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
