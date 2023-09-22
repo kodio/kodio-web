@@ -140,6 +140,7 @@ export type ImageBlock = ArbitraryTypedObject & {
 export type ImageObj = ArbitraryTypedObject &
   Image & {
     alt?: string;
+    fillContainer?: boolean;
   };
 
 export type InternalLink = {

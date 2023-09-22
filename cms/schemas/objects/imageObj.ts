@@ -13,5 +13,13 @@ export const imageObj = defineType({
       title: 'Alt text',
       type: 'string',
     },
+    {
+      name: 'fillContainer',
+      title: 'Fill container',
+      description:
+        'Image can be cropped to fill its container. Should not be on for illustrations.',
+      type: 'boolean',
+      initialValue: false,
+    },
   ],
 });
