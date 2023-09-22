@@ -21,7 +21,7 @@ const { metadata, header, sections } = await fetchLandingPage();
         <div class="b parallax" data-speed="0.25"></div>
       </div>
       <div class="p-c">
-        <div class="c parallax" data-speed="0.15"></div>
+        <div class="c parallax" data-speed="0.1"></div>
       </div>
     </div>
   </SectionLayout>
@@ -59,26 +59,35 @@ const { metadata, header, sections } = await fetchLandingPage();
 
   .p-b {
     top: 136px;
-    left: 0;
+    left: 50px;
     width: 374px;
     height: 511px;
   }
 
   .p-c {
     top: 136px;
-    right: 0;
+    right: 50px;
     width: 344px;
     height: 494px;
   }
 
-  .a {
-    background-color: red;
-  }
-  .b {
-    background-color: green;
-  }
+  .a,
+  .b,
   .c {
-    background-color: blue;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .a {
+    background-image: url('https://picsum.photos/id/10/500/400');
+  }
+
+  .b {
+    background-image: url('https://picsum.photos/id/24/500/400');
+  }
+
+  .c {
+    background-image: url('https://picsum.photos/id/28/400/500');
   }
 </style>
 
@@ -97,7 +106,7 @@ const { metadata, header, sections } = await fetchLandingPage();
 
   parallaxElements.forEach((element) => {
     element.setAttribute('calc', `${(window.innerHeight - element.clientHeight) * 0.5}`);
-    element.setAttribute('offset', `${element.getBoundingClientRect().top + window.pageYOffset}`);
+    element.setAttribute('offset', `${element.getBoundingClientRect().top + window.scrollY}`);
     setTransform(element);
   });
 
