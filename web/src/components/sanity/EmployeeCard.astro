@@ -1,9 +1,9 @@
 ---
 import Image from '@/components/sanity/Image.astro';
 import SanityLink from '@/components/sanity/SanityLink.astro';
-import type { EmployeeCard } from '@/lib/sanity';
+import type { Employee } from '@/lib/sanity';
 
-export type Props = EmployeeCard;
+export type Props = Employee;
 
 const { illustration, image, color, fullName, role, tel, email } = Astro.props;
 
@@ -14,20 +14,20 @@ const changeableImageClass = image && illustration ? 'changeable' : '';
 <div class="employee-card">
   <div class="image-container">
     {
-      illustration && (
-        <Image
-          class:list={['employee-illustration', changeableImageClass]}
-          image={illustration}
-          sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
-        />
-      )
-    }
-    {
       image && (
         <Image
           class:list={['employee-image', changeableImageClass]}
           image={image}
           objectFit="cover"
+          sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
+        />
+      )
+    }
+    {
+      illustration && (
+        <Image
+          class:list={['employee-illustration', changeableImageClass]}
+          image={illustration}
           sizes="(min-width: 1420px) 341px, (min-width: 1040px) calc(28.06vw - 52px), (min-width: 640px) calc(50vw - 64px), calc(100vw - 48px)"
         />
       )
@@ -43,22 +43,22 @@ const changeableImageClass = image && illustration ? 'changeable' : '';
   .employee-card {
     line-height: 1.28;
 
-    .employee-illustration.changeable {
+    .employee-image.changeable {
       opacity: 1;
       transition: opacity 0.2s linear;
     }
 
-    .employee-image.changeable {
+    .employee-illustration.changeable {
       opacity: 0;
       transition: opacity 0.2s linear;
     }
 
     &:hover {
-      .employee-illustration.changeable {
+      .employee-image.changeable {
         opacity: 0;
       }
 
-      .employee-image.changeable {
+      .employee-illustration.changeable {
         opacity: 1;
       }
     }

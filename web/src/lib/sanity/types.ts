@@ -67,18 +67,18 @@ export type DefaultMetadata = {
   image: Image;
 };
 
-export type EmployeeCard = {
-  illustration?: Image;
-  image?: Image;
-  color: Color;
+export type Employee = {
   fullName: string;
+  image?: Image;
+  illustration?: Image;
+  color: Color;
   role?: string;
   tel?: ExternalLink;
   email?: ExternalLink;
 };
 
 export type EmployeeCards = ArbitraryTypedObject & {
-  cards?: EmployeeCard[];
+  employees?: Employee[];
 };
 
 export type ExternalLink = {

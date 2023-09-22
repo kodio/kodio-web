@@ -33,10 +33,13 @@ const contentFragment = groq`
   },
   bannerLinks[] {
     ...,
-      links[] {
+    links[] {
       ...,
       ${internalLinkFragment()}
     }
+  },
+  employees[] {
+    ...@->
   },
 `;
 

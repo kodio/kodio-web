@@ -9,7 +9,7 @@ export type Props = PortableTextProps<EmployeeCards>;
 const { node } = Astro.props;
 ---
 
-<div>{node.cards?.map((card) => <EmployeeCard {...card} />)}</div>
+<div>{node.employees?.map((employee) => <EmployeeCard {...employee} />)}</div>
 
 <style lang="scss">
   div {
