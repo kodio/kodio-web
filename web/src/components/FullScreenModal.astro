@@ -14,63 +14,61 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
 </div>
 
 <script define:vars={{ id, openButtonId, closeButtonId }}>
-  (function () {
-    const body = document.querySelector('body');
-    const modal = document.getElementById(id);
-    const openModalButton = document.getElementById(openButtonId);
-    const closeModalButton = modal.querySelector(`#${closeButtonId}`);
+  // (function () {s
+  const modal = document.getElementById(id);
+  const openModalButton = document.getElementById(openButtonId);
+  const closeModalButton = modal?.querySelector(`#${closeButtonId}`);
 
-    function getKeyboardFocusableElements(element) {
-      return [
-        ...element.querySelectorAll(
-          'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
-        ),
-      ].filter((el) => !el.hasAttribute('disabled'));
+  function getKeyboardFocusableElements(element) {
+    return [
+      ...element.querySelectorAll(
+        'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])',
+      ),
+    ].filter((el) => !el.hasAttribute('disabled'));
+  }
+
+  function trapFocus(event) {
+    if (!modal) return;
+
+    const focusableElements = getKeyboardFocusableElements(modal);
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+      event.preventDefault();
+      firstFocusableElement?.focus();
     }
 
-    function trapFocus(event) {
-      const focusables = getKeyboardFocusableElements(modal);
-      const firstFocusable = focusables[0];
-      const lastFocusable = focusables[focusables.length - 1];
-
-      if (document.activeElement === lastFocusable && event.key === 'Tab' && !event.shiftKey) {
-        event.preventDefault();
-        firstFocusable.focus();
-      }
-
-      if (document.activeElement === firstFocusable && event.key === 'Tab' && event.shiftKey) {
-        event.preventDefault();
-        lastFocusable.focus();
-      }
+    if (event.shiftKey && document.activeElement === firstFocusableElement) {
+      event.preventDefault();
+      lastFocusableElement?.focus();
     }
+  }
 
-    function closeOnEsc(event) {
-      if (event.key === 'Escape') {
-        closeModal();
-      }
+  function handleKeyPress(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    } else if (event.key === 'Tab') {
+      trapFocus(event);
     }
+  }
 
-    function openModal() {
-      const firstFocusable = getKeyboardFocusableElements(modal)[0];
+  function openModal() {
+    modal?.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyPress);
+  }
 
-      modal.classList.add('show');
-      body.classList.add('fullscreen-modal-is-active');
-      firstFocusable.focus();
-      document.addEventListener('keydown', trapFocus);
-      modal.addEventListener('keydown', closeOnEsc);
-    }
+  function closeModal() {
+    modal?.classList.remove('show');
+    document.body.style.overflow = '';
+    openModalButton?.focus({ preventScroll: true });
+    document.removeEventListener('keydown', handleKeyPress);
+  }
 
-    function closeModal() {
-      modal.classList.remove('show');
-      body.classList.remove('fullscreen-modal-is-active');
-      openModalButton.focus({ preventScroll: true });
-      document.removeEventListener('keydown', trapFocus);
-      modal.removeEventListener('keydown', closeOnEsc);
-    }
-
-    openModalButton.addEventListener('click', openModal);
-    closeModalButton.addEventListener('click', closeModal);
-  })();
+  openModalButton?.addEventListener('click', openModal);
+  closeModalButton?.addEventListener('click', closeModal);
+  // })();
 </script>
 
 <style lang="scss">
