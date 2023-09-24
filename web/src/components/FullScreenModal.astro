@@ -14,7 +14,6 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
 </div>
 
 <script define:vars={{ id, openButtonId, closeButtonId }}>
-  // (function () {s
   const modal = document.getElementById(id);
   const openModalButton = document.getElementById(openButtonId);
   const closeModalButton = modal?.querySelector(`#${closeButtonId}`);
@@ -68,7 +67,6 @@ const { id, label, openButtonId, closeButtonId } = Astro.props;
 
   openModalButton?.addEventListener('click', openModal);
   closeModalButton?.addEventListener('click', closeModal);
-  // })();
 </script>
 
 <style lang="scss">

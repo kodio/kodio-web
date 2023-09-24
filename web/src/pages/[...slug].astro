@@ -23,7 +23,7 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { slug } = Astro.params as Params;
-const { title, metadata, header, sections } = Astro.props;
+const { title, metadata, header, sections } = Astro.props as Props;
 ---
 
 <BaseLayout title={title} slug={slug} pageMetadata={metadata} headerColor={header.color}>

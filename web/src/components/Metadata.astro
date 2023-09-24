@@ -1,21 +1,24 @@
 ---
-import { urlFor, type Image } from '@/lib/sanity';
+import { urlFor, type Image, type Color } from '@/lib/sanity';
+import { colorMap } from '@/utils/colors';
 
 export type Props = {
   title?: string | undefined;
   slug: string;
   description: string;
   image: Image;
+  themeColor: Color;
 };
 
-const { title, slug, description, image } = Astro.props;
+const { title, slug, description, image, themeColor } = Astro.props;
 
 const formattedTitle = title ? `${title} | Kodio` : 'Kodio';
+const themeColorHex = colorMap[themeColor];
 ---
 
 <title>{formattedTitle}</title>
 <meta name="description" content={description} />
-<meta name="theme-color" content="#fffdf5" />
+<meta name="theme-color" content={themeColorHex} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={formattedTitle} />
 <meta property="og:description" content={description} />
