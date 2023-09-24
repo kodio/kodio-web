@@ -129,21 +129,9 @@ const defaultMetadata = await fetchDefaultMetadata();
       }
 
       *:focus-visible {
-        outline: none;
-      }
-
-      body.tabbed *:focus-visible {
-        outline: none;
-        position: relative;
         border-radius: 0.25rem;
-      }
-
-      body.tabbed *:focus-visible::before {
-        content: '';
-        position: absolute;
-        inset: -0.375rem;
-        border: 0.125rem solid var(--color-focus);
-        border-radius: 0.3125rem;
+        outline: 0.125rem solid var(--color-focus);
+        outline-offset: 0.125rem;
       }
 
       html,
@@ -216,17 +204,5 @@ const defaultMetadata = await fetchDefaultMetadata();
         }
       }
     </style>
-    <script>
-      // Enable outline only when tabbing
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Tab') {
-          document.body.classList.add('tabbed');
-        }
-      });
-
-      document.addEventListener('mousedown', () => {
-        document.body.classList.remove('tabbed');
-      });
-    </script>
   </body>
 </html>
