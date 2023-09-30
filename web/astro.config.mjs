@@ -27,7 +27,7 @@ export default defineConfig({
             if (fp.endsWith('main.scss')) return source;
             if (fp.endsWith('mixins.scss')) return source;
             if (fp.endsWith('variables.scss')) return source;
-            return `@import "src/main.scss"; ${source}`;
+            return `@import "src/styles/main.scss"; ${source}`;
           },
         },
       },

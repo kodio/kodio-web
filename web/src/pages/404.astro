@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import type { Color, Header } from '@/lib/sanity';
+
+const color: Color = 'yellow-50';
+const header: Header = {
+  heading: 'Her var det tomt gitt!',
+  preHeading: '404',
+  color,
+  links: [
+    {
+      _type: 'internalLink',
+      slug: {
+        _type: 'slug',
+        current: '',
+      },
+      label: 'Gå til forside',
+    },
+  ],
+};
+---
+
+<BaseLayout slug="" headerColor={color}>
+  <PageHeader header={header} />
+</BaseLayout>

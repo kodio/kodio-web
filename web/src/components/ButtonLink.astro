@@ -1,6 +1,7 @@
 ---
 import SanityLink from '@/components/sanity/SanityLink.astro';
 import type { Color, Link } from '@/lib/sanity';
+import { isDarkColor } from '@/utils/colors';
 
 export type Props = {
   link: Link;
@@ -10,14 +11,16 @@ export type Props = {
 const { link, color } = Astro.props;
 
 const linkColor = `var(--${color})`;
+const linkTextColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
 ---
 
 <div>
   <SanityLink class="button-link" link={link}>{link.label}</SanityLink>
 </div>
 
-<style lang="scss" define:vars={{ linkColor }}>
+<style lang="scss" define:vars={{ linkColor, linkTextColor }}>
   .button-link {
     @include button(var(--linkColor));
+    color: var(--linkTextColor);
   }
 </style>
