@@ -65,6 +65,18 @@ const changeableImageClass = image && illustration ? 'changeable' : '';
       }
     }
 
+    @media (hover: none) and (pointer: coarse) {
+      &:active {
+        .employee-image.changeable {
+          opacity: 0;
+        }
+
+        .employee-illustration.changeable {
+          opacity: 1;
+        }
+      }
+    }
+
     .image-container {
       background-color: var(--backgroundColor);
       aspect-ratio: 1;
