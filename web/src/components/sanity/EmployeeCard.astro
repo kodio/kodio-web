@@ -53,13 +53,15 @@ const changeableImageClass = image && illustration ? 'changeable' : '';
       transition: opacity 0.2s ease-in-out;
     }
 
-    &:hover {
-      .employee-image.changeable {
-        opacity: 0;
-      }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        .employee-image.changeable {
+          opacity: 0;
+        }
 
-      .employee-illustration.changeable {
-        opacity: 1;
+        .employee-illustration.changeable {
+          opacity: 1;
+        }
       }
     }
 
