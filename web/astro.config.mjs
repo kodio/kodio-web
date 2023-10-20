@@ -14,7 +14,7 @@ export default defineConfig({
     robotsTxt(),
     prefetch(),
     compress({
-      logger: 1,
+      Logger: 1,
     }),
   ],
   scopedStyleStrategy: 'class',
