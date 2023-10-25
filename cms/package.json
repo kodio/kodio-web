@@ -17,7 +17,7 @@
     "copy-dataset": "node scripts/copy-dataset.js"
   },
   "dependencies": {
-    "@sanity/ui": "^1.8.2",
+    "@sanity/ui": "^1.8.3",
     "@sanity/vision": "^3.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^3.0.1",
-    "@types/react": "^18.2.30",
-    "eslint": "^8.51.0",
+    "@types/react": "^18.2.32",
+    "eslint": "^8.52.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
