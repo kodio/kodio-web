@@ -47,17 +47,13 @@ function exit(message) {
   const tmpFileName = `sanity-dataset-${exportFrom}-${new Date().toISOString()}.tar.gz`;
 
   const shouldCopy = await ask(
-    `Copy Sanity dataset from ${exportFrom} to ${importTo}? (Y/n) `,
+    `Copy Sanity dataset from "${exportFrom}" to "${importTo}"? (Y/n) `,
     'y',
   );
   if (['y', 'Y', 'yes', 'YES'].includes(shouldCopy)) {
-    spawnSync('pnpm', ['sanity', '--', 'login'], options);
-    spawnSync('pnpm', ['sanity', '--', 'dataset', 'export', exportFrom, tmpFileName], options);
-    spawnSync(
-      'pnpm',
-      ['sanity', '--', 'dataset', 'import', tmpFileName, importTo, '--replace'],
-      options,
-    );
+    spawnSync('pnpm', ['sanity', 'login'], options);
+    spawnSync('pnpm', ['sanity', 'dataset', 'export', exportFrom, tmpFileName], options);
+    spawnSync('pnpm', ['sanity', 'dataset', 'import', tmpFileName, importTo, '--replace'], options);
     unlinkSync(`${cwd}/${tmpFileName}`);
   }
 
