@@ -3,7 +3,7 @@
  * and then import it to the other specified dataset before removing the local file.
  *
  * As of now we have to do it this way as the Sanity Cloud Clone feature is only available
- * for customers on the Enterprise plan (we are currently on the old Advanced plan).
+ * for customers on the Enterprise plan (we are currently on the Free plan).
  * */
 const { spawnSync } = require('child_process');
 const { unlinkSync } = require('fs');
