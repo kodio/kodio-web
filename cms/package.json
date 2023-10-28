@@ -25,7 +25,7 @@
     "react-is": "^18.2.0",
     "sanity": "^3.18.1",
     "sanity-plugin-iframe-pane": "^2.6.0",
-    "sanity-plugin-media": "^2.2.2",
+    "sanity-plugin-media": "^2.2.4",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
