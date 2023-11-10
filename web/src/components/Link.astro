@@ -6,4 +6,4 @@ export type Props = Omit<HTMLAttributes<'a'>, 'href'> & { href: string };
 const { href, ...rest } = Astro.props;
 ---
 
-<a href={href} rel="prefetch-intent" {...rest}><slot /></a>
+<a href={href} {...rest}><slot /></a>

@@ -1,5 +1,4 @@
 import netlify from '@astrojs/netlify/functions';
-import prefetch from '@astrojs/prefetch';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
@@ -12,7 +11,6 @@ export default defineConfig({
   integrations: [
     sitemap(),
     robotsTxt(),
-    prefetch(),
     compress({
       Logger: 1,
     }),

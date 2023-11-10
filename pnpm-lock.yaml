@@ -61,10 +61,7 @@ importers:
     dependencies:
       '@astrojs/netlify':
         specifier: ^3.0.4
-        version: 3.0.4(astro@3.4.3)
-      '@astrojs/prefetch':
-        specifier: ^0.4.1
-        version: 0.4.1
+        version: 3.0.4(astro@3.5.2)
       '@astrojs/sitemap':
         specifier: ^3.0.3
         version: 3.0.3
@@ -84,8 +81,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       astro:
-        specifier: ^3.4.3
-        version: 3.4.3(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2)
+        specifier: ^3.5.2
+        version: 3.5.2(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2)
       astro-compress:
         specifier: ^2.2.3
         version: 2.2.3
@@ -182,10 +179,15 @@ packages:
 
   /@astrojs/compiler@2.2.1:
     resolution: {integrity: sha512-NJ1lWKzMkyEjE3W5NpPNAVot4/PLF5om/P6ekxNu3iLS05CaYFTcp7WpYMjdCC252b7wkNVAs45FNkVQ+RHW/g==}
+    dev: true
 
   /@astrojs/compiler@2.2.2:
     resolution: {integrity: sha512-nJaEgq0EP1mybaW1PvNnnp4RxVQnaLajUYnqrqxFbIdu1ELbH6OxNuAJWI+/q9TbMP6NG/eK6WRMhQsxX6qkUQ==}
     dev: true
+
+  /@astrojs/compiler@2.3.0:
+    resolution: {integrity: sha512-pxYRAaRdMS6XUll8lbFM+Lr0DI1HKIDT+VpiC+S+9di5H/nmm3znZOgdMlLiMxADot+56eps+M1BvtKfQremXA==}
+    dev: false
 
   /@astrojs/internal-helpers@0.2.1:
     resolution: {integrity: sha512-06DD2ZnItMwUnH81LBLco3tWjcZ1lGU9rLCCBaeUCGYe9cI0wKyY2W3kDyoW1I6GmcWgt1fu+D1CTvz+FIKf8A==}
@@ -227,13 +229,13 @@ packages:
       - typescript
     dev: true
 
-  /@astrojs/markdown-remark@3.3.0(astro@3.4.3):
-    resolution: {integrity: sha512-ezFzEiZygc/ASe2Eul9v1yrTbNGqSbR348UGNXQ4Dtkx8MYRwfiBfmPm6VnEdfIGkW+bi5qIUReKfc7mPVUkIg==}
+  /@astrojs/markdown-remark@3.4.0(astro@3.5.2):
+    resolution: {integrity: sha512-uzLSKBQ4e70aH8gEbBHZ2pnv/KOJKB3WrXFBOF0U5Uwjcr2LNWeIBLjPRQjA4tbtteELh84YPBHny21mhvBGVA==}
     peerDependencies:
-      astro: ^3.3.0
+      astro: ^3.0.0
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 3.4.3(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2)
+      astro: 3.5.2(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2)
       github-slugger: 2.0.0
       import-meta-resolve: 3.0.0
       mdast-util-definitions: 6.0.0
@@ -251,21 +253,15 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/netlify@3.0.4(astro@3.4.3):
+  /@astrojs/netlify@3.0.4(astro@3.5.2):
     resolution: {integrity: sha512-zVDr53WEAyrsAIvKNgi1DfER5Vq83/z8rT71r2Id/4ygw5dH04fPGjBroovJYMDXSip/rZQIvNa52A0iMFs7Ng==}
     peerDependencies:
       astro: ^3.3.0
     dependencies:
       '@astrojs/underscore-redirects': 0.3.3
       '@netlify/functions': 2.3.0
-      astro: 3.4.3(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2)
+      astro: 3.5.2(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2)
       esbuild: 0.19.5
-    dev: false
-
-  /@astrojs/prefetch@0.4.1:
-    resolution: {integrity: sha512-bpC875BqeIuWVgqhi4X814ftzzbKocaLkiZczaj8k5J2SRpueIGkww3XmD+yY/Ekkm9j30aS3neVO6wSm4IJNA==}
-    dependencies:
-      throttles: 1.0.1
     dev: false
 
   /@astrojs/prism@3.0.0:
@@ -3763,14 +3759,14 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /astro@3.4.3(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2):
-    resolution: {integrity: sha512-6zcONz2FjX6GaAy6Mysie4gT8rH5QCBXyPjkuYZKiPdV+sXmDpLm44J2MpQwA3mHb8YQ35L5O4nNg09d4luQ7g==}
+  /astro@3.5.2(@types/node@20.8.10)(sass@1.69.5)(typescript@5.2.2):
+    resolution: {integrity: sha512-AE37biXPX0fH4tmBKpYDyW8UvJ3XLNvRCuUE4RTGf+YdKPPcwGLgV8DE6GLG86pHfevTH+kM581sBDzGh54iEw==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 2.2.1
+      '@astrojs/compiler': 2.3.0
       '@astrojs/internal-helpers': 0.2.1
-      '@astrojs/markdown-remark': 3.3.0(astro@3.4.3)
+      '@astrojs/markdown-remark': 3.4.0(astro@3.5.2)
       '@astrojs/telemetry': 3.0.4
       '@babel/core': 7.23.2
       '@babel/generator': 7.23.0
@@ -9744,11 +9740,6 @@ packages:
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
     dev: true
-
-  /throttles@1.0.1:
-    resolution: {integrity: sha512-fab7Xg+zELr9KOv4fkaBoe/b3L0GMGLd0IBSCn16GoE/Qx6/OfCr1eGNyEcDU2pUA79qQfZ8kPQWlRuok4YwTw==}
-    engines: {node: '>=6'}
-    dev: false
 
   /through2@2.0.5:
     resolution: {integrity: sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==}
