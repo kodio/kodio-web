@@ -17,22 +17,22 @@
     "copy-dataset": "node scripts/copy-dataset.js"
   },
   "dependencies": {
-    "@sanity/ui": "^1.8.3",
-    "@sanity/vision": "^3.19.1",
+    "@sanity/ui": "^1.9.3",
+    "@sanity/vision": "^3.20.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.11.0",
+    "react-icons": "^4.12.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.19.1",
-    "sanity-plugin-iframe-pane": "^2.6.0",
+    "sanity": "^3.20.1",
+    "sanity-plugin-iframe-pane": "^2.6.1",
     "sanity-plugin-media": "^2.2.4",
     "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^3.0.1",
-    "@types/react": "^18.2.34",
-    "eslint": "^8.52.0",
-    "prettier": "^3.0.3",
+    "@types/react": "^18.2.38",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0",
     "typescript": "^5.2.2"
   }
 }
