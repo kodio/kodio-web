@@ -93,8 +93,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
       groq:
-        specifier: ^3.20.1
-        version: 3.20.1
+        specifier: ^3.21.3
+        version: 3.21.3
       picosanity:
         specifier: ^4.1.1
         version: 4.1.1
@@ -6488,8 +6488,8 @@ packages:
     engines: {node: '>=18'}
     dev: false
 
-  /groq@3.20.1:
-    resolution: {integrity: sha512-XKxHhQHSaz7DWhxsX/AKpZfjbLVMTjrGcTaYV9rXnbGF1Def9e92whgcRpQObX1U/icJpInlVvdgCOdJmACabQ==}
+  /groq@3.21.3:
+    resolution: {integrity: sha512-VzhP4jBQNLrS6aJU/jpEGex5eywcfz2ssIgC+mmn2FuF3uwvCh5qP+rqK2o3Z2I/RYvoMKk5UXfcmAAmC7jAZg==}
     engines: {node: '>=18'}
     dev: false
 
