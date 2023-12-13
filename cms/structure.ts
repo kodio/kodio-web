@@ -1,7 +1,7 @@
 import { FiCompass, FiHome, FiSettings, FiShare2, FiUsers } from 'react-icons/fi';
 import type { ConfigContext } from 'sanity';
 import type { StructureBuilder } from 'sanity/desk';
-import Iframe from 'sanity-plugin-iframe-pane';
+import { Iframe } from 'sanity-plugin-iframe-pane';
 
 export const structure = (S: StructureBuilder, context: ConfigContext) =>
   S.list()
