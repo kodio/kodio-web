@@ -1,7 +1,6 @@
 ---
 import '@fontsource-variable/lora';
 import '@fontsource/varela-round';
-import { ViewTransitions } from 'astro:transitions';
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 import Metadata from '@/components/Metadata.astro';
@@ -36,7 +35,6 @@ const defaultMetadata = await fetchDefaultMetadata();
       image={pageMetadata?.image ?? defaultMetadata.image}
       themeColor={headerColor}
     />
-    <ViewTransitions />
   </head>
   <body>
     <SkipLinks />

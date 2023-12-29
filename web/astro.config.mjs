@@ -1,4 +1,4 @@
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
