@@ -151,6 +151,7 @@ const defaultMetadata = await fetchDefaultMetadata();
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 1rem;
         -webkit-text-size-adjust: 100%;
         text-size-adjust: 100%;
       }
@@ -188,6 +189,19 @@ const defaultMetadata = await fetchDefaultMetadata();
       h5,
       h6 {
         overflow-wrap: break-word;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-wrap: balance;
+      }
+
+      p {
+        text-wrap: pretty;
       }
 
       ul,

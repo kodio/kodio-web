@@ -9,7 +9,10 @@ export type Props = PortableTextProps<Handbook>;
 
 const { node } = Astro.props;
 const sections = node.sections;
-const slugs = sections?.map((s) => ({ title: s.heading, slug: slugify(s.heading) }));
+const slugs = sections?.map((s) => ({
+  title: s.heading,
+  slug: slugify(s.heading, { lower: true }),
+}));
 ---
 
 <div class="handbook">
