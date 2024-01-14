@@ -1,6 +1,6 @@
 import { visionTool } from '@sanity/vision';
 import { defineConfig, definePlugin } from 'sanity';
-import { deskTool } from 'sanity/desk';
+import { structureTool } from 'sanity/structure';
 import { media, mediaAssetSource } from 'sanity-plugin-media';
 import Logo from './components/Logo';
 import { schemaTypes } from './schemas';
@@ -11,7 +11,7 @@ export const projectId = 'bmm7n0e3';
 const sharedConfig = definePlugin({
   name: 'sharedConfig',
   plugins: [
-    deskTool({
+    structureTool({
       structure,
       defaultDocumentNode,
     }),
