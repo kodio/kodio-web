@@ -38,11 +38,7 @@ export default defineConfig([
     dataset: 'prod',
     basePath: '/prod',
     plugins: [sharedConfig()],
-    studio: {
-      components: {
-        logo: Logo,
-      },
-    },
+    icon: Logo,
   },
   {
     name: 'dev',
@@ -51,10 +47,6 @@ export default defineConfig([
     dataset: 'dev',
     basePath: '/dev',
     plugins: [sharedConfig()],
-    studio: {
-      components: {
-        logo: Logo,
-      },
-    },
+    icon: Logo,
   },
 ]);
