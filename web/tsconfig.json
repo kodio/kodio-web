@@ -3,8 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
     },
-    "types": ["astro/client"]
-  }
+    "types": ["astro/client"],
+  },
 }
