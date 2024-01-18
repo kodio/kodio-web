@@ -17,7 +17,7 @@
     "copy-dataset": "node scripts/copy-dataset.js"
   },
   "dependencies": {
-    "@sanity/ui": "^2.0.0",
+    "@sanity/ui": "^2.0.1",
     "@sanity/vision": "^3.25.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
