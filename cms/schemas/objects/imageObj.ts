@@ -19,7 +19,6 @@ export const imageObj = defineType({
       description:
         'Image can be cropped to fill its container. Should not be on for illustrations.',
       type: 'boolean',
-      initialValue: false,
     },
   ],
 });
