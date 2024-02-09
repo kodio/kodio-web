@@ -10,7 +10,7 @@ const { node } = Astro.props;
 ---
 
 {
-  node.image && (
+  node.image?.asset && (
     <div>
       <Image image={node.image} sizes="(min-width: 980px) 880px, calc(95.15vw - 33px)" />
     </div>

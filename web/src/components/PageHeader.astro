@@ -23,7 +23,7 @@ const link = header.links?.[0];
       {link && <ButtonLink link={link} color="yellow-50" />}
     </div>
     {
-      header.image && (
+      header.image?.asset && (
         <Image
           class="heading-image"
           image={header.image}

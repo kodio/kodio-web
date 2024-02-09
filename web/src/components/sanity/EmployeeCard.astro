@@ -14,7 +14,7 @@ const changeableImageClass = image && illustration ? 'changeable' : '';
 <div class="employee-card">
   <div class="image-container">
     {
-      image && (
+      image?.asset && (
         <Image
           class:list={['employee-image', changeableImageClass]}
           image={image}
@@ -24,7 +24,7 @@ const changeableImageClass = image && illustration ? 'changeable' : '';
       )
     }
     {
-      illustration && (
+      illustration?.asset && (
         <Image
           class:list={['employee-illustration', changeableImageClass]}
           image={illustration}

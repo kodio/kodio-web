@@ -9,7 +9,11 @@ export type Props = PortableTextProps<ImageObj>;
 const { node } = Astro.props;
 ---
 
-<Image
-  image={node}
-  sizes="(min-width: 980px) 480px, (min-width: 780px) calc(45vw + 48px), (min-width: 560px) 480px, calc(93.33vw - 24px)"
-/>
+{
+  node.asset && (
+    <Image
+      image={node}
+      sizes="(min-width: 980px) 480px, (min-width: 780px) calc(45vw + 48px), (min-width: 560px) 480px, calc(93.33vw - 24px)"
+    />
+  )
+}

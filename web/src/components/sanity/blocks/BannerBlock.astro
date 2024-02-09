@@ -23,7 +23,7 @@ const textColumns = node.textPosition === 'left' ? '1 / 2' : '2 / 3';
     {link && <ButtonLink link={link} color={node.linkColor ?? 'yellow-50'} />}
   </div>
   {
-    node.image && (
+    node.image?.asset && (
       <Image
         class="banner-image"
         image={node.image}
