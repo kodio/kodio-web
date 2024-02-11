@@ -6,7 +6,7 @@ import robotsTxt from 'astro-robots-txt';
 
 export default defineConfig({
   site: 'https://kodio.no/',
-  output: 'server',
+  output: 'hybrid',
   adapter: netlify(),
   integrations: [
     sitemap(),

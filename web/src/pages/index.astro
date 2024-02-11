@@ -4,8 +4,6 @@ import PageSections from '@/components/sanity/PageSections.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { fetchLandingPage } from '@/lib/sanity';
 
-export const prerender = true;
-
 const { metadata, header, sections } = await fetchLandingPage();
 ---
 

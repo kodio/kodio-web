@@ -6,8 +6,6 @@ import PageSections from '@/components/sanity/PageSections.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { fetchPages } from '@/lib/sanity';
 
-export const prerender = true;
-
 export const getStaticPaths = (async () => {
   const pages = await fetchPages();
 

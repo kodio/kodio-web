@@ -4,6 +4,8 @@ import PageSections from '@/components/sanity/PageSections.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { fetchPreviewPage } from '@/lib/sanity';
 
+export const prerender = false;
+
 const id = Astro.url.searchParams.get('id') ?? '';
 const previewData = await fetchPreviewPage(id);
 
