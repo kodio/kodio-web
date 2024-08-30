@@ -51,6 +51,7 @@ export const section = defineType({
         { type: 'employeeCards' },
         { type: 'handbook' },
         { type: 'imageBlock' },
+        { type: 'customers' },
         { type: 'reference', to: [{ type: 'commonBlock' }] },
       ],
       validation: (Rule) => Rule.required(),

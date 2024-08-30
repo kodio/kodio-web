@@ -10,6 +10,7 @@ import BannerLinkGroupBlock from './blocks/BannerLinkGroupBlock.astro';
 import EmployeeCardsBlock from './blocks/EmployeeCardsBlock.astro';
 import HandbookBlock from './blocks/HandbookBlock.astro';
 import ImageBlock from './blocks/ImageBlock.astro';
+import CustomersBlock from './blocks/CustomersBlock.astro';
 
 export type Props = {
   sections?: Section[] | undefined;
@@ -44,6 +45,7 @@ const { sections } = Astro.props;
             employeeCards: EmployeeCardsBlock,
             handbook: HandbookBlock,
             imageBlock: ImageBlock,
+            customers: CustomersBlock,
           },
         }}
       />

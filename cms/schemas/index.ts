@@ -11,6 +11,7 @@ import { banner } from './objects/banner';
 import { bannerLink, bannerLinkGroup } from './objects/bannerLinkGroup';
 import { blockContent } from './objects/blockContent';
 import { color } from './objects/color';
+import { customers } from './objects/customers';
 import { employeeCards } from './objects/employeeCards';
 import { externalLink } from './objects/externalLink';
 import { handbook, handbookSection } from './objects/handbook';
@@ -41,6 +42,7 @@ export const schemaTypes = [
   bannerLinkGroup,
   blockContent,
   color,
+  customers,
   employeeCards,
   externalLink,
   handbook,

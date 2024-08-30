@@ -22,6 +22,10 @@ export type Banner = ArbitraryTypedObject & {
   linkColor?: Color;
 };
 
+export type Customers = ArbitraryTypedObject & {
+  images: ImageBlock[];
+};
+
 export type BannerLink = {
   title?: string;
   preHeading1?: string;
@@ -193,7 +197,8 @@ export type SectionContent =
   | BannerLinkGroup
   | EmployeeCards
   | Handbook
-  | ImageBlock;
+  | ImageBlock
+  | Customers;
 
 export type Slug = {
   _type: 'slug';
