@@ -5,9 +5,9 @@
   "description": "Monorepo for kodio web",
   "homepage": "https://kodio.no",
   "author": {
-    "name": "Frederik Gørvell de Lichtenberg",
-    "email": "frederik@kodio.no",
-    "url": "https://github.com/frederikgdl"
+    "name": "Kodio AS",
+    "email": "hei@kodio.no",
+    "url": "https://kodio.no"
   },
   "repository": {
     "type": "git",
