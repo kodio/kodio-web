@@ -24,6 +24,7 @@ const textColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
   section {
     background-color: var(--backgroundColor);
     color: var(--textColor);
+    max-width: 100vw;
 
     &:not(:first-child) {
       @include section-inverted-corner(var(--backgroundColor));
