@@ -44,6 +44,11 @@ export const header = defineType({
       type: 'string',
     },
     {
+      name: 'postHeading',
+      title: 'Post-heading',
+      type: 'string',
+    },
+    {
       name: 'links',
       title: 'Link',
       type: 'array',

@@ -114,6 +114,7 @@ export type Header = {
   color: Color;
   heading: string;
   preHeading?: string;
+  postHeading?: string;
   links?: Link[];
   image?: ImageObj;
   preamble?: string;
