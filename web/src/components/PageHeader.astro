@@ -19,6 +19,7 @@ const link = header.links?.[0];
       <div>
         {header.preHeading && <div class="header-preheading">{header.preHeading}</div>}
         <h1>{header.heading}</h1>
+        {header.postHeading && <div class="header-postheading">{header.postHeading}</div>}
       </div>
       {link && <ButtonLink link={link} color="yellow-50" />}
     </div>
@@ -54,12 +55,25 @@ const link = header.links?.[0];
         gap: 2.5rem;
       }
 
-      .header-preheading {
+      .header-preheading,
+      .header-postheading {
         color: var(--orange-500);
         font-size: var(--fs-h4);
         line-height: 1.4;
-        margin-bottom: 0.5rem;
         font-weight: 600;
+      }
+
+      .header-preheading {
+        margin-bottom: 0.5rem;
+
+        @media (min-width: $width-m) {
+          font-size: var(--fs-h3);
+          margin-bottom: 0.75rem;
+        }
+      }
+
+      .header-postheading {
+        margin: 0.5rem 0;
 
         @media (min-width: $width-m) {
           font-size: var(--fs-h3);
