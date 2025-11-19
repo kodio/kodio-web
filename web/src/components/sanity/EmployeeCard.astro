@@ -5,7 +5,7 @@ import type { Employee } from '@/lib/sanity';
 
 export type Props = Employee;
 
-const { illustration, image, color, fullName, role, tel, email } = Astro.props;
+const { illustration, image, color, fullName, role, email } = Astro.props;
 
 const backgroundColor = `var(--${color})`;
 const changeableImageClass = image && illustration ? 'changeable' : '';
