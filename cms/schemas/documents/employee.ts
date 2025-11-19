@@ -60,11 +60,6 @@ export const employee = defineType({
       type: 'string',
     },
     {
-      name: 'tel',
-      title: 'Phone number',
-      type: 'externalLink',
-    },
-    {
       name: 'email',
       title: 'Email',
       type: 'externalLink',

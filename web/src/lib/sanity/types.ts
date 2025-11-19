@@ -77,7 +77,6 @@ export type Employee = {
   illustration?: Image;
   color: Color;
   role?: string;
-  tel?: ExternalLink;
   email?: ExternalLink;
 };
 
