@@ -1,6 +1,8 @@
+import { calendarPage } from './documents/calendarPage';
 import { commonBlock } from './documents/commonBlock';
 import { defaultMetadata } from './documents/defaultMetadata';
 import { employee } from './documents/employee';
+import { event } from './documents/event';
 import { footerConfig, footerConfigSection } from './documents/footerConfig';
 import { landingPage } from './documents/landingPage';
 import { menuConfig } from './documents/menuConfig';
@@ -24,9 +26,11 @@ import { section } from './objects/section';
 
 export const schemaTypes = [
   /* documents */
+  calendarPage,
   commonBlock,
   defaultMetadata,
   employee,
+  event,
   footerConfig,
   footerConfigSection,
   landingPage,

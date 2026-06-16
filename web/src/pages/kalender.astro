@@ -1,0 +1,22 @@
+---
+import Calendar from '@/components/Calendar.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchCalendarPage, fetchEvents } from '@/lib/sanity';
+
+const calendarPage = await fetchCalendarPage();
+const events = await fetchEvents();
+
+// Provide default values if calendar page doesn't exist in Sanity yet
+const metadata = calendarPage?.metadata;
+const header = calendarPage?.header ?? {
+  color: 'yellow-50' as const,
+  heading: 'Kalender',
+  preHeading: 'Arrangementer',
+};
+---
+
+<BaseLayout slug="kalender" pageMetadata={metadata} headerColor={header.color}>
+  <PageHeader header={header} />
+  <Calendar events={events} />
+</BaseLayout>

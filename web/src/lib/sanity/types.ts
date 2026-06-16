@@ -204,3 +204,18 @@ export type Slug = {
   _type: 'slug';
   current: string;
 };
+
+export type Event = {
+  _id: string;
+  title: string;
+  date: string;
+  time?: string;
+  description?: string;
+  location?: string;
+  link?: string;
+};
+
+export type CalendarPage = {
+  metadata?: PageMetadata;
+  header: Header;
+};

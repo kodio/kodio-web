@@ -1,0 +1,220 @@
+---
+import type { Event } from '@/lib/sanity/types';
+
+type Props = {
+  events: Event[];
+};
+
+const { events } = Astro.props;
+
+// Group events by date
+const eventsByDate: Record<string, Event[]> = {};
+events.forEach((event) => {
+  const existingEvents = eventsByDate[event.date];
+  if (existingEvents) {
+    existingEvents.push(event);
+  } else {
+    eventsByDate[event.date] = [event];
+  }
+});
+
+// Format date for display
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('no-NO', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+// Get month and year for grouping
+function getMonthYear(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('no-NO', {
+    year: 'numeric',
+    month: 'long',
+  });
+}
+
+// Group dates by month
+const datesByMonth: Record<string, string[]> = {};
+Object.keys(eventsByDate).forEach((date) => {
+  const monthYear = getMonthYear(date);
+  const existingDates = datesByMonth[monthYear];
+  if (existingDates) {
+    existingDates.push(date);
+  } else {
+    datesByMonth[monthYear] = [date];
+  }
+});
+---
+
+<div class="calendar-container">
+  {
+    Object.entries(datesByMonth).map(([monthYear, dates]) => (
+      <div class="month-section">
+        <h2 class="month-heading">{monthYear}</h2>
+        {dates.map((date) => (
+          <div class="date-group">
+            <div class="date-header">
+              <time datetime={date}>{formatDate(date)}</time>
+            </div>
+            <div class="events-list">
+              {eventsByDate[date]?.map((event) => (
+                <article class="event-card">
+                  <div class="event-content">
+                    <h3 class="event-title">{event.title}</h3>
+                    {event.time && <p class="event-time">{event.time}</p>}
+                    {event.location && <p class="event-location">{event.location}</p>}
+                    {event.description && <p class="event-description">{event.description}</p>}
+                    {event.link && (
+                      <a
+                        href={event.link}
+                        class="event-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Les mer →
+                      </a>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    ))
+  }
+  {
+    events.length === 0 && (
+      <div class="no-events">
+        <p>Ingen kommende arrangementer.</p>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .calendar-container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 3rem var(--content-padding);
+  }
+
+  .month-section {
+    margin-bottom: 4rem;
+  }
+
+  .month-heading {
+    font-size: var(--fs-h2);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    color: var(--color-text);
+  }
+
+  .date-group {
+    margin-bottom: 3rem;
+  }
+
+  .date-header {
+    font-size: var(--fs-h4);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--orange-300);
+    text-transform: capitalize;
+    color: var(--color-text);
+  }
+
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .event-card {
+    background: var(--white);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--yellow-200);
+    transition: all 0.2s;
+  }
+
+  .event-card:hover {
+    border-color: var(--orange-400);
+    box-shadow: 0 4px 12px rgba(201, 99, 54, 0.1);
+  }
+
+  .event-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .event-title {
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
+    font-family: var(--ff-lora);
+  }
+
+  .event-time {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--orange-500);
+    margin: 0;
+    font-family: var(--ff-varela);
+  }
+
+  .event-location {
+    font-size: 0.95rem;
+    color: var(--green-700);
+    margin: 0;
+    font-family: var(--ff-varela);
+  }
+
+  .event-description {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--color-text);
+    margin: 0.5rem 0 0;
+    font-family: var(--ff-varela);
+  }
+
+  .event-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--orange-500);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-family: var(--ff-varela);
+  }
+
+  .event-link:hover {
+    color: var(--orange-400);
+  }
+
+  .no-events {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--green-700);
+    font-size: 1.125rem;
+    font-family: var(--ff-varela);
+  }
+
+  @media (max-width: 768px) {
+    .calendar-container {
+      padding: 2rem var(--content-padding);
+    }
+
+    .event-card {
+      padding: 1rem;
+    }
+  }
+</style>
