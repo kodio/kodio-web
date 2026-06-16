@@ -1,23 +1,22 @@
 ---
 import type { Event } from '@/lib/sanity/types';
 
-interface Props {
+type Props = {
   events: Event[];
-}
+};
 
 const { events } = Astro.props;
 
 // Group events by date
-const eventsByDate = events.reduce(
-  (acc, event) => {
-    if (!acc[event.date]) {
-      acc[event.date] = [];
-    }
-    acc[event.date].push(event);
-    return acc;
-  },
-  {} as Record<string, Event[]>
-);
+const eventsByDate: Record<string, Event[]> = {};
+events.forEach((event) => {
+  const existingEvents = eventsByDate[event.date];
+  if (existingEvents) {
+    existingEvents.push(event);
+  } else {
+    eventsByDate[event.date] = [event];
+  }
+});
 
 // Format date for display
 function formatDate(dateString: string): string {
@@ -43,10 +42,12 @@ function getMonthYear(dateString: string): string {
 const datesByMonth: Record<string, string[]> = {};
 Object.keys(eventsByDate).forEach((date) => {
   const monthYear = getMonthYear(date);
-  if (!datesByMonth[monthYear]) {
-    datesByMonth[monthYear] = [];
+  const existingDates = datesByMonth[monthYear];
+  if (existingDates) {
+    existingDates.push(date);
+  } else {
+    datesByMonth[monthYear] = [date];
   }
-  datesByMonth[monthYear].push(date);
 });
 ---
 
@@ -61,7 +62,7 @@ Object.keys(eventsByDate).forEach((date) => {
               <time datetime={date}>{formatDate(date)}</time>
             </div>
             <div class="events-list">
-              {eventsByDate[date].map((event) => (
+              {eventsByDate[date]?.map((event) => (
                 <article class="event-card">
                   <div class="event-content">
                     <h3 class="event-title">{event.title}</h3>
@@ -69,7 +70,12 @@ Object.keys(eventsByDate).forEach((date) => {
                     {event.location && <p class="event-location">{event.location}</p>}
                     {event.description && <p class="event-description">{event.description}</p>}
                     {event.link && (
-                      <a href={event.link} class="event-link" target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={event.link}
+                        class="event-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Les mer →
                       </a>
                     )}
