@@ -124,3 +124,28 @@ export const defaultMetadataQuery = groq`
   image
 }
 `;
+
+export const calendarPageQuery = groq`
+*[_type == "calendarPage"][0] {
+  metadata,
+  header {
+    ...,
+    links[] {
+      ...,
+      ${internalLinkFragment()}
+    }
+  }
+}
+`;
+
+export const eventsQuery = groq`
+*[_type == "event"] | order(date asc) {
+  _id,
+  title,
+  date,
+  time,
+  description,
+  location,
+  link
+}
+`;

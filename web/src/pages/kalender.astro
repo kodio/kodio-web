@@ -1,0 +1,14 @@
+---
+import Calendar from '@/components/Calendar.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchCalendarPage, fetchEvents } from '@/lib/sanity';
+
+const { metadata, header } = await fetchCalendarPage();
+const events = await fetchEvents();
+---
+
+<BaseLayout slug="kalender" pageMetadata={metadata} headerColor={header.color}>
+  <PageHeader header={header} />
+  <Calendar events={events} />
+</BaseLayout>
