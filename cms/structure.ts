@@ -1,4 +1,4 @@
-import { FiCompass, FiHome, FiSettings, FiShare2, FiUsers } from 'react-icons/fi';
+import { FiCompass, FiHome, FiSettings, FiShare2, FiUsers, FiCalendar } from 'react-icons/fi';
 import type { ConfigContext } from 'sanity';
 import type { StructureBuilder } from 'sanity/structure';
 import { Iframe } from 'sanity-plugin-iframe-pane';
@@ -38,6 +38,15 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
             .schemaType('landingPage')
             .documentId('landingPage')
             .views(pageViews(S)),
+        ),
+      S.listItem()
+        .title('Calendar page')
+        .icon(FiCalendar)
+        .child(
+          S.document()
+            .title('Calendar page')
+            .schemaType('calendarPage')
+            .documentId('calendarPage'),
         ),
       S.documentTypeListItem('page').title('Pages'),
       S.documentTypeListItem('employee').title('Employees').icon(FiUsers),
