@@ -48,6 +48,7 @@ export const structure = (S: StructureBuilder, context: ConfigContext) =>
             .schemaType('calendarPage')
             .documentId('calendarPage'),
         ),
+      S.documentTypeListItem('event').title('Events').icon(FiCalendar),
       S.documentTypeListItem('page').title('Pages'),
       S.documentTypeListItem('employee').title('Employees').icon(FiUsers),
       S.divider(),
