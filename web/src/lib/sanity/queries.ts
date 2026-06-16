@@ -44,7 +44,7 @@ export function fetchDefaultMetadata() {
 }
 
 export function fetchCalendarPage() {
-  return client.fetch<CalendarPage>(calendarPageQuery);
+  return client.fetch<CalendarPage | null>(calendarPageQuery);
 }
 
 export function fetchEvents() {
