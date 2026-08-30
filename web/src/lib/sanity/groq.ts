@@ -138,6 +138,12 @@ export const calendarPageQuery = groq`
 }
 `;
 
+export const customerLogosQuery = groq`
+*[_type == "landingPage"][0].sections[].content[_type == "customers"][0].images[] {
+  image
+}
+`;
+
 export const eventsQuery = groq`
 *[_type == "event"] | order(date asc) {
   _id,

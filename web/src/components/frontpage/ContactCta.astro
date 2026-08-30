@@ -1,0 +1,202 @@
+---
+import FpCta from '@/components/frontpage/FpCta.astro';
+import FpSection from '@/components/frontpage/FpSection.astro';
+import { contact } from '@/data/frontpage';
+
+export type Props = Record<string, never>;
+---
+
+<FpSection id="kontakt" color="green-800">
+  <div class="contact-grid">
+    <div class="contact-copy">
+      <p class="contact-eyebrow">
+        <span class="contact-eyebrow-dot" aria-hidden="true"></span>
+        {contact.eyebrow}
+      </p>
+      <h2>{contact.heading}</h2>
+      <p class="contact-lead">{contact.lead}</p>
+      <div class="contact-actions">
+        <FpCta
+          href={contact.primaryCta.href}
+          external={contact.primaryCta.external}
+          color="yellow-200"
+        >
+          {contact.primaryCta.label}
+        </FpCta>
+        <FpCta href={contact.secondaryCta.href} variant="secondary" onDark>
+          {contact.secondaryCta.label}
+        </FpCta>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <ul class="contact-points">
+        {
+          contact.points.map((point) => (
+            <li>
+              <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                <path
+                  d="M3 8.5l3.5 3.5L13 4.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>{point}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="contact-person">
+        <p class="contact-person-label">Snakk med</p>
+        <p class="contact-person-name">
+          {contact.person.name} · <span>{contact.person.role}</span>
+        </p>
+        <a class="contact-email" href={`mailto:${contact.person.email}`}>{contact.person.email}</a>
+        <a class="contact-email" href={`mailto:${contact.general.email}`}>{contact.general.email}</a
+        >
+      </div>
+    </div>
+  </div>
+</FpSection>
+
+<style lang="scss">
+  .contact-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+
+    @media (min-width: $width-l) {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 4rem;
+    }
+  }
+
+  .contact-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--ff-varela);
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: var(--yellow-200);
+    margin-bottom: 0.875rem;
+  }
+
+  .contact-eyebrow-dot {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: currentcolor;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-size: clamp(1.875rem, 4.4vw, 3rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.125rem;
+  }
+
+  .contact-lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    max-width: 42ch;
+    opacity: 0.85;
+
+    @media (min-width: $width-m) {
+      font-size: 1.1875rem;
+    }
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .contact-card {
+    background-color: var(--white);
+    color: var(--color-text);
+    border: 0.125rem solid var(--black);
+    border-radius: 0.75rem;
+    box-shadow: 0.3125rem 0.3125rem 0 var(--black);
+    padding: 1.75rem 1.5rem;
+
+    @media (min-width: $width-m) {
+      padding: 2.25rem 2rem;
+    }
+  }
+
+  .contact-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-family: var(--ff-varela);
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      color: var(--orange-500);
+    }
+  }
+
+  .contact-person {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.0625rem solid rgba(17, 47, 58, 0.16);
+  }
+
+  .contact-person-label {
+    font-family: var(--ff-varela);
+    font-size: 0.75rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-person-name {
+    font-family: var(--ff-lora);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 0.625rem;
+
+    span {
+      font-weight: 400;
+      opacity: 0.7;
+    }
+  }
+
+  .contact-email {
+    display: block;
+    font-family: var(--ff-varela);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--green-700);
+    text-decoration: underline;
+    text-underline-offset: 0.1875rem;
+
+    &:hover {
+      color: var(--orange-500);
+    }
+  }
+</style>

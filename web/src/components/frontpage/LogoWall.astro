@@ -1,0 +1,142 @@
+---
+import Image from '@/components/sanity/Image.astro';
+import { logoWall } from '@/data/frontpage';
+import type { ImageObj } from '@/lib/sanity';
+
+export type Props = {
+  logos: ImageObj[];
+};
+
+const { logos } = Astro.props;
+
+// Dupliseres slik at marquee-en kan loope sømløst.
+const track = [...logos, ...logos];
+---
+
+{
+  logos.length > 0 && (
+    <section class="logo-wall" aria-label={logoWall.heading}>
+      <p class="logo-wall-heading">{logoWall.heading}</p>
+      <div class="logo-marquee">
+        <ul class="logo-track" style={`--logo-count: ${logos.length}`}>
+          {track.map((logo, index) => (
+            <li aria-hidden={index >= logos.length ? 'true' : undefined}>
+              <Image image={logo} sizes="160px" objectFit="contain" />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+<style lang="scss">
+  .logo-wall {
+    background-color: var(--yellow-50);
+    color: var(--color-text);
+    max-width: 100vw;
+    padding-block: 2.75rem 3rem;
+    overflow: hidden;
+
+    @include section-inverted-corner(var(--yellow-50));
+
+    @media (min-width: $width-m) {
+      padding-block: 3.5rem 3.75rem;
+    }
+  }
+
+  .logo-wall-heading {
+    margin: 0 auto 2.25rem;
+    max-width: var(--content-max-width);
+    padding-inline: var(--content-padding);
+    font-family: var(--ff-varela);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    opacity: 0.6;
+
+    @media (min-width: $width-l) {
+      padding-inline: 5rem;
+    }
+  }
+
+  .logo-marquee {
+    position: relative;
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 4rem,
+      #000 calc(100% - 4rem),
+      transparent
+    );
+  }
+
+  .logo-track {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    animation: logo-scroll 48s linear infinite;
+
+    li {
+      flex: 0 0 auto;
+      width: 9.5rem;
+      height: 3rem;
+      margin-right: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media (min-width: $width-m) {
+        width: 11rem;
+        margin-right: 4.5rem;
+      }
+    }
+
+    :global(img) {
+      height: auto;
+      width: auto;
+      max-height: 3rem;
+      max-width: 100%;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: 0.72;
+      transition:
+        filter 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    li:hover :global(img) {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+
+  .logo-marquee:hover .logo-track {
+    animation-play-state: paused;
+  }
+
+  /* Halve sporet er en duplikat, så -50% gir en sømløs loop. */
+  @keyframes logo-scroll {
+    from {
+      translate: 0 0;
+    }
+
+    to {
+      translate: -50% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      row-gap: 1.5rem;
+    }
+  }
+</style>

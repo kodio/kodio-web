@@ -1,0 +1,62 @@
+---
+import FpSection from '@/components/frontpage/FpSection.astro';
+import { why } from '@/data/frontpage';
+
+export type Props = Record<string, never>;
+---
+
+<FpSection id="hvorfor-kodio" color="purple-100" eyebrow={why.eyebrow} heading={why.heading}>
+  <ul class="why-list">
+    {
+      why.items.map((item) => (
+        <li>
+          <h3>{item.heading}</h3>
+          <p>{item.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</FpSection>
+
+<style lang="scss">
+  .why-list {
+    list-style: none;
+    display: grid;
+    gap: 1.75rem 2.5rem;
+    padding: 0;
+
+    @media (min-width: $width-m) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: $width-l) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.75rem 3rem;
+    }
+
+    > li {
+      padding-top: 1.25rem;
+      border-top: 0.1875rem solid var(--green-800);
+    }
+  }
+
+  h3 {
+    font-size: 1.1875rem;
+    line-height: 1.35;
+    margin-bottom: 0.625rem;
+
+    @media (min-width: $width-m) {
+      font-size: 1.3125rem;
+    }
+  }
+
+  p {
+    font-size: 0.9875rem;
+    line-height: 1.65;
+    opacity: 0.85;
+
+    @media (min-width: $width-m) {
+      font-size: 1rem;
+    }
+  }
+</style>

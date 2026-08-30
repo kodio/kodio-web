@@ -1,0 +1,32 @@
+---
+import Cases from '@/components/frontpage/Cases.astro';
+import ContactCta from '@/components/frontpage/ContactCta.astro';
+import Engagement from '@/components/frontpage/Engagement.astro';
+import Hero from '@/components/frontpage/Hero.astro';
+import LogoWall from '@/components/frontpage/LogoWall.astro';
+import Services from '@/components/frontpage/Services.astro';
+import Why from '@/components/frontpage/Why.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { fetchCustomerLogos } from '@/lib/sanity';
+
+// Kundelogoene gjenbrukes fra `customers`-blokken på dagens landingsside i Sanity.
+const logos = await fetchCustomerLogos();
+---
+
+<BaseLayout
+  slug="ny-forside"
+  title="Konsulenter innen data engineering, AI og utvikling"
+  headerColor="white"
+  pageMetadata={{
+    description:
+      'Kodio er seniorkonsulenter innen data engineering, AI og systemutvikling. Vi bygger dataplattformer og setter AI i produksjon for noen av Norges mest datatunge virksomheter.',
+  }}
+>
+  <Hero />
+  <LogoWall logos={logos} />
+  <Services />
+  <Engagement />
+  <Cases />
+  <Why />
+  <ContactCta />
+</BaseLayout>

@@ -1,0 +1,114 @@
+---
+import type { Color } from '@/lib/sanity';
+import { isDarkColor } from '@/utils/colors';
+
+export type Props = {
+  href: string;
+  external?: boolean | undefined;
+  variant?: 'primary' | 'secondary';
+  color?: Color;
+  /** Tekstfarge for `secondary` når knappen står på mørk bakgrunn. */
+  onDark?: boolean;
+};
+
+const { href, external, variant = 'primary', color = 'yellow-200', onDark = false } = Astro.props;
+
+const fillColor = `var(--${color})`;
+const fillTextColor = isDarkColor(color) ? 'var(--white)' : 'var(--color-text)';
+const outlineTextColor = onDark ? 'var(--white)' : 'var(--color-text)';
+const outlineBorderColor = onDark ? 'rgba(255, 253, 245, 0.55)' : 'var(--black)';
+const outlineHoverColor = onDark ? 'rgba(255, 253, 245, 0.1)' : 'rgba(17, 47, 58, 0.06)';
+---
+
+<a
+  href={href}
+  class:list={['fp-cta', variant]}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener' : undefined}
+>
+  <slot />
+  <svg class="fp-cta-arrow" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+    <path
+      d="M2 8h11M9 4l4 4-4 4"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+</a>
+
+<style
+  lang="scss"
+  define:vars={{
+    fillColor,
+    fillTextColor,
+    outlineTextColor,
+    outlineBorderColor,
+    outlineHoverColor,
+  }}
+>
+  .fp-cta {
+    --border-width: 0.125rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: calc(0.75rem - var(--border-width)) calc(1.5rem - var(--border-width));
+    border-radius: 0.25rem;
+    border: var(--border-width) solid transparent;
+    font-family: var(--ff-lora);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    font-weight: 700;
+    text-align: center;
+    transition:
+      translate 0.1s ease,
+      box-shadow 0.1s ease,
+      background-color 0.15s ease;
+
+    @media (min-width: $width-m) {
+      font-size: 1.1875rem;
+      padding: calc(0.875rem - var(--border-width)) calc(1.875rem - var(--border-width));
+    }
+  }
+
+  .fp-cta-arrow {
+    flex-shrink: 0;
+    transition: translate 0.15s ease;
+  }
+
+  .fp-cta:hover .fp-cta-arrow {
+    translate: 0.1875rem 0;
+  }
+
+  .primary {
+    background-color: var(--fillColor);
+    color: var(--fillTextColor);
+    border-color: var(--black);
+    box-shadow: 0.1875rem 0.1875rem var(--black);
+
+    &:hover {
+      filter: brightness(0.96);
+    }
+
+    &:active {
+      box-shadow: 0.0625rem 0.0625rem var(--black);
+      translate: 0.125rem 0.125rem;
+    }
+  }
+
+  .secondary {
+    background-color: transparent;
+    color: var(--outlineTextColor);
+    border-color: var(--outlineBorderColor);
+
+    &:hover {
+      background-color: var(--outlineHoverColor);
+    }
+
+    &:active {
+      translate: 0.0625rem 0.0625rem;
+    }
+  }
+</style>
