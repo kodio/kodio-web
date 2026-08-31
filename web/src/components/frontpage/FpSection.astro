@@ -1,0 +1,121 @@
+---
+import type { Color } from '@/lib/sanity';
+import { isDarkColor } from '@/utils/colors';
+
+export type Props = {
+  color: Color;
+  id?: string | undefined;
+  eyebrow?: string | undefined;
+  heading?: string | undefined;
+  intro?: string | undefined;
+  headingLevel?: 'h2' | 'h1';
+};
+
+const { color, id, eyebrow, heading, intro, headingLevel = 'h2' } = Astro.props;
+
+const Heading = headingLevel;
+
+const backgroundColor = `var(--${color})`;
+const dark = isDarkColor(color);
+const textColor = dark ? 'var(--white)' : 'var(--color-text)';
+const eyebrowColor = dark ? 'var(--yellow-200)' : 'var(--orange-500)';
+const ruleColor = dark ? 'rgba(255, 253, 245, 0.25)' : 'rgba(17, 47, 58, 0.18)';
+---
+
+<section id={id} class:list={['fp-section', { dark }]}>
+  <div class="fp-section-inner">
+    {
+      (eyebrow || heading || intro) && (
+        <header class="fp-section-header">
+          {eyebrow && (
+            <p class="fp-eyebrow">
+              <span class="fp-eyebrow-dot" aria-hidden="true" />
+              {eyebrow}
+            </p>
+          )}
+          {heading && <Heading class="fp-section-heading">{heading}</Heading>}
+          {intro && <p class="fp-section-intro">{intro}</p>}
+        </header>
+      )
+    }
+    <slot />
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ backgroundColor, textColor, eyebrowColor, ruleColor }}>
+  .fp-section {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    max-width: 100vw;
+
+    &:not(:first-child) {
+      @include section-inverted-corner(var(--backgroundColor));
+    }
+  }
+
+  .fp-section-inner {
+    margin: auto;
+    max-width: var(--content-max-width);
+    padding: 3.5rem var(--content-padding);
+
+    @media (min-width: $width-m) {
+      padding: 5rem var(--content-padding);
+    }
+
+    @media (min-width: $width-l) {
+      padding: 6.5rem 5rem;
+    }
+  }
+
+  .fp-section-header {
+    max-width: 46rem;
+    margin-bottom: 2.5rem;
+
+    @media (min-width: $width-m) {
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  .fp-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--ff-varela);
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: var(--eyebrowColor);
+    margin-bottom: 0.875rem;
+  }
+
+  .fp-eyebrow-dot {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: currentcolor;
+    flex-shrink: 0;
+  }
+
+  .fp-section-heading {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+
+  .fp-section-intro {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    opacity: 0.85;
+
+    @media (min-width: $width-m) {
+      font-size: 1.1875rem;
+    }
+  }
+
+  .fp-section :global(.fp-rule) {
+    border: 0;
+    border-top: 0.0625rem solid var(--ruleColor);
+  }
+</style>

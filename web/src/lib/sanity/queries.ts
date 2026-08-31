@@ -1,6 +1,7 @@
 import { client, previewClient } from './client';
 import {
   calendarPageQuery,
+  customerLogosQuery,
   defaultMetadataQuery,
   eventsQuery,
   footerConfigQuery,
@@ -14,6 +15,7 @@ import type {
   DefaultMetadata,
   Event,
   FooterConfig,
+  ImageBlock,
   LandingPage,
   MenuConfig,
   Page,
@@ -49,4 +51,15 @@ export function fetchCalendarPage() {
 
 export function fetchEvents() {
   return client.fetch<Event[]>(eventsQuery);
+}
+
+/**
+ * Kundelogoene som ligger i `customers`-blokken på landingssiden.
+ * Brukes av forsiden slik at logoveggen kan gjenbruke logoene som allerede
+ * er lastet opp i Sanity, uten at innholdet må dupliseres.
+ */
+export async function fetchCustomerLogos() {
+  const imageBlocks = await client.fetch<(ImageBlock | null)[] | null>(customerLogosQuery);
+
+  return (imageBlocks ?? []).flatMap((block) => (block?.image?.asset?._ref ? [block.image] : []));
 }
